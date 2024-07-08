@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --main-background: #f0f4f8;
+  --second-background: #ffffff;
+  --third-background: #969393;
+
+  /* --border-color: rgb(226, 214, 214);
+  --border-color-hover: #71757a; */
+  --main-text: #2c3e50;
+  --second-text: #424141;
+  --primary-text: #0b8445;
+  /* --btn-sec: black;
+  --btn-text: #e0e0e0; */
+}
+.dark {
+  --main-background: #020817;
+  --second-background: #111827;
+  --third-background: #0c1528;
+  /* --border-color: #686666;
+  --border-color-hover: #333333; */
+  --main-text: #e0e0e0;
+  --second-text: #a0a0a0;
+  --primary-text: #1ded81;
+  /* --btn-sec: #121212;
+  --btn-text: #e0e0e0; */
+}
+
+body {
+  background-color: var(--main-background);
+  color: var(--main-text);
+}
+
+@layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+  .flex-items-center {
+    @apply flex items-center;
+  }
+  .container-layout {
+    @apply container px-2 mx-auto;
+  }
+}
