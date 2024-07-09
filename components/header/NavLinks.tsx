@@ -11,7 +11,7 @@ const navLinksArray = [
 function NavLinks() {
   return (
     <nav>
-      <ul className="flex-center gap-3">
+      <ul className="flex-center gap-3   ">
         {navLinksArray.map((link) => (
           <NavLink key={link.label} link={link} />
         ))}

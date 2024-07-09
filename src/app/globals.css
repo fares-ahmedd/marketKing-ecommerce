@@ -57,3 +57,8 @@ body {
 .override-main-text {
   color: var(--main-text) !important;
 }
+
+.text-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
