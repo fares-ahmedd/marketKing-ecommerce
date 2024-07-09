@@ -1,6 +1,16 @@
 {
   "Index": {
     "Home": "الرئيسية",
-    "All Products": "جميع المنتجات"
+    "All Products": "جميع المنتجات",
+    "Phones": "الهواتف",
+    "Laptops": "لاب توب",
+    "Watches": "الساعات",
+    "Hello Next": "مرحبا نيكست",
+    "Market": "ماركت",
+    "King": "كينج"
+  },
+  "metadata": {
+    "title": "ماركت كينج",
+    "homeTitle": "الرئيسية"
   }
 }

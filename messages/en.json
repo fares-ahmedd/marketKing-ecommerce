@@ -1,6 +1,16 @@
 {
   "Index": {
     "Home": "Home",
-    "All Products": "All Products"
+    "All Products": "All Products",
+    "Phones": "Phones",
+    "Laptops": "Laptops",
+    "Watches": "Watches",
+    "Hello Next": "Hello Next",
+    "Market": "Market",
+    "King": "King"
+  },
+  "metadata": {
+    "title": "MarketKing",
+    "homeTitle": "Home"
   }
 }

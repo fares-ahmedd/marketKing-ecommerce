@@ -7,7 +7,6 @@ function Header() {
       <div className="container-layout  flex-between">
         <Logo />
         <NavLinks />
-        <h1>دلوقتي كنت لازم loading ليها</h1>
       </div>
     </header>
   );
