@@ -4,12 +4,12 @@
 
 :root {
   --main-background: #f0f4f8;
-  --second-background: #ffffff;
+  --second-background: #cecaca;
   --third-background: #969393;
 
   /* --border-color: rgb(226, 214, 214);
   --border-color-hover: #71757a; */
-  --main-text: #2c3e50;
+  --main-text: #000000;
   --second-text: #424141;
   --primary-text: #0b8445;
   /* --btn-sec: black;
@@ -46,4 +46,14 @@ body {
   .container-layout {
     @apply container px-2 mx-auto;
   }
+}
+
+/* My Custom css classes */
+
+.text-shadow {
+  text-shadow: 0px 1px 25px var(--second-text);
+}
+
+.override-main-text {
+  color: var(--main-text) !important;
 }

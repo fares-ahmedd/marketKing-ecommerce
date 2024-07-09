@@ -13,7 +13,7 @@ const config: Config = {
         "sec-background": "var(--second-background)",
         "third-background": "var(--third-background)",
         "main-text": "var(--main-text)",
-        "sec-text": "var(--second-text)",
+        "second-text": "var(--second-text)",
         "primary-text": "var(--primary-text)",
       },
       backgroundImage: {
