@@ -11,11 +11,11 @@ function NavLink({ link }: { link: { href: string; label: string } }) {
 
   return (
     <li
-      className={`text-second-text hover:underline ${
+      className={`text-second-text hover:underline font-bold ${
         isActive && "override-main-text text-shadow"
       }`}
     >
-      <Link href={link.href}>{t(link.label)}</Link>
+      <Link href={`/${lang}${link.href}`}>{t(link.label)}</Link>
     </li>
   );
 }

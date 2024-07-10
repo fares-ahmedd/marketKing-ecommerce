@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { roboto } from "../fonts";
 import "./globals.css";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const locales = ["en", "ar"];
 
@@ -35,6 +36,8 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
+
   const messages = await getMessages();
 
   const rtlLanguages = ["ar"];
@@ -44,7 +47,6 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir}>
       <body className={roboto.className}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
