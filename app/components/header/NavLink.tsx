@@ -1,7 +1,7 @@
 "use client";
 import { useTranslate } from "@/app/hooks/useTranslate";
 import { usePathname } from "next/navigation";
-import MyLink from "../ui/Link";
+import MyLink from "../ui/MyLink";
 
 function NavLink({ link }: { link: { href: string; label: string } }) {
   const pathname = usePathname();

@@ -33,6 +33,7 @@
     --main-background: #f0f4f8;
     --second-background: #cecaca;
     --third-background: #969393;
+    --hover-button: #24242426;
     --main-text: #000000;
     --second-text: #424141;
     --primary-text: #0b8445;
@@ -67,6 +68,7 @@
     --main-background: #020817;
     --second-background: #111827;
     --third-background: #0c1528;
+    --hover-button: #5b5b5b42;
     --main-text: #e0e0e0;
     --second-text: #a0a0a0;
     --primary-text: #1ded81;
@@ -100,8 +102,11 @@ body {
   .container-layout {
     @apply container px-3 mx-auto;
   }
+  .hover-border {
+    @apply border-black/20  dark:border-white/20  hover:border-black/70 hover:dark:border-white/70;
+  }
   .header {
-    @apply bg-sec-background pt-4 pb-2 h-[60px] border-b  border-black/20  dark:border-white/20  hover:border-black/70 hover:dark:border-white/70 sticky top-0;
+    @apply bg-sec-background pt-4 pb-2 h-[60px] border-b  sticky top-0 hover-border;
   }
 }
 

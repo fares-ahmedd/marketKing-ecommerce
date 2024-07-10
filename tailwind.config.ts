@@ -25,6 +25,7 @@ const config = {
         "main-text": "var(--main-text)",
         "second-text": "var(--second-text)",
         "primary-text": "var(--primary-text)",
+        "hover-button": "var(--hover-button)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

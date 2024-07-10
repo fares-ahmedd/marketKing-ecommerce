@@ -1,11 +1,16 @@
 import { useTranslate } from "@/app/hooks/useTranslate";
 import { FaCrown } from "react-icons/fa";
+import MyLink from "../ui/MyLink";
 
-function Logo() {
+interface LogoProps {
+  isLink?: boolean;
+}
+
+function Logo({ isLink = true }: LogoProps) {
   const { t, isArabic } = useTranslate();
 
-  return (
-    <h1 className="text-xl md:text-2xl tracking-wide relative text-rtl ">
+  const logoContent = (
+    <h1 className="text-xl md:text-2xl tracking-wide relative text-rtl">
       {t("Market")}
       <span
         className={`text-primary-text ${
@@ -22,6 +27,8 @@ function Logo() {
       />
     </h1>
   );
+
+  return isLink ? <MyLink href="/">{logoContent}</MyLink> : logoContent;
 }
 
 export default Logo;
