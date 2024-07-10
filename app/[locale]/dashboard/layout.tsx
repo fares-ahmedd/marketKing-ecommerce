@@ -1,7 +1,16 @@
-export default function DashBoardLayout() {
+import Header from "@/app/components/header/Header";
+import NavLinks from "@/app/components/header/NavLinks";
+
+export default function DashBoardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div>
-      <h1>Hello From Dash Board layout</h1>
-    </div>
+    <main>
+      <Header>
+        <NavLinks isDashboard={true} />
+      </Header>
+    </main>
   );
 }

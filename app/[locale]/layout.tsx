@@ -1,5 +1,5 @@
-import Header from "@/components/header/Header";
-import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/app/components/header/Header";
+import { ThemeProvider } from "@/app/components/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";

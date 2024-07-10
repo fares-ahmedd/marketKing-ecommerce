@@ -7,7 +7,11 @@
     "Watches": "Watches",
     "Hello Next": "Hello Next",
     "Market": "Market",
-    "King": "King"
+    "King": "King",
+    "Dashboard": "Dashboard",
+    "Orders": "Orders",
+    "Products": "Products",
+    "Banner Picture": "Banner Picture"
   },
   "metadata": {
     "title": "MarketKing",

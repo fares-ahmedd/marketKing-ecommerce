@@ -1,6 +1,8 @@
-import Header from "@/components/header/Header";
+import Header from "@/app/components/header/Header";
 import { useTranslate } from "@/hooks/useTranslate";
 import { unstable_setRequestLocale } from "next-intl/server";
+import Logo from "../components/header/Logo";
+import NavLinks from "../components/header/NavLinks";
 
 export default function Home({
   params: { locale },
@@ -12,7 +14,10 @@ export default function Home({
   const { t } = useTranslate();
   return (
     <main>
-      <Header />
+      <Header>
+        <Logo />
+        <NavLinks />
+      </Header>
 
       {t("Hello Next")}
     </main>

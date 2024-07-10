@@ -1,7 +1,7 @@
 "use client";
 import { useTranslate } from "@/hooks/useTranslate";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MyLink from "../ui/Link";
 
 function NavLink({ link }: { link: { href: string; label: string } }) {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ function NavLink({ link }: { link: { href: string; label: string } }) {
         isActive && "override-main-text text-shadow"
       }`}
     >
-      <Link href={`/${lang}${link.href}`}>{t(link.label)}</Link>
+      <MyLink href={`${link.href}`}>{t(link.label)}</MyLink>
     </li>
   );
 }
