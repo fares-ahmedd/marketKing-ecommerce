@@ -1,4 +1,4 @@
-import { useTranslate } from "@/hooks/useTranslate";
+import { useTranslate } from "@/app/hooks/useTranslate";
 import Link from "next/link";
 
 function MyLink({

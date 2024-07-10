@@ -20,7 +20,7 @@ type Props = {
 function NavLinks({ isDashboard = false }: Props) {
   const navLinks = isDashboard ? dashboardNavLinks : homeNavLinks;
   return (
-    <nav>
+    <nav className="max-sm:hidden">
       <ul className={`flex-center ${isDashboard ? "gap-6" : " gap-3"} `}>
         {navLinks.map((link) => (
           <NavLink key={link.label} link={link} />

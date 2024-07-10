@@ -1,5 +1,5 @@
 import Header from "@/app/components/header/Header";
-import { useTranslate } from "@/hooks/useTranslate";
+import { useTranslate } from "@/app/hooks/useTranslate";
 import { unstable_setRequestLocale } from "next-intl/server";
 import Logo from "../components/header/Logo";
 import NavLinks from "../components/header/NavLinks";

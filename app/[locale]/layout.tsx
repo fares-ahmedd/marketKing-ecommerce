@@ -1,11 +1,13 @@
-import Header from "@/app/components/header/Header";
 import { ThemeProvider } from "@/app/components/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
-import { roboto } from "../fonts";
+import {
+  getMessages,
+  getTranslations,
+  unstable_setRequestLocale,
+} from "next-intl/server";
+import { NotoKufiArabic, roboto } from "../fonts";
 import "./globals.css";
-import { unstable_setRequestLocale } from "next-intl/server";
 
 const locales = ["en", "ar"];
 
@@ -45,7 +47,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir}>
-      <body className={roboto.className}>
+      <body
+        className={dir === "rtl" ? NotoKufiArabic.className : roboto.className}
+      >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

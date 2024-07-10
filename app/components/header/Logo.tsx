@@ -1,4 +1,4 @@
-import { useTranslate } from "@/hooks/useTranslate";
+import { useTranslate } from "@/app/hooks/useTranslate";
 import { FaCrown } from "react-icons/fa";
 
 function Logo() {
@@ -7,7 +7,11 @@ function Logo() {
   return (
     <h1 className="text-xl md:text-2xl tracking-wide relative text-rtl ">
       {t("Market")}
-      <span className="text-primary-text font-bold">
+      <span
+        className={`text-primary-text ${
+          isArabic ? "font-normal italic" : "font-bold"
+        } `}
+      >
         {isArabic && " "}
         {t("King")}
       </span>
