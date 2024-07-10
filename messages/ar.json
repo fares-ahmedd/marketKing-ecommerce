@@ -11,7 +11,9 @@
     "Dashboard": "لوحة التحكم",
     "Orders": "الطلبات",
     "Products": "المنتجات",
-    "Banner Picture": "صورة البانر"
+    "Banner Picture": "صورة البانر",
+    "My Account": "حسابي",
+    "Logout": "خروج"
   },
   "metadata": {
     "title": "ماركت كينج",

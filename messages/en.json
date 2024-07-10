@@ -11,7 +11,9 @@
     "Dashboard": "Dashboard",
     "Orders": "Orders",
     "Products": "Products",
-    "Banner Picture": "Banner Picture"
+    "Banner Picture": "Banner Picture",
+    "My Account": "My Account",
+    "Logout": "Logout"
   },
   "metadata": {
     "title": "MarketKing",

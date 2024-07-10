@@ -13,7 +13,7 @@ function Logo({ isLink = true }: LogoProps) {
     <h1 className="text-xl md:text-2xl tracking-wide relative text-rtl">
       {t("Market")}
       <span
-        className={`text-primary-text ${
+        className={`text-primary-color ${
           isArabic ? "font-normal italic" : "font-bold"
         } `}
       >
@@ -21,7 +21,7 @@ function Logo({ isLink = true }: LogoProps) {
         {t("King")}
       </span>
       <FaCrown
-        className={`absolute text-primary-text -top-3 ${
+        className={`absolute text-primary-color -top-3 ${
           isArabic ? "left-[14px]" : "left-[1px]"
         }  text-lg md:text-xl `}
       />

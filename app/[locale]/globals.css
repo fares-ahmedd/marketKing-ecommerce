@@ -36,7 +36,10 @@
     --hover-button: #24242426;
     --main-text: #000000;
     --second-text: #424141;
-    --primary-text: #0b8445;
+    --primary-color: #0b8445;
+    --primary-bg-color: #13c76a;
+
+    --primary-color-hover: #10d871;
   }
 
   .dark {
@@ -71,7 +74,9 @@
     --hover-button: #5b5b5b42;
     --main-text: #e0e0e0;
     --second-text: #a0a0a0;
-    --primary-text: #1ded81;
+    --primary-color: #1ded81;
+    --primary-bg-color: #018a43;
+    --primary-color-hover: #019c4c;
   }
 }
 
@@ -122,5 +127,10 @@ body {
 
 .text-ltr {
   direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.text-rtl {
+  direction: rtl;
   unicode-bidi: isolate;
 }

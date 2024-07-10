@@ -1,8 +1,12 @@
 import Header from "@/app/components/header/Header";
-import { useTranslate } from "@/app/hooks/useTranslate";
 import { unstable_setRequestLocale } from "next-intl/server";
 import Logo from "../components/header/Logo";
 import NavLinks from "../components/header/NavLinks";
+import Button from "../components/ui/Button";
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function Home({
   params: { locale },
@@ -11,15 +15,18 @@ export default function Home({
 }) {
   unstable_setRequestLocale(locale);
 
-  const { t } = useTranslate();
   return (
     <main>
       <Header>
         <Logo />
         <NavLinks />
       </Header>
-
-      {t("Hello Next")}
+      <Button size="md" color="black">
+        <LoginLink>Login</LoginLink>
+      </Button>
+      <Button size="md" color="white" className="border border-red-600">
+        <RegisterLink>Sign Up</RegisterLink>
+      </Button>
     </main>
   );
 }
