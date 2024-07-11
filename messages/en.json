@@ -8,10 +8,17 @@
     "Hello Next": "Hello Next",
     "Market": "Market",
     "King": "King",
+    "Image": "Image",
+    "Name": "Name",
+    "Delete": "Delete",
+    "Edit": "Edit",
+    "Price": "Price",
+    "Actions": "Actions",
     "Dashboard": "Dashboard",
     "Orders": "Orders",
     "Orders label": "Recent Orders From your Store",
     "Products": "Products",
+    "Products title": "Mange your products and view sales performances",
     "Banner Picture": "Banner Picture",
     "My Account": "My Account",
     "Logout": "Logout",
@@ -25,11 +32,21 @@
     "Total Users label": "Total Users Sign up",
     "Transitions": "Transitions",
     "Transitions label": "Recent Transactions  from the last 7 days",
-    "Recent Sales": "Recent Sales"
+    "Recent Sales": "Recent Sales",
+    "Customer": "Customer",
+    "Status": "Status",
+    "Type": "Type",
+    "Date": "Date",
+    "Amount": "Amount",
+    "Sale": "Sale",
+    "Success": "Success",
+    "Add Products": "Add Products"
   },
   "metadata": {
     "title": "MarketKing",
     "homeTitle": "Home",
-    "Dashboard": "Dashboard"
+    "Dashboard": "Dashboard",
+    "Products": "Products",
+    "Orders": "Orders"
   }
 }

@@ -16,7 +16,7 @@ function Menu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <IconButton className="md:hidden">
+        <IconButton className="sm:hidden">
           <FaBars className="h-5 w-5" />
         </IconButton>
       </SheetTrigger>

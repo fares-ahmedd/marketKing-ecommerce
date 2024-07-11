@@ -132,7 +132,36 @@ body {
   unicode-bidi: isolate;
 }
 
-.th-with-border:not(:last-child) {
-  border-right: 1px solid;
-  /* padding-right: 1rem; Adjust as needed */
+.border-custom-x {
+  position: relative;
+}
+
+.border-custom-x::before,
+.border-custom-x::after {
+  content: "";
+  position: absolute;
+  background-color: var(--second-text);
+  top: -80px;
+  height: 300px;
+  width: 1px;
+}
+.border-custom-x::before {
+  left: 0;
+}
+.border-custom-x::after {
+  right: 0;
+}
+
+.border-custom-s {
+  position: relative;
+}
+
+.border-custom-s::before {
+  content: "";
+  position: absolute;
+  background-color: var(--second-text);
+  top: -80px;
+  height: 300px;
+  width: 1px;
+  left: 0;
 }

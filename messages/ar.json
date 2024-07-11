@@ -7,11 +7,18 @@
     "Watches": "الساعات",
     "Hello Next": "مرحبا نيكست",
     "Market": "ماركت",
+    "Image": "صورة",
+    "Name": "الإسم",
+    "Edit": "تعديل",
+    "Delete": "حذف",
+    "Price": "السعر",
+    "Actions": "الإجراءات",
     "King": "كينج",
     "Dashboard": "لوحة التحكم",
     "Orders": "الطلبات",
     "Orders label": "الطلبات الأخيرة من متجرك",
     "Products": "المنتجات",
+    "Products title": "دير منتجاتك وتابع اداء المنتجات",
     "Banner Picture": "صورة البانر",
     "My Account": "حسابي",
     "Logout": "خروج",
@@ -25,11 +32,21 @@
     "Total Users label": "إجمالي المستخدمين الذين سجلوا دخولهم",
     "Transitions": "التحويلات",
     "Transitions label": "أخر تحويلات تمت منذ 7 ايام",
-    "Recent Sales": "المبيعات الأخيرة"
+    "Recent Sales": "المبيعات الأخيرة",
+    "Customer": "العميل",
+    "Status": "الحالات",
+    "Type": "النوع",
+    "Date": "التاريخ",
+    "Amount": "الكمية",
+    "Sale": "مباع",
+    "Success": "نجح",
+    "Add Products": "أضف منتجات"
   },
   "metadata": {
     "title": "ماركت كينج",
     "homeTitle": "الرئيسية",
-    "Dashboard": "لوحة التحكم"
+    "Dashboard": "لوحة التحكم",
+    "Products": "المنتجات",
+    "Orders": "الطلبات"
   }
 }

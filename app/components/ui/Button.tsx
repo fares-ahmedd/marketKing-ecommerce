@@ -72,9 +72,7 @@ const Button = ({
       disabled={disabled}
       {...props}
     >
-      {beforeContent && <span>{beforeContent}</span>}
-      <span>{children}</span>
-      {afterContent && <span>{afterContent}</span>}
+      {children}
     </button>
   );
 };
