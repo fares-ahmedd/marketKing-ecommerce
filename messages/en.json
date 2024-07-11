@@ -10,10 +10,22 @@
     "King": "King",
     "Dashboard": "Dashboard",
     "Orders": "Orders",
+    "Orders label": "Recent Orders From your Store",
     "Products": "Products",
     "Banner Picture": "Banner Picture",
     "My Account": "My Account",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "basedOnChanges": "Based On {count} Changes",
+    "Total Revenue": "Total Revenue",
+    "Total Sales": "Total Sales",
+    "Total Sales Label": "Total Sales On MarketKing",
+    "Total Products": "Total Products",
+    "Total Products label": "Total Products Created",
+    "Total Users": "Total Users",
+    "Total Users label": "Total Users Sign up",
+    "Transitions": "Transitions",
+    "Transitions label": "Recent Transactions  from the last 7 days",
+    "Recent Sales": "Recent Sales"
   },
   "metadata": {
     "title": "MarketKing",

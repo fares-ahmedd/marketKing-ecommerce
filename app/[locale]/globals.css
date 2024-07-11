@@ -85,15 +85,6 @@ body {
   color: var(--main-text);
 }
 
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
 @layer components {
   .flex-center {
     @apply flex items-center justify-center;
@@ -112,6 +103,12 @@ body {
   }
   .header {
     @apply bg-sec-background pt-4 pb-2 h-[60px] border-b  sticky top-0 hover-border;
+  }
+  .card {
+    @apply duration-300 border hover-border rounded-md bg-sec-background p-2;
+  }
+  .title {
+    @apply text-xl md:text-2xl font-extrabold;
   }
 }
 
@@ -133,4 +130,9 @@ body {
 .text-rtl {
   direction: rtl;
   unicode-bidi: isolate;
+}
+
+.th-with-border:not(:last-child) {
+  border-right: 1px solid;
+  /* padding-right: 1rem; Adjust as needed */
 }

@@ -10,10 +10,22 @@
     "King": "كينج",
     "Dashboard": "لوحة التحكم",
     "Orders": "الطلبات",
+    "Orders label": "الطلبات الأخيرة من متجرك",
     "Products": "المنتجات",
     "Banner Picture": "صورة البانر",
     "My Account": "حسابي",
-    "Logout": "خروج"
+    "Logout": "خروج",
+    "basedOnChanges": "بناءً على {count} تغيير",
+    "Total Revenue": "إجمالي الإيرادات",
+    "Total Sales": "إجمالي المبيعات",
+    "Total Sales label": "إجمالي المبيعات في ماركت كينج",
+    "Total Products": "إجمالي المنتجات",
+    "Total Products label": "إجمالي المنتجات التي تم انشائها",
+    "Total Users": "إجمالي المستخدمين",
+    "Total Users label": "إجمالي المستخدمين الذين سجلوا دخولهم",
+    "Transitions": "التحويلات",
+    "Transitions label": "أخر تحويلات تمت منذ 7 ايام",
+    "Recent Sales": "المبيعات الأخيرة"
   },
   "metadata": {
     "title": "ماركت كينج",

@@ -5,5 +5,9 @@ export function useTranslate() {
   const locale = useLocale();
 
   const isArabic = locale === "ar";
-  return { t: (value: string) => t(value), isArabic, lang: locale };
+  return {
+    t: (value: string, params?: Record<string, any>) => t(value, params),
+    isArabic,
+    lang: locale,
+  };
 }
