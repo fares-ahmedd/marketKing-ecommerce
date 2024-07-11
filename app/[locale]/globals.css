@@ -78,6 +78,25 @@
     --primary-bg-color: #018a43;
     --primary-color-hover: #019c4c;
   }
+  input {
+    @apply rounded-lg py-1 px-4 bg-third-background border text-main-text duration-300 focus:py-2 placeholder:text-second-text;
+  }
+  textarea {
+    @apply rounded-lg py-1 px-4 bg-third-background border text-main-text duration-300 focus:py-2 placeholder:text-second-text;
+  }
+  label {
+    @apply block w-fit;
+  }
+  fieldset {
+    @apply border border-solid border-gray-300 p-4 rounded;
+  }
+
+  legend {
+    @apply px-2 font-bold;
+  }
+  select {
+    @apply py-2 bg-third-background px-4  border rounded-md font-bold;
+  }
 }
 
 body {
@@ -102,7 +121,7 @@ body {
     @apply border-black/20  dark:border-white/20  hover:border-black/70 hover:dark:border-white/70;
   }
   .header {
-    @apply bg-sec-background pt-4 pb-2 h-[60px] border-b  sticky top-0 hover-border;
+    @apply bg-sec-background pt-4 pb-2 h-[60px] border-b  sticky top-0 hover-border z-50;
   }
   .card {
     @apply duration-300 border hover-border rounded-md bg-sec-background p-2;

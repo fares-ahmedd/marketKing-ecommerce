@@ -12,6 +12,8 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Price": "السعر",
+    "Featured": "متميز",
+    "Price placeholder": "بالرجاء كتابة سعر المنتج الخاص بك",
     "Actions": "الإجراءات",
     "King": "كينج",
     "Dashboard": "لوحة التحكم",
@@ -40,6 +42,12 @@
     "Amount": "الكمية",
     "Sale": "مباع",
     "Success": "نجح",
+    "New Product": "منتج جديد",
+    "New Product placeholder": "بالرجاء كتابة اسم المنتج الجديد",
+    "Description": "وصف المنتج",
+    "Description placeholder": "بالرجاء كتابة وصف المنتج ",
+    "Product Details": "تفاصيل المنتج",
+    "Product Details title": "في هذه الحقول يمكنك انشاء منتج جديد",
     "Add Products": "أضف منتجات"
   },
   "metadata": {

@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
-import Image from "next/image";
 
 function User({ user }: { user: KindeUser }) {
   const { t, isArabic } = useTranslate();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
