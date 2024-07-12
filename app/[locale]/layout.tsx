@@ -8,6 +8,7 @@ import {
 } from "next-intl/server";
 import { NotoKufiArabic, roboto } from "../fonts";
 import "./globals.css";
+import ToasterProvider from "../components/Toaster";
 
 const locales = ["en", "ar"];
 
@@ -58,6 +59,7 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             {children}
+            <ToasterProvider />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

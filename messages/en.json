@@ -36,7 +36,11 @@
     "Transitions label": "Recent Transactions  from the last 7 days",
     "Recent Sales": "Recent Sales",
     "Customer": "Customer",
+    "Draft": "Draft",
+    "Published": "Published",
+    "Archived": "Archived",
     "Status": "Status",
+    "Status label": "Please Select Product Status",
     "Description": "Description",
     "Description placeholder": "Please Type your Description",
     "Type": "Type",
@@ -45,6 +49,8 @@
     "Sale": "Sale",
     "Success": "Success",
     "New Product": "New Product",
+    "Featured Mode": "Product in feature mode",
+    "Featured Mode disabled": "Product not feature mode",
     "Product Details": "Product Details",
     "Product Details title": "in this form you can create a new product",
     "New Product placeholder": "Please Type your new product",
@@ -55,6 +61,7 @@
     "homeTitle": "Home",
     "Dashboard": "Dashboard",
     "Products": "Products",
-    "Orders": "Orders"
+    "Orders": "Orders",
+    "New Product": "New Product"
   }
 }

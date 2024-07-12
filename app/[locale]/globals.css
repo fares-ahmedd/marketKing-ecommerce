@@ -184,3 +184,9 @@ body {
   width: 1px;
   left: 0;
 }
+
+option:disabled {
+  color: var(--second-text);
+  font-style: italic;
+  font-size: 12px;
+}

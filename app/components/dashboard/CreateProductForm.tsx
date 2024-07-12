@@ -31,12 +31,14 @@ function CreateProductForm() {
         onChange={(checked: boolean) => setIsChecked(checked)}
       />
 
-      <label>{t("Featured")}:</label>
-      <select>
-        <option value=""></option>
-        <option value="">Test</option>
-        <option value="">Test</option>
-        <option value="">Test</option>
+      <label>{t("Status")}:</label>
+      <select defaultValue={""}>
+        <option value="" disabled className="text-second-text">
+          {t("Status label")}
+        </option>
+        <option value="draft">{t("Draft")}</option>
+        <option value="published">{t("Published")}</option>
+        <option value="archived">{t("Archived")}</option>
       </select>
     </form>
   );

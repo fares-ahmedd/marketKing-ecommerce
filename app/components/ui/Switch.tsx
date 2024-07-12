@@ -1,6 +1,8 @@
 "use client";
 
+import { useTranslate } from "@/app/hooks/useTranslate";
 import React from "react";
+import toast from "react-hot-toast";
 
 interface SwitchProps {
   checked: boolean;
@@ -9,17 +11,27 @@ interface SwitchProps {
 }
 
 const Switch: React.FC<SwitchProps> = ({
-  checked = false,
+  checked,
   onChange,
   disabled = false,
 }) => {
+  const { t } = useTranslate();
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    onChange(e.target.checked);
+    if (e.target.checked) {
+      toast.success(t("Featured Mode"));
+    } else {
+      toast.error(t("Featured Mode disabled"));
+    }
+  }
+
   return (
     <label className="relative inline-block w-14 h-8">
       <input
         type="checkbox"
         className="opacity-0 w-0 h-0"
         checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
+        onChange={handleChange}
         disabled={disabled}
       />
       <span
@@ -29,10 +41,10 @@ const Switch: React.FC<SwitchProps> = ({
         before:absolute before:content-[''] before:h-6 before:w-6 
         before:left-1 before:bottom-1 before:bg-gray-400 
         before:rounded-full before:transition-all before:duration-400
-        ${checked ? "bg-blue-500 border-blue-500" : ""}
+        ${checked ? "bg-blue-950 border-blue-500" : ""}
         ${
           checked
-            ? "before:transform before:translate-x-6 before:bg-blue-600"
+            ? "before:transform before:translate-x-6 before:bg-blue-700"
             : ""
         }
         ${!checked ? "before:bg-gray-400" : ""}

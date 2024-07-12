@@ -12,6 +12,10 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Price": "السعر",
+    "Draft": "مسودة",
+    "Published": "نشرت",
+    "Archived": "مؤرشف",
+
     "Featured": "متميز",
     "Price placeholder": "بالرجاء كتابة سعر المنتج الخاص بك",
     "Actions": "الإجراءات",
@@ -37,6 +41,8 @@
     "Recent Sales": "المبيعات الأخيرة",
     "Customer": "العميل",
     "Status": "الحالات",
+    "Status label": "بالرجاء اختيار حالة المنتج",
+
     "Type": "النوع",
     "Date": "التاريخ",
     "Amount": "الكمية",
@@ -47,6 +53,9 @@
     "Description": "وصف المنتج",
     "Description placeholder": "بالرجاء كتابة وصف المنتج ",
     "Product Details": "تفاصيل المنتج",
+    "Featured Mode": "هذا المنتج الأن في وضع التميز",
+    "Featured Mode disabled": "هذا المنتج الان ليس في وضع التميز",
+
     "Product Details title": "في هذه الحقول يمكنك انشاء منتج جديد",
     "Add Products": "أضف منتجات"
   },
@@ -55,6 +64,7 @@
     "homeTitle": "الرئيسية",
     "Dashboard": "لوحة التحكم",
     "Products": "المنتجات",
-    "Orders": "الطلبات"
+    "Orders": "الطلبات",
+    "New Product": "منتج جديد"
   }
 }

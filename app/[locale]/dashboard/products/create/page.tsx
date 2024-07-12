@@ -2,7 +2,20 @@ import CreateProductForm from "@/app/components/dashboard/CreateProductForm";
 import IconButton from "@/app/components/ui/IconButton";
 import MyLink from "@/app/components/ui/MyLink";
 import { useTranslate } from "@/app/hooks/useTranslate";
+import { getTranslations } from "next-intl/server";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: `${t("New Product")}`,
+  };
+}
 
 function ProductCreateRoute() {
   const { t, isArabic } = useTranslate();
