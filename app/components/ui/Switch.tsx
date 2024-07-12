@@ -26,33 +26,25 @@ const Switch: React.FC<SwitchProps> = ({
   }
 
   return (
-    <label className="relative inline-block w-14 h-8">
+    <div className="checkbox-apple">
       <input
         type="checkbox"
-        className="opacity-0 w-0 h-0"
+        className="yep"
+        id="check-apple"
         checked={checked}
         onChange={handleChange}
         disabled={disabled}
       />
-      <span
+      <label
         className={`
-        absolute cursor-pointer top-0 left-0 right-0 bottom-0
-        bg-white border border-gray-400 rounded-full transition-all duration-400
-        before:absolute before:content-[''] before:h-6 before:w-6 
-        before:left-1 before:bottom-1 before:bg-gray-400 
-        before:rounded-full before:transition-all before:duration-400
-        ${checked ? "bg-blue-950 border-blue-500" : ""}
-        ${
-          checked
-            ? "before:transform before:translate-x-6 before:bg-blue-700"
-            : ""
-        }
-        ${!checked ? "before:bg-gray-400" : ""}
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
-        focus-within:shadow-[0_0_1px_#007bff]
-      `}
-      ></span>
-    </label>
+          block w-full h-full rounded-full cursor-pointer transition-all duration-300 
+          bg-gradient-to-b from-gray-300 to-gray-200
+          peer-checked:bg-gradient-to-b peer-checked:from-green-400 peer-checked:to-green-500
+          ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+        `}
+        htmlFor="check-apple"
+      ></label>
+    </div>
   );
 };
 

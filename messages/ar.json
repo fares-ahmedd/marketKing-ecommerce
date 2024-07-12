@@ -8,6 +8,7 @@
     "Hello Next": "مرحبا نيكست",
     "Market": "ماركت",
     "Image": "صورة",
+    "Images": "الصور",
     "Name": "الإسم",
     "Edit": "تعديل",
     "Delete": "حذف",
@@ -17,7 +18,12 @@
     "Archived": "مؤرشف",
 
     "Featured": "متميز",
+    "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",
+    "Images up to 4MB, max 10": "صور يصل حجمها إلى 4 ميغابايت، بحد أقصى 10",
     "Price placeholder": "بالرجاء كتابة سعر المنتج الخاص بك",
+    "Finish Upload": "تم تحميل الصورة بنجاح",
+    "Failed Upload": "فشل تحميل الصورة",
+
     "Actions": "الإجراءات",
     "King": "كينج",
     "Dashboard": "لوحة التحكم",

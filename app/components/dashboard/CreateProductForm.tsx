@@ -2,10 +2,13 @@
 import { useTranslate } from "@/app/hooks/useTranslate";
 import Switch from "../ui/Switch";
 import { useState } from "react";
+import { UploadButton, UploadDropzone } from "@/app/lib/uploadthing";
+import toast from "react-hot-toast";
+import Image from "next/image";
 
 function CreateProductForm() {
   const [isChecked, setIsChecked] = useState(false);
-
+  const [image, setImage] = useState<string | undefined>(undefined);
   const { t } = useTranslate();
   return (
     <form className="grid gap-3 grid-cols-1 mb-2">
@@ -32,7 +35,7 @@ function CreateProductForm() {
       />
 
       <label>{t("Status")}:</label>
-      <select defaultValue={""}>
+      <select defaultValue={""} className="mb-3">
         <option value="" disabled className="text-second-text">
           {t("Status label")}
         </option>
@@ -40,6 +43,36 @@ function CreateProductForm() {
         <option value="published">{t("Published")}</option>
         <option value="archived">{t("Archived")}</option>
       </select>
+
+      <label>{t("Images")}:</label>
+      {/* <UploadDropzone
+        endpoint="imageUploader"
+        content={{
+          label: t("Choose files or drag and drop"),
+          allowedContent: t("Images up to 4MB, max 10"),
+        }}
+        onClientUploadComplete={() => {
+          toast.success(t("Finish Upload"));
+        }}
+        onUploadError={() => {
+          toast.error(t("Failed Upload"));
+        }}
+      /> */}
+      <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative ">
+        {image && <Image src={image} alt="Product Img" />}
+
+        <UploadButton
+          endpoint="imageUploader"
+          onClientUploadComplete={(res) => {
+            setImage(res[0].url);
+
+            toast.success(t("Finish Upload"));
+          }}
+          onUploadError={() => {
+            toast.error(t("Failed Upload"));
+          }}
+        />
+      </section>
     </form>
   );
 }
