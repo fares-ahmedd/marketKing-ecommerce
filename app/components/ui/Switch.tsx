@@ -34,6 +34,7 @@ const Switch: React.FC<SwitchProps> = ({
         checked={checked}
         onChange={handleChange}
         disabled={disabled}
+        name="featured"
       />
       <label
         className={`
