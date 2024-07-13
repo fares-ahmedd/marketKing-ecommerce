@@ -30,6 +30,7 @@ const config = {
         "primary-color-hover": "var(--primary-color-hover)",
         "primary--color-hover": "var(--primary-color-hover)",
         "hover-button": "var(--hover-button)",
+        error: "var(--error)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

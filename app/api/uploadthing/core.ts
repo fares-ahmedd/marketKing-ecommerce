@@ -1,3 +1,4 @@
+import { ADMIN_EMAIL } from "@/app/utils/helpers";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
@@ -13,7 +14,7 @@ export const ourFileRouter = {
       const { getUser } = getKindeServerSession();
       const user = await getUser();
       // If you throw, the user will not be able to upload
-      if (!user || user.email !== "faresahmed00001111@gmail.com")
+      if (!user || user.email !== ADMIN_EMAIL)
         throw new UploadThingError("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`

@@ -12,7 +12,7 @@ function NavLink({ link }: { link: { href: string; label: string } }) {
   return (
     <li
       className={`text-second-text hover:underline font-bold ${
-        isActive && "override-main-text text-shadow"
+        isActive && "override-main-text text-shadow hover:no-underline"
       }`}
     >
       <MyLink href={`${link.href}`}>{t(link.label)}</MyLink>

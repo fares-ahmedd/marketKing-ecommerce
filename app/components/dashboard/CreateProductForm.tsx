@@ -2,9 +2,11 @@
 import { useTranslate } from "@/app/hooks/useTranslate";
 import Switch from "../ui/Switch";
 import { useState } from "react";
-import { UploadButton, UploadDropzone } from "@/app/lib/uploadthing";
+import { UploadButton, UploadDropzone } from "@/app/utils/uploadthing";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import Button from "../ui/Button";
+import ErrorMessage from "../ui/ErrorMessage";
 
 function CreateProductForm() {
   const [isChecked, setIsChecked] = useState(false);
@@ -58,11 +60,14 @@ function CreateProductForm() {
           toast.error(t("Failed Upload"));
         }}
       /> */}
-      <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative ">
-        {image && <Image src={image} alt="Product Img" />}
-
+      <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative  hover:border mb-3 ">
+        {image && <Image src={image} alt="Product Img" fill />}
         <UploadButton
           endpoint="imageUploader"
+          content={{
+            allowedContent: t("Images up to 4MB, max 10"),
+            button: t("Choose Product Image"),
+          }}
           onClientUploadComplete={(res) => {
             setImage(res[0].url);
 
@@ -73,6 +78,11 @@ function CreateProductForm() {
           }}
         />
       </section>
+
+      <Button className="w-fit " size="lg">
+        {t("Create Product")}
+      </Button>
+      <ErrorMessage>الامور لما تحدث كما متوقع</ErrorMessage>
     </form>
   );
 }
