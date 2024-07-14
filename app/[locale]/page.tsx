@@ -1,8 +1,8 @@
-import Header from "@/app/components/header/Header";
+import Header from "@/app/_components/header/Header";
 import { unstable_setRequestLocale } from "next-intl/server";
-import Logo from "../components/header/Logo";
-import NavLinks from "../components/header/NavLinks";
-import Button from "../components/ui/Button";
+import Logo from "../_components/header/Logo";
+import NavLinks from "../_components/header/NavLinks";
+import Button from "../_components/ui/Button";
 import {
   RegisterLink,
   LoginLink,

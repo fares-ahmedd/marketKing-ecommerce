@@ -1,4 +1,4 @@
-import { useTranslate } from "@/app/hooks/useTranslate";
+import { useTranslate } from "@/app/_hooks/useTranslate";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,

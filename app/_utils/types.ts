@@ -18,3 +18,12 @@ export interface ProductType {
   status: ProductStatus;
   category: Category;
 }
+
+export interface ProductErrors {
+  product?: string;
+  description?: string;
+  price?: string;
+  featured?: boolean;
+  status?: string;
+  image?: string;
+}

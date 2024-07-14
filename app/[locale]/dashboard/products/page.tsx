@@ -1,11 +1,8 @@
-import Button from "@/app/components/ui/Button";
-import { useTranslate } from "@/app/hooks/useTranslate";
-import { getTranslations } from "next-intl/server";
-import Image from "next/image";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import placeholderImage from "@/public/temp.webp";
-import MyLink from "@/app/components/ui/MyLink";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import Button from "@/app/_components/ui/Button";
+import IconButton from "@/app/_components/ui/IconButton";
+import ModalImage from "@/app/_components/ui/ModalImage";
+import MyLink from "@/app/_components/ui/MyLink";
+import { useTranslate } from "@/app/_hooks/useTranslate";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +11,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import IconButton from "@/app/components/ui/IconButton";
+import placeholderImage from "@/public/temp.webp";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Image from "next/image";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
 export async function generateMetadata({
   params: { locale },
@@ -28,7 +29,9 @@ export async function generateMetadata({
   };
 }
 
-function ProductsPage() {
+function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
+
   const { t, isArabic } = useTranslate();
   return (
     <main className="container-layout my-3">
@@ -53,9 +56,14 @@ function ProductsPage() {
           </thead>
           <tbody className=" border-b border-second-text text-second-text rounded-lg ">
             <tr className="grid grid-cols-6 p-2  overflow-hidden hover:bg-main-background items-center">
-              <th className="w-[95%] h-[100px] relative">
-                <Image src={placeholderImage} alt="Product" fill />
-              </th>
+              <ModalImage
+                image={
+                  <th className="relative">
+                    <Image src={placeholderImage} alt="Product" fill />
+                  </th>
+                }
+                className="w-[95%] h-[100px]  relative"
+              />
               <th className="border-custom-x">Product Name</th>
               <th>{t("Success")}</th>
               <th className="border-custom-x">$2.65</th>

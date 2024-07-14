@@ -1,8 +1,8 @@
-import CreateProductForm from "@/app/components/dashboard/CreateProductForm";
-import IconButton from "@/app/components/ui/IconButton";
-import MyLink from "@/app/components/ui/MyLink";
-import { useTranslate } from "@/app/hooks/useTranslate";
-import { getTranslations } from "next-intl/server";
+import CreateProductForm from "@/app/_components/dashboard/CreateProductForm";
+import IconButton from "@/app/_components/ui/IconButton";
+import MyLink from "@/app/_components/ui/MyLink";
+import { useTranslate } from "@/app/_hooks/useTranslate";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 export async function generateMetadata({
@@ -17,7 +17,13 @@ export async function generateMetadata({
   };
 }
 
-function ProductCreateRoute() {
+function ProductCreateRoute({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
+
   const { t, isArabic } = useTranslate();
   return (
     <main className="container-layout my-3 max-w-[1080px]">

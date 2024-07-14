@@ -1,19 +1,27 @@
 "use client";
-import { useTranslate } from "@/app/hooks/useTranslate";
-import Switch from "../ui/Switch";
-import { useState } from "react";
-import { UploadButton } from "@/app/lib/uploadthing";
-import toast from "react-hot-toast";
+import { createProduct } from "@/app/_actions/createProduct";
+import useElementsForm from "@/app/_hooks/useElementsForm";
+import { useTranslate } from "@/app/_hooks/useTranslate";
+import { UploadButton } from "@/app/_lib/uploadthing";
+import TestImage from "@/public/temp.webp";
 import Image from "next/image";
-import Button from "../ui/Button";
-import { createProduct } from "@/app/lib/actions";
+import { useState } from "react";
 import { useFormState } from "react-dom";
-
+import toast from "react-hot-toast";
+import Button from "../ui/Button";
+import ErrorMessage from "../ui/ErrorMessage";
+import ModalImage from "../ui/ModalImage";
+import Switch from "../ui/Switch";
+import { AnimatePresence, motion } from "framer-motion";
 function CreateProductForm() {
-  const [isChecked, setIsChecked] = useState(false);
-  const [image, setImage] = useState<string | undefined>(undefined);
-
   const [state, formAction] = useFormState(createProduct, {});
+
+  const [isChecked, setIsChecked] = useState(false);
+  const [images, setImages] = useState<string[]>([]);
+  const { descriptionEl, productEl, priceEl, statusEl } =
+    useElementsForm(state);
+  // const productEl = useRef<HTMLInputElement>(null);
+  // const descriptionEl = useRef<HTMLTextAreaElement>(null);
 
   const { t } = useTranslate();
 
@@ -26,31 +34,36 @@ function CreateProductForm() {
         autoFocus
         placeholder={t("New Product placeholder")}
         id="name"
+        ref={productEl}
       />
+      {state?.product && <ErrorMessage>{t(state.product)}</ErrorMessage>}
       <label htmlFor="description">{t("Description")}:</label>
       <textarea
         placeholder={t("Description placeholder")}
         id="description"
         rows={6}
         name="description"
+        ref={descriptionEl}
       />
+      {state?.description && (
+        <ErrorMessage>{t(state.description)}</ErrorMessage>
+      )}
       <label htmlFor="price">{t("Price")}:</label>
       <input
         type="number"
         placeholder={t("Price placeholder")}
         id="price"
         name="price"
+        ref={priceEl}
       />
-
+      {state?.price && <ErrorMessage>{t(state.price)}</ErrorMessage>}
       <label>{t("Featured")}:</label>
       <Switch
         checked={isChecked}
         onChange={(checked: boolean) => setIsChecked(checked)}
       />
-      <input type="hidden" name="featured" value={isChecked ? "on" : "off"} />
-
       <label>{t("Status")}:</label>
-      <select defaultValue={""} className="mb-3" name="status">
+      <select defaultValue={""} className="mb-3" name="status" ref={statusEl}>
         <option value="" disabled className="text-second-text">
           {t("Status label")}
         </option>
@@ -58,10 +71,10 @@ function CreateProductForm() {
         <option value="published">{t("Published")}</option>
         <option value="archived">{t("Archived")}</option>
       </select>
+      {state?.status && <ErrorMessage>{t(state.status)}</ErrorMessage>}
 
-      <label>{t("Images")}:</label>
       <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative  hover:border mb-3 ">
-        {image && <Image src={image} alt="Product Img" fill />}
+        {images.length > 0 && <Image src={images[0]} alt="Product Img" fill />}
         <UploadButton
           endpoint="imageUploader"
           content={{
@@ -69,7 +82,7 @@ function CreateProductForm() {
             button: t("Choose Product Image"),
           }}
           onClientUploadComplete={(res) => {
-            setImage(res[0].url);
+            setImages(res.map((r) => r.url));
             toast.success(t("Finish Upload"));
           }}
           onUploadError={() => {
@@ -77,8 +90,9 @@ function CreateProductForm() {
           }}
         />
       </section>
-      <input type="hidden" name="image" value={image || ""} />
-
+      {state?.image && <ErrorMessage>{t(state.image)}</ErrorMessage>}
+      <input type="hidden" name="image" value={images || ""} />
+      {/* <Button className="w-fit " size="lg" disabled={!image}> */}
       <Button className="w-fit " size="lg">
         {t("Create Product")}
       </Button>

@@ -127,6 +127,9 @@ body {
   .card {
     @apply duration-300 border hover-border rounded-md bg-sec-background p-2;
   }
+  .grid-layout {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(300px,auto))] gap-5;
+  }
   .title {
     @apply text-xl md:text-2xl font-extrabold;
   }

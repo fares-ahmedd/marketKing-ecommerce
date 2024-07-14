@@ -1,11 +1,11 @@
-import StatusItem from "@/app/components/dashboard/StatusItem";
-import { getTranslations } from "next-intl/server";
+import StatusItem from "@/app/_components/dashboard/StatusItem";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { FcSalesPerformance } from "react-icons/fc";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
-import GraphCard from "@/app/components/dashboard/GraphCard";
-import RecentSalesCard from "@/app/components/dashboard/RecentSalesCard";
+import GraphCard from "@/app/_components/dashboard/GraphCard";
+import RecentSalesCard from "@/app/_components/dashboard/RecentSalesCard";
 
 export async function generateMetadata({
   params: { locale },
@@ -19,7 +19,13 @@ export async function generateMetadata({
   };
 }
 
-async function Dashboard() {
+async function Dashboard({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
+
   return (
     <main className="container-layout mt-4 mb-2">
       <ol className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/app/components/theme-provider";
+import { ThemeProvider } from "@/app/_components/theme-provider";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
@@ -10,7 +10,7 @@ import {
 } from "next-intl/server";
 import { NotoKufiArabic, roboto } from "../fonts";
 import "./globals.css";
-import ToasterProvider from "../components/Toaster";
+import ToasterProvider from "../_components/Toaster";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "../api/uploadthing/core";
 
@@ -53,7 +53,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir}>
       <body
-        className={dir === "rtl" ? NotoKufiArabic.className : roboto.className}
+        className={` ${
+          dir === "rtl" ? NotoKufiArabic.className : roboto.className
+        } overflow-x-hidden`}
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
 

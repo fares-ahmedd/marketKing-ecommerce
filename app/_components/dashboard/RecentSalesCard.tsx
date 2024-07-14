@@ -1,4 +1,4 @@
-import { useTranslate } from "@/app/hooks/useTranslate";
+import { useTranslate } from "@/app/_hooks/useTranslate";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 function RecentSalesCard() {

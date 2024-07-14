@@ -16,6 +16,7 @@
     "Draft": "مسودة",
     "Published": "نشرت",
     "Archived": "مؤرشف",
+    "product error message": "بالرجاء كتابة اسم منتج صالح",
 
     "Featured": "متميز",
     "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",
@@ -50,6 +51,10 @@
     "Customer": "العميل",
     "Status": "الحالات",
     "Status label": "بالرجاء اختيار حالة المنتج",
+    "description error message": "بالرجاء كتابة وصف للمنتج",
+    "status error message": "بالرجاء اختيار حالة المنتج",
+    "image error message": "بالرجاء اختيار صورة المنتج",
+    "price error message": "بالرجاء اختيار سعر صالح للمنتج",
 
     "Type": "النوع",
     "Date": "التاريخ",

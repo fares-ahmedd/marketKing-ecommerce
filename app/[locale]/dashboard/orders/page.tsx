@@ -1,5 +1,5 @@
-import { useTranslate } from "@/app/hooks/useTranslate";
-import { getTranslations } from "next-intl/server";
+import { useTranslate } from "@/app/_hooks/useTranslate";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params: { locale },
@@ -13,7 +13,13 @@ export async function generateMetadata({
   };
 }
 
-export default function OrdersPage() {
+export default function OrdersPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
+
   const { t } = useTranslate();
   return (
     <main className="container-layout my-3">

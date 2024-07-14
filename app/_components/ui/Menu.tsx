@@ -1,4 +1,4 @@
-import { useTranslate } from "@/app/hooks/useTranslate";
+import { useTranslate } from "@/app/_hooks/useTranslate";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { FaBars } from "react-icons/fa";
 import IconButton from "./IconButton";
