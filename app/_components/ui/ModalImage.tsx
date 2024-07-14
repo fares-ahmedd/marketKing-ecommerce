@@ -5,27 +5,43 @@ import { useState } from "react";
 function ModalImage({
   image,
   className,
+  modalId,
+  isInTable = false,
 }: {
   image: React.ReactElement;
   className: string;
+  modalId: string;
+  isInTable?: boolean;
 }) {
   const [open, setOpen] = useState("");
 
+  console.log(modalId);
+
   return (
     <>
-      <motion.div
-        className={`cursor-zoom-in ${className}`}
-        role="button"
-        layoutId="test"
-        onClick={() => setOpen("test")}
-      >
-        {image}
-      </motion.div>
-
+      {isInTable ? (
+        <motion.th
+          className={`cursor-zoom-in w-[95%] h-[100px]  relative`}
+          role="button"
+          onClick={() => setOpen(modalId)}
+          layoutId={modalId}
+        >
+          {image}
+        </motion.th>
+      ) : (
+        <motion.div
+          className={`cursor-zoom-in ${className}`}
+          role="button"
+          onClick={() => setOpen(modalId)}
+          layoutId={modalId}
+        >
+          {image}
+        </motion.div>
+      )}
       <AnimatePresence>
         {open && (
           <motion.dialog
-            className="fixed w-full h-screen left-0 top-0 cursor-zoom-out flex-center bg-black/35 backdrop-blur-md z-50 "
+            className="fixed w-full h-screen left-0 top-0 cursor-zoom-out flex-center bg-black/35 backdrop-blur-md z-[50] "
             role="button"
             layoutId={open}
             onClick={() => setOpen("")}

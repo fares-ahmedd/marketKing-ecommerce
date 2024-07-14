@@ -46,7 +46,7 @@ const Button = ({
     warning:
       "bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 disabled:bg-yellow-300",
     error:
-      "bg-red-500 text-white border-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-red-300",
+      "bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 hover:bg-red-600 dark:hover:bg-red-700 active:bg-red-700 dark:active:bg-red-800 disabled:bg-red-300 dark:disabled:bg-red-400",
   };
   const variantStyles = {
     primary: "",
