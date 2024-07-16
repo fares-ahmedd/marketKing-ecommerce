@@ -41,7 +41,7 @@ enum ProductStatus {
   archived
 }
 enum Category {
-  labtops
+  laptops
   phones
   watches
 }

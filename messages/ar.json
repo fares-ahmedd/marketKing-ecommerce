@@ -25,6 +25,7 @@
     "Finish Upload": "تم تحميل الصورة بنجاح",
     "Failed Upload": "فشل تحميل الصورة",
     "Choose Product Image": "اختار الصورة",
+    "category error message": "بالرجاء اختيار الفئة",
 
     "Actions": "الإجراءات",
     "King": "كينج",
@@ -51,6 +52,7 @@
     "Customer": "العميل",
     "Status": "الحالات",
     "image photo": "صور المنتج",
+    "category": "الفئة",
 
     "Status label": "بالرجاء اختيار حالة المنتج",
     "description error message": "بالرجاء كتابة وصف للمنتج",

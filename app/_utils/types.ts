@@ -1,4 +1,4 @@
-enum ProductStatus {
+export enum ProductStatus {
   DRAFT = "draft",
   PUBLISHED = "published",
   ARCHIVED = "archived",
@@ -26,4 +26,5 @@ export interface ProductErrors {
   featured?: boolean;
   status?: string;
   image?: string;
+  category?: string;
 }

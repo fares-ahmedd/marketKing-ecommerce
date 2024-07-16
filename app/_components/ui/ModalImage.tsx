@@ -15,8 +15,6 @@ function ModalImage({
 }) {
   const [open, setOpen] = useState("");
 
-  console.log(modalId);
-
   return (
     <>
       {isInTable ? (

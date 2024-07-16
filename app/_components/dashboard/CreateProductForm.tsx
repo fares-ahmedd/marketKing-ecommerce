@@ -3,16 +3,16 @@ import { createProduct } from "@/app/_actions/createProduct";
 import useElementsForm from "@/app/_hooks/useElementsForm";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import { UploadButton } from "@/app/_lib/uploadthing";
+import Image from "next/image";
 import { useState } from "react";
 import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
+import { IoIosCloseCircle } from "react-icons/io";
 import Button from "../ui/Button";
 import ErrorMessage from "../ui/ErrorMessage";
-import Switch from "../ui/Switch";
-import Image from "next/image";
 import ModalImage from "../ui/ModalImage";
-import { IoIosCloseCircle } from "react-icons/io";
-import IconButton from "../ui/IconButton";
+import Switch from "../ui/Switch";
+import Selectors from "../ui/Selectors";
 
 function CreateProductForm() {
   const [state, formAction] = useFormState(createProduct, {});
@@ -27,8 +27,14 @@ function CreateProductForm() {
   const handleDeleteImage = (index: number) => {
     setImages(images.filter((_: any, i) => i !== index));
   };
+  console.log(images);
+
   return (
     <form className="grid gap-3 grid-cols-1 mb-2" action={formAction}>
+      <label htmlFor="name">{t("category")}:</label>
+      <Selectors chooses={["Phones", "Watches", "Laptops"]} />
+      {state?.category && <ErrorMessage>{t(state.category)}</ErrorMessage>}
+
       <label htmlFor="name">{t("Name")}:</label>
       <input
         type="text"
@@ -95,7 +101,7 @@ function CreateProductForm() {
         />
       </section>
       {state?.image && <ErrorMessage>{t(state.image)}</ErrorMessage>}
-      <input type="hidden" name="image" value={images || ""} />
+      <input type="hidden" name="images" value={images || ""} />
       {images.length > 0 && (
         <>
           <h3 className="title">{t("image photo")}</h3>

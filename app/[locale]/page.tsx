@@ -24,7 +24,7 @@ export default function Home({
       <Button size="md" color="black">
         <LoginLink>Login</LoginLink>
       </Button>
-      <Button size="md" color="white" className="border border-red-600">
+      <Button size="md" color="white" className="border ">
         <RegisterLink>Sign Up</RegisterLink>
       </Button>
     </main>
