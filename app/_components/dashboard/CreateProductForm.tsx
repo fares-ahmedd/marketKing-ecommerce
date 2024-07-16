@@ -22,7 +22,7 @@ function CreateProductForm() {
   const { descriptionEl, productEl, priceEl, statusEl } =
     useElementsForm(state);
 
-  const { t } = useTranslate();
+  const { t, isArabic } = useTranslate();
 
   const handleDeleteImage = (index: number) => {
     setImages(images.filter((_: any, i) => i !== index));
@@ -81,27 +81,30 @@ function CreateProductForm() {
       </select>
       {state?.status && <ErrorMessage>{t(state.status)}</ErrorMessage>}
 
-      <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative  hover:border mb-3 ">
-        <UploadButton
-          endpoint="imageUploader"
-          content={{
-            allowedContent: t("Images up to 4MB, max 10"),
-            button: t("Choose Product Image"),
-          }}
-          onClientUploadComplete={(res) => {
-            setImages((prevImages) => [
-              ...prevImages,
-              ...res.map((r) => r.url),
-            ]);
-            toast.success(t("Finish Upload"));
-          }}
-          onUploadError={() => {
-            toast.error(t("Failed Upload"));
-          }}
-        />
-      </section>
+      {images.length < 1 && (
+        <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative  hover:border mb-3 ">
+          <UploadButton
+            endpoint="imageUploader"
+            content={{
+              allowedContent: t("Images up to 4MB, max 10"),
+              button: t("Choose Product Image"),
+            }}
+            onClientUploadComplete={(res) => {
+              setImages((prevImages) => [
+                ...prevImages,
+                ...res.map((r) => r.url),
+              ]);
+              toast.success(t("Finish Upload"));
+            }}
+            onUploadError={() => {
+              toast.error(t("Failed Upload"));
+            }}
+          />
+        </section>
+      )}
       {state?.image && <ErrorMessage>{t(state.image)}</ErrorMessage>}
       <input type="hidden" name="images" value={images || ""} />
+      <input type="hidden" name="isArabic" value={isArabic ? "yes" : ""} />
       {images.length > 0 && (
         <>
           <h3 className="title">{t("image photo")}</h3>

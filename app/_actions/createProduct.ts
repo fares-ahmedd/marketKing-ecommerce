@@ -7,6 +7,7 @@ import { ProductErrors, ProductStatus } from "../_utils/types";
 import prisma from "../_lib/db";
 
 export async function createProduct(_: any, formData: FormData) {
+  const isArabic = formData.get("isArabic");
   const product = formData.get("product") as string;
   const description = formData.get("description") as string;
   const price = formData.get("price");
@@ -43,30 +44,29 @@ export async function createProduct(_: any, formData: FormData) {
     errors.status = "status error message";
   }
 
-  if (Object.keys(errors).length > 0 || typeof price !== "number") {
+  if (Object.keys(errors).length > 0) {
     return errors;
   }
 
-  if (category !== "laptops" || "watches" || "phones") return;
+  if (category !== "laptops" && category !== "watches" && category !== "phones")
+    return;
   images = typeof images === "string" ? images.split(",") : [""];
 
-  console.log(product);
-  console.log(description);
-  console.log(status);
-  console.log(price);
-  console.log(images);
-  console.log(category);
-  console.log(featured);
+  await prisma.product.create({
+    data: {
+      name: product,
+      description,
+      status,
+      price: Number(price),
+      images,
+      category,
+      isFeatured: featured,
+    },
+  });
 
-  // await prisma.product.create({
-  //   data: {
-  //     name: product,
-  //     description,
-  //     status,
-  //     price,
-  //     images,
-  //     category,
-  //     isFeatured: featured,
-  //   },
-  // });
+  if (isArabic) {
+    redirect("/ar/dashboard/products");
+  } else {
+    redirect("/en/dashboard/products");
+  }
 }
