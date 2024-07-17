@@ -7,7 +7,7 @@ import { ProductErrors } from "../_utils/types";
 import prisma from "../_lib/db";
 import { ProductStatus } from "@prisma/client";
 
-export async function createProduct(_: any, formData: FormData) {
+export async function editProduct(_: any, formData: FormData) {
   const isArabic = formData.get("isArabic");
   const product = formData.get("product") as string;
   const description = formData.get("description") as string;

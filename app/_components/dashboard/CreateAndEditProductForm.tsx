@@ -13,13 +13,19 @@ import ErrorMessage from "../ui/ErrorMessage";
 import ModalImage from "../ui/ModalImage";
 import Switch from "../ui/Switch";
 import Selectors from "../ui/Selectors";
+import SubmitButton from "../ui/SubmitButton";
+import { ProductType } from "@/app/_utils/types";
+import { editProduct } from "@/app/_actions/editProduct";
 
-function CreateProductForm() {
-  const [state, formAction] = useFormState(createProduct, {});
+function CreateAndEditProductForm({ product }: { product?: ProductType }) {
+  const [state, formAction] = useFormState(
+    product ? editProduct : createProduct,
+    {}
+  );
 
-  const [isChecked, setIsChecked] = useState(false);
-  const [images, setImages] = useState<string[]>([]);
-  const { descriptionEl, productEl, priceEl, statusEl } =
+  const [isChecked, setIsChecked] = useState(product?.isFeatured);
+  const [images, setImages] = useState<string[]>(product?.images ?? []);
+  const { descriptionEl, productEl, priceEl, statusEl, categoryEl } =
     useElementsForm(state);
 
   const { t, isArabic } = useTranslate();
@@ -27,12 +33,15 @@ function CreateProductForm() {
   const handleDeleteImage = (index: number) => {
     setImages(images.filter((_: any, i) => i !== index));
   };
-  console.log(images);
 
   return (
     <form className="grid gap-3 grid-cols-1 mb-2" action={formAction}>
       <label htmlFor="name">{t("category")}:</label>
-      <Selectors chooses={["Phones", "Watches", "Laptops"]} />
+      <Selectors
+        chooses={["Phones", "Watches", "Laptops"]}
+        categoryEl={categoryEl}
+        product={product}
+      />
       {state?.category && <ErrorMessage>{t(state.category)}</ErrorMessage>}
 
       <label htmlFor="name">{t("Name")}:</label>
@@ -43,6 +52,7 @@ function CreateProductForm() {
         placeholder={t("New Product placeholder")}
         id="name"
         ref={productEl}
+        defaultValue={product?.name}
       />
       {state?.product && <ErrorMessage>{t(state.product)}</ErrorMessage>}
       <label htmlFor="description">{t("Description")}:</label>
@@ -52,6 +62,7 @@ function CreateProductForm() {
         rows={6}
         name="description"
         ref={descriptionEl}
+        defaultValue={product?.description}
       />
       {state?.description && (
         <ErrorMessage>{t(state.description)}</ErrorMessage>
@@ -63,21 +74,28 @@ function CreateProductForm() {
         id="price"
         name="price"
         ref={priceEl}
+        defaultValue={product?.price}
       />
       {state?.price && <ErrorMessage>{t(state.price)}</ErrorMessage>}
       <label>{t("Featured")}:</label>
       <Switch
-        checked={isChecked}
+        checked={isChecked ?? false}
         onChange={(checked: boolean) => setIsChecked(checked)}
+        product={product}
       />
       <label>{t("Status")}:</label>
-      <select defaultValue={""} className="mb-3" name="status" ref={statusEl}>
+      <select
+        defaultValue={product?.status ? product.status : ""}
+        className="mb-3"
+        name="status"
+        ref={statusEl}
+      >
         <option value="" disabled className="text-second-text">
           {t("Status label")}
         </option>
-        <option value="draft">{t("Draft")}</option>
-        <option value="published">{t("Published")}</option>
-        <option value="archived">{t("Archived")}</option>
+        <option value="draft">{t("draft")}</option>
+        <option value="published">{t("published")}</option>
+        <option value="archived">{t("archived")}</option>
       </select>
       {state?.status && <ErrorMessage>{t(state.status)}</ErrorMessage>}
 
@@ -108,11 +126,11 @@ function CreateProductForm() {
       {images.length > 0 && (
         <>
           <h3 className="title">{t("image photo")}</h3>
-          <ul className="grid-layout">
+          <ul className="flex gap-3 flex-wrap">
             {images.map((image, index) => (
               <ModalImage
                 image={
-                  <li>
+                  <li className="relative min-w-[200px] min-h-[300px] h-full">
                     <Button
                       className="m-1 relative z-30 "
                       color="error"
@@ -129,11 +147,11 @@ function CreateProductForm() {
                       src={image}
                       alt="Product Img"
                       fill
-                      className="rounded-lg"
+                      className="rounded-lg "
                     />
                   </li>
                 }
-                className="relative h-[300px]  rounded-lg "
+                className="relative min-h-[300px] max-w-[200px]  rounded-lg "
                 modalId={`${index}`}
                 key={index}
               />
@@ -141,12 +159,11 @@ function CreateProductForm() {
           </ul>
         </>
       )}
-      {/* <Button className="w-fit " size="lg" disabled={!image}> */}
-      <Button className="w-fit mt-3" size="lg">
-        {t("Create Product")}
-      </Button>
+      <SubmitButton className="w-fit mt-3" size="lg">
+        {t("Edit Product")}
+      </SubmitButton>
     </form>
   );
 }
 
-export default CreateProductForm;
+export default CreateAndEditProductForm;

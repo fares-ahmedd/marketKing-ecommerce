@@ -243,3 +243,52 @@ option:disabled {
   width: 50px;
   height: 25px;
 }
+
+.loader-en,
+.loader-ar {
+  color: #fff;
+  position: relative;
+  font-size: 23px;
+  margin-inline-end: 10px;
+}
+
+.loader-en::after,
+.loader-ar::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  position: absolute;
+  bottom: 10px;
+  inset-inline-end: -7px;
+}
+
+.loader-ar::after {
+  animation: animloader-ar 1s linear infinite;
+}
+@keyframes animloader-ar {
+  0% {
+    box-shadow: -10px 0 rgba(255, 0, 0, 0), -20px 0 rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: -10px 0 white, -20px 0 rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: -10px 0 white, -20px 0 white;
+  }
+}
+
+.loader-en::after {
+  animation: animloader-en 1s linear infinite;
+}
+@keyframes animloader-en {
+  0% {
+    box-shadow: 10px 0 rgba(255, 0, 0, 0), 20px 0 rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 10px 0 white, 20px 0 rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 10px 0 white, 20px 0 white;
+  }
+}

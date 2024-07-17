@@ -13,9 +13,11 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Price": "السعر",
-    "Draft": "مسودة",
-    "Published": "نشرت",
-    "Archived": "مؤرشف",
+    "draft": "مسودة",
+    "Edit Product": "تعديل المنتج",
+    "Product Edit title": "عدل علي خصائص المنتج",
+    "published": "نشرت",
+    "archived": "مؤرشف",
     "product error message": "بالرجاء كتابة اسم منتج صالح",
 
     "Featured": "متميز",
@@ -26,6 +28,7 @@
     "Failed Upload": "فشل تحميل الصورة",
     "Choose Product Image": "اختار الصورة",
     "category error message": "بالرجاء اختيار الفئة",
+    "Loading": "تحميل",
 
     "Actions": "الإجراءات",
     "King": "كينج",

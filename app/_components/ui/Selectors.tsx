@@ -1,11 +1,32 @@
 "use client";
 import { useTranslate } from "@/app/_hooks/useTranslate";
+import { ProductType } from "@/app/_utils/types";
 import { useState } from "react";
 
-function Selectors({ chooses }: { chooses: string[] }) {
+function Selectors({
+  chooses,
+  categoryEl,
+  product,
+}: {
+  chooses: string[];
+  categoryEl: React.RefObject<HTMLInputElement>;
+  product?: ProductType;
+}) {
+  function defaultActive() {
+    if (product?.category === "phones") {
+      return 0;
+    }
+    if (product?.category === "watches") {
+      return 1;
+    }
+    if (product?.category === "laptops") {
+      return 2;
+    }
+    return undefined;
+  }
   const { t } = useTranslate();
 
-  const [isActive, setIsActive] = useState<undefined | number>(undefined);
+  const [isActive, setIsActive] = useState<undefined | number>(defaultActive);
   return (
     <ul className="flex gap-2 flex-wrap">
       {chooses.map((choose, index) => (
@@ -23,6 +44,8 @@ function Selectors({ chooses }: { chooses: string[] }) {
             value={choose.toLocaleLowerCase()}
             className="absolute w-full h-full  left-0 top-0 cursor-pointer opacity-0   "
             name={"category"}
+            ref={categoryEl}
+            defaultChecked={index === isActive}
           />
           {t(choose)}
         </li>

@@ -5,12 +5,17 @@ export default function useElementsForm(state: ProductErrors | undefined) {
   const productEl = useRef<HTMLInputElement>(null);
   const descriptionEl = useRef<HTMLTextAreaElement>(null);
   const priceEl = useRef<HTMLInputElement>(null);
+  const categoryEl = useRef<HTMLInputElement>(null);
   const statusEl = useRef<HTMLSelectElement>(null);
 
   useEffect(() => {
+    if (categoryEl.current && state?.category) {
+      return categoryEl.current.focus();
+    }
     if (productEl?.current && state?.product) {
       return productEl.current.focus();
     }
+
     if (descriptionEl.current && state?.description) {
       return descriptionEl.current.focus();
     }
@@ -18,12 +23,11 @@ export default function useElementsForm(state: ProductErrors | undefined) {
       return priceEl.current.focus();
     }
     if (statusEl.current && state?.status) {
-      console.log("yes");
       setTimeout(() => {
         return statusEl.current?.focus();
       }, 0);
     }
-  }, [state, productEl, descriptionEl, priceEl, statusEl]);
+  }, [state, productEl, descriptionEl, priceEl, statusEl, categoryEl]);
 
-  return { productEl, descriptionEl, priceEl, statusEl };
+  return { productEl, descriptionEl, priceEl, statusEl, categoryEl };
 }

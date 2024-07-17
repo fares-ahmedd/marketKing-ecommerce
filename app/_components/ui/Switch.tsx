@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslate } from "@/app/_hooks/useTranslate";
+import { ProductType } from "@/app/_utils/types";
 import React from "react";
 import toast from "react-hot-toast";
 
@@ -8,12 +9,14 @@ interface SwitchProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
+  product?: ProductType;
 }
 
 const Switch: React.FC<SwitchProps> = ({
   checked,
   onChange,
   disabled = false,
+  product,
 }) => {
   const { t } = useTranslate();
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -35,6 +38,7 @@ const Switch: React.FC<SwitchProps> = ({
         onChange={handleChange}
         disabled={disabled}
         name="featured"
+        defaultChecked={product?.isFeatured}
       />
       <label
         className={`

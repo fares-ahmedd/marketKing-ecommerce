@@ -44,7 +44,7 @@ function ModalImage({
             layoutId={open}
             onClick={() => setOpen("")}
           >
-            <div className="h-[80%] w-[80%] relative">{image}</div>
+            <div className="h-[60%] w-[60%] relative">{image}</div>
           </motion.dialog>
         )}
       </AnimatePresence>

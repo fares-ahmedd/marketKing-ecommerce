@@ -1,14 +1,4 @@
-export enum ProductStatus {
-  DRAFT = "draft",
-  PUBLISHED = "published",
-  ARCHIVED = "archived",
-}
-
-enum Category {
-  LAPTOPS = "laptops",
-  PHONES = "phones",
-  WATCHES = "watches",
-}
+import { Category, ProductStatus } from "@prisma/client";
 
 export interface ProductType {
   name: string;
@@ -17,6 +7,7 @@ export interface ProductType {
   images: string[];
   status: ProductStatus;
   category: Category;
+  isFeatured: boolean;
 }
 
 export interface ProductErrors {
