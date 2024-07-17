@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { ProductErrors } from "../_utils/types";
 
@@ -29,5 +31,6 @@ export default function useElementsForm(state: ProductErrors | undefined) {
     }
   }, [state, productEl, descriptionEl, priceEl, statusEl, categoryEl]);
 
+  
   return { productEl, descriptionEl, priceEl, statusEl, categoryEl };
 }

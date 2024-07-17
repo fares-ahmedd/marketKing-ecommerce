@@ -4,7 +4,7 @@ import useElementsForm from "@/app/_hooks/useElementsForm";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import { UploadButton } from "@/app/_lib/uploadthing";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
 import { IoIosCloseCircle } from "react-icons/io";
@@ -16,8 +16,10 @@ import Selectors from "../ui/Selectors";
 import SubmitButton from "../ui/SubmitButton";
 import { ProductType } from "@/app/_utils/types";
 import { editProduct } from "@/app/_actions/editProduct";
+import { useRouter } from "next/navigation";
 
 function CreateAndEditProductForm({ product }: { product?: ProductType }) {
+  const router = useRouter();
   const [state, formAction] = useFormState(
     product ? editProduct : createProduct,
     {}
@@ -34,6 +36,26 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
     setImages(images.filter((_: any, i) => i !== index));
   };
 
+  useEffect(() => {
+    if (state?.success && product) {
+      toast.success(t("edit success"));
+      router.push(
+        isArabic ? "/ar/dashboard/products" : "/en/dashboard/products"
+      );
+    }
+    if (state?.success === false && product) {
+      toast.error(t("edit failed"));
+    }
+    if (state?.success) {
+      toast.success(t("create success"));
+      router.push(
+        isArabic ? "/ar/dashboard/products" : "/en/dashboard/products"
+      );
+    }
+    if (state?.success === false) {
+      toast.error(t("create failed"));
+    }
+  }, [state?.success, product, t, router, isArabic]);
   return (
     <form className="grid gap-3 grid-cols-1 mb-2" action={formAction}>
       <label htmlFor="name">{t("category")}:</label>
@@ -108,13 +130,17 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
               button: t("Choose Product Image"),
             }}
             onClientUploadComplete={(res) => {
+              console.log("uploaded done!");
+
               setImages((prevImages) => [
                 ...prevImages,
                 ...res.map((r) => r.url),
               ]);
               toast.success(t("Finish Upload"));
             }}
-            onUploadError={() => {
+            onUploadError={(e) => {
+              console.log(e);
+
               toast.error(t("Failed Upload"));
             }}
           />
@@ -123,6 +149,7 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
       {state?.image && <ErrorMessage>{t(state.image)}</ErrorMessage>}
       <input type="hidden" name="images" value={images || ""} />
       <input type="hidden" name="isArabic" value={isArabic ? "yes" : ""} />
+      <input type="hidden" name="productId" value={product?.id} />
       {images.length > 0 && (
         <>
           <h3 className="title">{t("image photo")}</h3>

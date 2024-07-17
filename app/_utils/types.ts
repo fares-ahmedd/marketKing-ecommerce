@@ -8,6 +8,7 @@ export interface ProductType {
   status: ProductStatus;
   category: Category;
   isFeatured: boolean;
+  id: string;
 }
 
 export interface ProductErrors {
@@ -18,4 +19,5 @@ export interface ProductErrors {
   status?: string;
   image?: string;
   category?: string;
+  success?: boolean;
 }

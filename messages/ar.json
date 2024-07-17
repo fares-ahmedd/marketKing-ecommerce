@@ -19,6 +19,10 @@
     "published": "نشرت",
     "archived": "مؤرشف",
     "product error message": "بالرجاء كتابة اسم منتج صالح",
+    "edit success": "تم تعديل المنتج بنجاح",
+    "edit failed": "فشل تعديل المنتج",
+    "create success": "تم انشاء المنتج بنجاح",
+    "create failed": "فشل انشاء المنتج",
 
     "Featured": "متميز",
     "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",

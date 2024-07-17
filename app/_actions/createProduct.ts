@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { ProductErrors } from "../_utils/types";
 import prisma from "../_lib/db";
 import { ProductStatus } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 export async function createProduct(_: any, formData: FormData) {
   const isArabic = formData.get("isArabic");
@@ -51,21 +52,25 @@ export async function createProduct(_: any, formData: FormData) {
     return;
   images = typeof images === "string" ? images.split(",") : [""];
 
-  await prisma.product.create({
-    data: {
-      name: product,
-      description,
-      status,
-      price: Number(price),
-      images,
-      category,
-      isFeatured: featured,
-    },
-  });
-
-  if (isArabic) {
-    redirect("/ar/dashboard/products");
-  } else {
-    redirect("/en/dashboard/products");
+  try {
+    await prisma.product.create({
+      data: {
+        name: product,
+        description,
+        status,
+        price: Number(price),
+        images,
+        category,
+        isFeatured: featured,
+      },
+    });
+    if (isArabic) {
+      revalidatePath("/ar/dashboard", "layout");
+    } else {
+      revalidatePath("/en/dashboard", "layout");
+    }
+    return { success: true };
+  } catch {
+    return { success: false };
   }
 }

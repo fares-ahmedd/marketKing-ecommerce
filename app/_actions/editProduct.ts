@@ -6,8 +6,11 @@ import { redirect } from "next/navigation";
 import { ProductErrors } from "../_utils/types";
 import prisma from "../_lib/db";
 import { ProductStatus } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 export async function editProduct(_: any, formData: FormData) {
+  const productId = formData.get("productId") as string;
+
   const isArabic = formData.get("isArabic");
   const product = formData.get("product") as string;
   const description = formData.get("description") as string;
@@ -51,21 +54,30 @@ export async function editProduct(_: any, formData: FormData) {
     return;
   images = typeof images === "string" ? images.split(",") : [""];
 
-  await prisma.product.create({
-    data: {
-      name: product,
-      description,
-      status,
-      price: Number(price),
-      images,
-      category,
-      isFeatured: featured,
-    },
-  });
+  try {
+    await prisma.product.update({
+      where: {
+        id: productId,
+      },
+      data: {
+        name: product,
+        description,
+        status,
+        price: Number(price),
+        images,
+        category,
+        isFeatured: featured,
+      },
+    });
 
-  if (isArabic) {
-    redirect("/ar/dashboard/products");
-  } else {
-    redirect("/en/dashboard/products");
+    if (isArabic) {
+      revalidatePath("/ar/dashboard", "layout");
+    } else {
+      revalidatePath("/en/dashboard", "layout");
+    }
+
+    return { success: true };
+  } catch {
+    return { success: false };
   }
 }
