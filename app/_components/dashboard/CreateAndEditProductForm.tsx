@@ -46,13 +46,13 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
     if (state?.success === false && product) {
       toast.error(t("edit failed"));
     }
-    if (state?.success) {
+    if (state?.success && !product) {
       toast.success(t("create success"));
       router.push(
         isArabic ? "/ar/dashboard/products" : "/en/dashboard/products"
       );
     }
-    if (state?.success === false) {
+    if (state?.success === false && !product) {
       toast.error(t("create failed"));
     }
   }, [state?.success, product, t, router, isArabic]);
@@ -187,7 +187,7 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
         </>
       )}
       <SubmitButton className="w-fit mt-3" size="lg">
-        {t("Edit Product")}
+        {product ? t("Edit Product") : t("Create Product")}
       </SubmitButton>
     </form>
   );
