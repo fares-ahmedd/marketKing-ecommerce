@@ -23,7 +23,10 @@ function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
   const { t } = useTranslate();
   return (
     <main className="container-layout my-3">
-      <MyLink href="/dashboard/products/create">
+      <MyLink
+        href="/dashboard/products/create"
+        className=" block w-fit ms-auto"
+      >
         <Button className="flex-items-center gap-2 ms-auto mt-3" size="md">
           <span>{t("Add Products")}</span> <IoMdAddCircleOutline />{" "}
         </Button>

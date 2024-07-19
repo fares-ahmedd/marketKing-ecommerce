@@ -36,7 +36,7 @@ const Button = ({
   };
   const colorStyles = {
     primary:
-      "bg-primary-bg-color   hover:bg-primary-color-hover  disabled:bg-stone-700  text-black dark:text-white",
+      "bg-primary-bg-color   hover:bg-primary-color-hover  disabled:bg-green-700  text-black dark:text-white",
     black:
       "bg-black   hover:bg-black/80  disabled:bg-stone-700 text-white dark:hover:bg-black/50 ",
     white:

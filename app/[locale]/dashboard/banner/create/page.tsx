@@ -1,4 +1,4 @@
-import CreateAndEditProductForm from "@/app/_components/dashboard/CreateAndEditProductForm";
+import CreateBanner from "@/app/_components/dashboard/CreateBanner";
 import IconButton from "@/app/_components/ui/IconButton";
 import MyLink from "@/app/_components/ui/MyLink";
 import { useTranslate } from "@/app/_hooks/useTranslate";
@@ -13,39 +13,38 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
-    title: `${t("New Product")}`,
+    title: `${t("Create Banner")}`,
   };
 }
 
-function ProductCreateRoute({
+function BannerCreatePage({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
-
   const { t, isArabic } = useTranslate();
+
   return (
-    <main className="container-layout my-3 max-w-[1080px]">
+    <main className="container-layout my-3">
       <div className="flex-items-center gap-3">
-        <MyLink href="/dashboard/products">
+        <MyLink href="/dashboard/products/banner">
           <IconButton>
             {isArabic ? <IoMdArrowRoundForward /> : <IoMdArrowRoundBack />}
           </IconButton>
         </MyLink>
-        <h2 className="title ">{t("New Product")}</h2>
+        <h2 className="title">{t("New Banner")}</h2>
       </div>
-
       <section className="card mt-6">
         <h3 className="title mb-2">{t("Banner Details")}</h3>
         <p className="text-sm text-second-text mb-4">
           {t("Banner Details title")}
         </p>
 
-        <CreateAndEditProductForm />
+        <CreateBanner />
       </section>
     </main>
   );
 }
 
-export default ProductCreateRoute;
+export default BannerCreatePage;

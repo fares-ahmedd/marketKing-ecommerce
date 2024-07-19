@@ -21,3 +21,9 @@ export interface ProductErrors {
   category?: string;
   success?: boolean;
 }
+
+export interface BannerErrors {
+  banner?: string;
+  image?: string;
+  success?: boolean;
+}

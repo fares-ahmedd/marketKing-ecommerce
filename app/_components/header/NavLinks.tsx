@@ -11,7 +11,7 @@ const dashboardNavLinks = [
   { label: "Dashboard", href: "/dashboard" },
   { label: "Orders", href: "/dashboard/orders" },
   { label: "Products", href: "/dashboard/products" },
-  { label: "Banner Picture", href: "/dashboard/banner-picture" },
+  { label: "Banner Picture", href: "/dashboard/banner" },
 ];
 type Props = {
   isDashboard?: boolean;

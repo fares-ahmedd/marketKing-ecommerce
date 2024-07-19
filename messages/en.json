@@ -80,9 +80,20 @@
     "Featured Mode": "Product in feature mode",
     "Featured Mode disabled": "Product not feature mode",
     "Product Details": "Product Details",
+    "Add Banner": "Add Banner",
+    "title": "Title",
+
+    "Banners": "Banners",
+    "Create Banner": "Create Banner",
+    "banner error message": "Please Type a valid banner name",
+    "New Banner placeholder": "Please Type Your Banner Name",
+    "Banner Details": "Banner Details",
+    "Banner Details title": "Please complete the form to create a new banner",
+    "Manage Banners": "Manage Your Banners",
     "Product Details title": "in this form you can create a new product",
     "New Product placeholder": "Please Type your new product",
-    "Add Products": "Add Products"
+    "Add Products": "Add Products",
+    "New Banner": "New Banner"
   },
   "metadata": {
     "title": "MarketKing",
@@ -91,7 +102,9 @@
     "Products": "Products",
     "Orders": "Orders",
     "Delete": "Delete Product",
+    "Banner": "Banner Picture",
     "Edit": "Edit Product",
+    "Create Banner": "Create Banner",
 
     "New Product": "New Product"
   }

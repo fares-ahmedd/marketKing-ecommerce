@@ -62,10 +62,14 @@
     "Transitions label": "أخر تحويلات تمت منذ 7 ايام",
     "Recent Sales": "المبيعات الأخيرة",
     "Customer": "العميل",
+    "Create Banner": "إنشاء بانر",
+    "New Banner placeholder": "بالرجاء كتابة اسم البانر",
+    "banner error message": "بالرجاء كتابة اسم صالح للبانر",
+
     "Status": "الحالات",
     "image photo": "صور المنتج",
     "category": "الفئة",
-
+    "title": "العنوان",
     "Status label": "بالرجاء اختيار حالة المنتج",
     "description error message": "بالرجاء كتابة وصف للمنتج",
     "status error message": "بالرجاء اختيار حالة المنتج",
@@ -86,6 +90,12 @@
     "Featured Mode disabled": "هذا المنتج الان ليس في وضع التميز",
     "deleted product success": "تم حذف المنتج بنجاح",
     "deleted product failed": "فشل حذف المنتج",
+    "Add Banner": "اضافة بانر",
+    "Banners": "بانرات",
+    "Banner Details": "تفاصيل البانر",
+    "Banner Details title": "بالرجاء ملئ البيانات لانشاء بانر جديد",
+    "Manage Banners": "تحكم في البانرات الخاصة بك",
+    "New Banner": "بانر جديد",
 
     "Product Details title": "في هذه الحقول يمكنك انشاء منتج جديد",
     "Add Products": "أضف منتجات"
@@ -98,7 +108,8 @@
     "Orders": "الطلبات",
     "Delete": "حذف المنتج",
     "Edit": "تعديل المنتج",
-
+    "Banner": "صورة البانر",
+    "Create Banner": "إنشاء بانر",
     "New Product": "منتج جديد"
   }
 }
