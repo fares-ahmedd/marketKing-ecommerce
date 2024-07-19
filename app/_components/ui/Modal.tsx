@@ -76,25 +76,25 @@ interface ContentProps {
 }
 
 function Content({ id, children }: ContentProps) {
-  // await new Promise((res) => setTimeout(res, 500));
   const { openId, close } = useModalContext();
   const elementRef = useRef<HTMLDivElement>(null);
 
   useClickOutside([elementRef], () => {
     close();
   });
+  // await new Promise((res) => setTimeout(res, 500));
 
   if (openId !== id) return null;
 
   return createPortal(
-    <dialog className="fixed z-[150] w-full h-screen flex-center bg-black/30 top-0 left-0  overflow-auto ">
-      <div
-        ref={elementRef}
-        className={`z-[200] w-[90%] md:w-[70%] max-w-[650px] `}
-      >
+    <div
+      className="fixed z-[150] w-full h-screen flex-center bg-black/30 top-0 left-0  overflow-auto "
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div ref={elementRef} className={` w-[90%] md:w-[70%] max-w-[650px] `}>
         {children({ close })}
       </div>
-    </dialog>,
+    </div>,
     document.body
   );
 }

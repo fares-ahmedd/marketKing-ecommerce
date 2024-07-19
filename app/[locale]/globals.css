@@ -248,8 +248,7 @@ option:disabled {
 .loader-ar {
   color: #fff;
   position: relative;
-  font-size: 23px;
-  margin-inline-end: 10px;
+  margin-inline-end: 14px;
 }
 
 .loader-en::after,

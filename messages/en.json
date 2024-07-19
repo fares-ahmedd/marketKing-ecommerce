@@ -69,6 +69,8 @@
     "Edit Product": "Edit Product",
     "Product Edit title": "Edit product properties",
     "Sale": "Sale",
+    "deleted product success": "Deleted product successfully",
+    "deleted product failed": "Deleted product Failed",
     "edit success": "Edit Product successfully",
     "edit failed": "Edit Product failed",
     "create success": "Create Product Successfully",
@@ -88,6 +90,9 @@
     "Dashboard": "Dashboard",
     "Products": "Products",
     "Orders": "Orders",
+    "Delete": "Delete Product",
+    "Edit": "Edit Product",
+
     "New Product": "New Product"
   }
 }

@@ -1,4 +1,5 @@
 import { useTranslate } from "@/app/_hooks/useTranslate";
+import { ADMIN_EMAIL, getTranslate } from "@/app/_utils/helpers";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -9,11 +10,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
+import { redirect } from "next/navigation";
 
-function User({ user }: { user: KindeUser }) {
-  const { t, isArabic } = useTranslate();
+async function User() {
+  const { getUser } = getKindeServerSession();
 
+  const user = await getUser();
+
+  const { t, isArabic } = await getTranslate();
+
+  if (!user || user.email !== ADMIN_EMAIL) {
+    return redirect("/");
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

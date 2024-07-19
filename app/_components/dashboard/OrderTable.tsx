@@ -13,7 +13,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import IconButton from "../ui/IconButton";
 import ModalImage from "../ui/ModalImage";
 import MyLink from "../ui/MyLink";
-import DeleteProduct from "./DeleteProduct";
 
 async function getProducts() {
   const products = await prisma.product.findMany({
@@ -87,7 +86,16 @@ async function OrderTable() {
                         {t("Edit")}
                       </MyLink>
                     </DropdownMenuItem>
-                    <DeleteProduct />
+                    <DropdownMenuItem
+                      className={`${
+                        isArabic && "text-rtl"
+                      } cursor-pointer hover:bg-sec-background`}
+                      asChild
+                    >
+                      <MyLink href={`/dashboard/products/${product.id}/delete`}>
+                        {t("Delete")}
+                      </MyLink>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </th>

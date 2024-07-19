@@ -3,8 +3,21 @@ import IconButton from "@/app/_components/ui/IconButton";
 import MyLink from "@/app/_components/ui/MyLink";
 import prisma from "@/app/_lib/db";
 import { getTranslate } from "@/app/_utils/helpers";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: `${t("Edit")}`,
+  };
+}
 
 async function getProduct(productId: string) {
   const product = await prisma.product.findUnique({
@@ -22,10 +35,11 @@ async function getProduct(productId: string) {
 export default async function EditRoute({
   params,
 }: {
-  params: { id: string };
+  params: { id: string; locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
+
   const product = await getProduct(params.id);
-  // console.log(product);
 
   const { t, isArabic } = await getTranslate();
   return (
