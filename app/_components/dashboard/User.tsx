@@ -1,4 +1,3 @@
-import { useTranslate } from "@/app/_hooks/useTranslate";
 import { ADMIN_EMAIL, getTranslate } from "@/app/_utils/helpers";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 import { redirect } from "next/navigation";
 
 async function User() {

@@ -3,7 +3,7 @@ import { createBanner } from "@/app/_actions/createBanner";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import { UploadButton } from "@/app/_lib/uploadthing";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
 import { IoIosCloseCircle } from "react-icons/io";
@@ -11,14 +11,25 @@ import Button from "../ui/Button";
 import ModalImage from "../ui/ModalImage";
 import SubmitButton from "../ui/SubmitButton";
 import ErrorMessage from "../ui/ErrorMessage";
+import { useRouter } from "next/navigation";
 
 function CreateBanner() {
-  const [images, setImages] = useState<string[]>([]);
+  const [image, setImage] = useState<string[]>([]);
   const [state, formAction] = useFormState(createBanner, {});
-  const { t } = useTranslate();
+  const { t, isArabic } = useTranslate();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state?.success) {
+      toast.success(t("create success banner"));
+      router.push(isArabic ? "/ar/dashboard/banner" : "/en/dashboard/banner");
+    } else if (state?.success === false) {
+      toast.error(t("create failed banner"));
+    }
+  }, [state?.success, t, router, isArabic]);
 
   const handleDeleteImage = (index: number) => {
-    setImages(images.filter((_: any, i) => i !== index));
+    setImage(image.filter((_: any, i) => i !== index));
   };
   return (
     <form className="grid gap-3 grid-cols-1 mb-2" action={formAction}>
@@ -32,38 +43,35 @@ function CreateBanner() {
       />
       {state?.banner && <ErrorMessage>{t(state.banner)}</ErrorMessage>}
 
-      {images.length < 1 && (
+      {image.length < 1 && (
         <section className="flex flex-col h-[300px] justify-center items-center p-12 border-2 border-dashed border-primary/50 rounded mt-4 relative  hover:border mb-3 ">
           <UploadButton
             endpoint="bannerImageRoute"
             content={{
-              allowedContent: t("Images up to 4MB, max 10"),
+              allowedContent: t("Images up to 4MB, max 1"),
               button: t("Choose Product Image"),
             }}
             onClientUploadComplete={(res) => {
               console.log("uploaded done!");
 
-              setImages((prevImages) => [
-                ...prevImages,
-                ...res.map((r) => r.url),
-              ]);
-              toast.success(t("Finish Upload"));
+              setImage((prevImage) => [...prevImage, ...res.map((r) => r.url)]);
+              toast.success(t("Finish Upload Banner"));
             }}
             onUploadError={(e) => {
               console.log(e);
 
-              toast.error(t("Failed Upload"));
+              toast.error(t("failed Upload Banner"));
             }}
           />
         </section>
       )}
-      <input type="hidden" name="images" value={images || ""} />
+      <input type="hidden" name="image" value={image[0] || ""} />
 
-      {images.length > 0 && (
+      {image.length > 0 && (
         <>
-          <h3 className="title">{t("image photo")}</h3>
+          <h3 className="title">{t("Banner Image")}</h3>
           <ul className="flex gap-3 flex-wrap">
-            {images.map((image, index) => (
+            {image.map((image, index) => (
               <ModalImage
                 image={
                   <li className="relative min-w-[200px] min-h-[300px] h-full">

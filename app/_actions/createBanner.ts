@@ -4,11 +4,13 @@ import { redirect } from "next/navigation";
 import { ADMIN_EMAIL, getTranslate } from "../_utils/helpers";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BannerErrors } from "../_utils/types";
+import prisma from "../_lib/db";
+import { revalidatePath } from "next/cache";
 
 export async function createBanner(_: any, formData: FormData) {
   const { isArabic } = await getTranslate();
   const banner = formData.get("banner") as string;
-  let images = formData.get("images") as string | string[];
+  let image = formData.get("image") as string;
 
   const { getUser } = getKindeServerSession();
   const user = await getUser();
@@ -23,7 +25,7 @@ export async function createBanner(_: any, formData: FormData) {
     errors.banner = "banner error message";
   }
 
-  if (!images || images.length === 0) {
+  if (!image || image.trim().length === 0) {
     errors.image = "image error message";
   }
 
@@ -31,8 +33,15 @@ export async function createBanner(_: any, formData: FormData) {
     return errors;
   }
 
-  images = typeof images === "string" ? images.split(",") : [""];
-
-  console.log(banner);
-  console.log(images);
+  try {
+    await prisma.banner.create({
+      data: {
+        title: banner,
+        imageString: image,
+      },
+    });
+    return { success: true };
+  } catch {
+    return { success: false };
+  }
 }
