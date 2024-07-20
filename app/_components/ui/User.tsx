@@ -11,7 +11,7 @@ import {
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-
+import unknown from "@/public/unknownUser.jpg";
 async function User() {
   const { getUser } = getKindeServerSession();
 
@@ -22,17 +22,23 @@ async function User() {
   if (!user || user.email !== ADMIN_EMAIL) {
     return redirect("/");
   }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="cursor-pointer">
-          <AvatarImage src={user.picture || ""} />
+          <AvatarImage src={"" ?? unknown.src} />
           <AvatarFallback className="w-[40px] h-[40px] rounded-full bg-main-background animate-skeleton"></AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
-        <DropdownMenuLabel className={`${isArabic && "text-rtl"} capitalize`}>
-          {user.given_name} {user.family_name}
+        <DropdownMenuLabel>
+          <p className={`capitalize text-center`}>
+            {user.given_name} {user.family_name}
+          </p>
+          <p className={`mt-2 text-xs text-second-text leading-none  `}>
+            {user.email}
+          </p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer" asChild>

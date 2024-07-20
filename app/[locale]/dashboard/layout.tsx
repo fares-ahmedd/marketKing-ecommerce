@@ -1,4 +1,4 @@
-import User from "@/app/_components/dashboard/User";
+import User from "@/app/_components/ui/User";
 import Header from "@/app/_components/header/Header";
 import NavLinks from "@/app/_components/header/NavLinks";
 import ChangeLanguage from "@/app/_components/ui/ChangeLanguage";
