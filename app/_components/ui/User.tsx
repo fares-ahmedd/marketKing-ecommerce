@@ -27,7 +27,7 @@ async function User() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="cursor-pointer">
-          <AvatarImage src={"" ?? unknown.src} />
+          <AvatarImage src={user.picture ? user.picture : unknown.src} />
           <AvatarFallback className="w-[40px] h-[40px] rounded-full bg-main-background animate-skeleton"></AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>

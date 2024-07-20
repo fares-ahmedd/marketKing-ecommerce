@@ -2,6 +2,7 @@ import Header from "@/app/_components/header/Header";
 import Logo from "@/app/_components/header/Logo";
 import NavLinks from "@/app/_components/header/NavLinks";
 import Auth from "@/app/_components/marketking/Auth";
+import Footer from "@/app/_components/marketking/Footer";
 import { unstable_setRequestLocale } from "next-intl/server";
 import React from "react";
 
@@ -21,8 +22,10 @@ export default function MarkKingLayout({
         <NavLinks />
         <Auth />
       </Header>
-
-      {children}
+      <main className="min-h-[calc(100vh-60px)] overflow-y-auto flex flex-col justify-between">
+        {children}
+        <Footer />
+      </main>
     </>
   );
 }
