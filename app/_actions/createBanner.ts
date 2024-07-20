@@ -3,10 +3,12 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import prisma from "../_lib/db";
-import { ADMIN_EMAIL } from "../_utils/helpers";
+import { ADMIN_EMAIL, getTranslate } from "../_utils/helpers";
 import { BannerErrors } from "../_utils/types";
+import { revalidatePath } from "next/cache";
 
 export async function createBanner(_: any, formData: FormData) {
+  const { isArabic } = await getTranslate();
   const banner = formData.get("banner") as string;
   let image = formData.get("image") as string;
 
@@ -38,6 +40,12 @@ export async function createBanner(_: any, formData: FormData) {
         imageString: image,
       },
     });
+    if (isArabic) {
+      revalidatePath("/ar/dashboard", "layout");
+    } else {
+      revalidatePath("/en/dashboard", "layout");
+    }
+
     return { success: true };
   } catch {
     return { success: false };

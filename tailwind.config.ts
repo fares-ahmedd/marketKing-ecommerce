@@ -18,6 +18,7 @@ const config = {
         "2xl": "1400px",
       },
     },
+    screens: { md: "850px" },
     extend: {
       colors: {
         "main-background": "var(--main-background)",

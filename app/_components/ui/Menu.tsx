@@ -27,7 +27,7 @@ function Menu() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <IconButton className="sm:hidden">
+        <IconButton className="block md:hidden ">
           <FaBars className="h-5 w-5" />
         </IconButton>
       </SheetTrigger>
