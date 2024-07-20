@@ -10,7 +10,11 @@ function Logo({ isLink = true }: LogoProps) {
   const { t, isArabic } = useTranslate();
 
   const logoContent = (
-    <h1 className="text-xl md:text-2xl tracking-wide relative text-rtl">
+    <h1
+      className={`text-xl md:text-2xl tracking-wide relative text-rtl w-fit ${
+        !isLink && "mt-4"
+      }`}
+    >
       {t("Market")}
       <span
         className={`text-primary-color ${

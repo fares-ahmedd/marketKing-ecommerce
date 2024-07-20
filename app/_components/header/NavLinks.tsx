@@ -1,18 +1,6 @@
+import { dashboardNavLinks, homeNavLinks } from "@/app/_utils/helpers";
 import NavLink from "./NavLink";
 
-const homeNavLinks = [
-  { label: "Home", href: "/" },
-  { label: "All Products", href: "/all-products" },
-  { label: "Phones", href: "/phones" },
-  { label: "Laptops", href: "/laptops" },
-  { label: "Watches", href: "/watches" },
-];
-const dashboardNavLinks = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Orders", href: "/dashboard/orders" },
-  { label: "Products", href: "/dashboard/products" },
-  { label: "Banner Picture", href: "/dashboard/banner" },
-];
 type Props = {
   isDashboard?: boolean;
 };

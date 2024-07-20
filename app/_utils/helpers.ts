@@ -21,3 +21,17 @@ export async function formatDate(date: Date) {
     hour12: true,
   }).format(date);
 }
+
+export const homeNavLinks = [
+  { label: "Home", href: "/" },
+  { label: "All Products", href: "/all-products" },
+  { label: "Phones", href: "/phones" },
+  { label: "Laptops", href: "/laptops" },
+  { label: "Watches", href: "/watches" },
+];
+export const dashboardNavLinks = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Orders", href: "/dashboard/orders" },
+  { label: "Products", href: "/dashboard/products" },
+  { label: "Banner Picture", href: "/dashboard/banner" },
+];

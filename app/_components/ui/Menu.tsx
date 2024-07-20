@@ -7,18 +7,14 @@ import Logo from "../header/Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { dashboardNavLinks, homeNavLinks } from "@/app/_utils/helpers";
 
-const dashboardNavLinks = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Orders", href: "/dashboard/orders" },
-  { label: "Products", href: "/dashboard/products" },
-  { label: "Banner Picture", href: "/dashboard/banner-picture" },
-];
-
-function Menu() {
+function Menu({ isDashboard = false }: { isDashboard?: boolean }) {
   const { isArabic, t, lang } = useTranslate();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  const navLinks = isDashboard ? dashboardNavLinks : homeNavLinks;
 
   const handleLinkClick = () => {
     setOpen(false);
@@ -35,7 +31,7 @@ function Menu() {
         <Logo isLink={false} />
         <nav className="mt-4">
           <ul className="text-lg font-bold flex flex-col gap-4">
-            {dashboardNavLinks.map((link) => {
+            {navLinks.map((link) => {
               const isActive =
                 pathname === `/${lang}${link.href === "/" ? "" : link.href}`;
               return (

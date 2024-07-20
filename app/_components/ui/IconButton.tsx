@@ -13,7 +13,7 @@ const IconButton = ({
   return (
     <button
       className={`
-        relative overflow-hidden font-bold   border  hover-border
+        relative  font-bold   border  hover-border
          p-2 text-lg md:text-xl rounded-md  duration-400 ease-in-out
          hover:bg-hover-button
             ${className} ${isClickable && "active:scale-95"}

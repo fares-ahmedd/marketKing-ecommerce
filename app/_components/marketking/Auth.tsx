@@ -8,14 +8,9 @@ import Button from "../ui/Button";
 import { FaShoppingCart } from "react-icons/fa";
 import IconButton from "../ui/IconButton";
 import { TbWorld } from "react-icons/tb";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
+import Menu from "../ui/Menu";
+import ChangeLanguage from "../ui/ChangeLanguage";
 
 async function Auth() {
   const { t, isArabic } = await getTranslate();
@@ -26,8 +21,11 @@ async function Auth() {
   return (
     <div className="flex-center gap-2">
       {user ? (
-        <IconButton>
+        <IconButton className="relative ">
           <FaShoppingCart />
+          <span className="bg-primary-bg-color text-main-text absolute -top-3 -start-1 text-sm px-1 rounded-lg">
+            5
+          </span>
         </IconButton>
       ) : (
         <div className="flex-center gap-3">
@@ -39,24 +37,9 @@ async function Auth() {
           </Button>
         </div>
       )}
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <IconButton>
-            <TbWorld />
-          </IconButton>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="center">
-          <DropdownMenuLabel className={`${isArabic && "text-rtl"}`}>
-            {t("Choose Your Language")}
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            className={`${isArabic && "text-rtl"} cursor-pointer`}
-          >
-            {isArabic ? t("English") : t("Arabic")}
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <ChangeLanguage />
+
+      <Menu />
     </div>
   );
 }
