@@ -28,8 +28,10 @@
     "failed Upload Banner": "فشل تحميل صورة البانر",
     "create success banner": "تم إنشاء البانر بنجاح",
     "create failed banner": "فشل إنشاء البانر !",
-
+    "Images up to 4MB, max 10": "الصور يصل حجممها الى 4ميغابايت , بحد اقصي 10 صور",
     "Featured": "متميز",
+    "Buy Now": "إشتري الأن",
+
     "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",
     "Images up to 4MB, max 1": "الصور يصل حجمها إلى 4 ميغابايت، بحد أقصى 1 صورة",
     "Price placeholder": "بالرجاء كتابة سعر المنتج الخاص بك",
@@ -51,7 +53,7 @@
     "Shop Now": "تسوق الأن",
     "Shop By": "تسوق حسب الاقسام",
     "Browse All": "تسوق جميع المنتجات",
-
+    "Featured Items": "السلع المتميزة",
     "Actions": "الإجراءات",
     "King": "كينج",
     "Dashboard": "لوحة التحكم",

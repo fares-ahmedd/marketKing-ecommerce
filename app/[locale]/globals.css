@@ -291,3 +291,29 @@ option:disabled {
     box-shadow: 10px 0 white, 20px 0 white;
   }
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+
+.animate-marquee {
+  animation: marquee 100s linear infinite;
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100% - 100vw));
+  }
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 100s linear infinite;
+}
