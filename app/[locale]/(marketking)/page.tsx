@@ -1,4 +1,5 @@
 import BannerSlider from "@/app/_components/marketking/BannerSlider";
+import CategorySelection from "@/app/_components/marketking/CategorySelection";
 import prisma from "@/app/_lib/db";
 import { unstable_setRequestLocale } from "next-intl/server";
 
@@ -13,6 +14,7 @@ export default async function HomePage({
   return (
     <div className="container-layout py-3">
       <BannerSlider banners={banners} />
+      <CategorySelection />
     </div>
   );
 }

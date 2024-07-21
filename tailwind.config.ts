@@ -18,7 +18,13 @@ const config = {
         "2xl": "1400px",
       },
     },
-    screens: { md: "850px" },
+    screens: {
+      sm: "640px",
+      md: "850px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         "main-background": "var(--main-background)",
@@ -97,6 +103,9 @@ const config = {
         smooth: "smooth 1s ease-in-out ",
       },
     },
+  },
+  corePlugins: {
+    aspectRatio: false,
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
