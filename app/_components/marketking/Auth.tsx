@@ -22,7 +22,6 @@ async function Auth() {
     <div className="flex-center gap-2">
       <ChangeLanguage />
       <ToggleTheme />
-      <Menu />
       {user ? (
         <>
           <ShoppingCart />
@@ -30,10 +29,14 @@ async function Auth() {
         </>
       ) : (
         <div className="flex-center gap-3">
-          <Button size="sm" color="black" className="max-sm:text-sm">
+          <Button size="sm" color="black" className="max-sm:text-xs py-2">
             <LoginLink>{t("Login")}</LoginLink>
           </Button>
-          <Button size="sm" color="white" className="border max-sm:text-sm">
+          <Button
+            size="sm"
+            color="white"
+            className="border max-sm:text-xs py-2"
+          >
             <RegisterLink>{t("Sign Up")}</RegisterLink>
           </Button>
         </div>

@@ -25,36 +25,9 @@ function Header({ children }: { children: React.ReactNode }) {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <div className="container-layout flex-between ">
-        {children}
-        {/* <Suspense fallback={<div>Loading...</div>}>
-          <LanguageSwitcher />
-        </Suspense> */}
-      </div>
+      <div className="container-layout flex-between ">{children}</div>
     </motion.header>
   );
 }
 
 export default Header;
-
-// function LanguageSwitcher() {
-//   const router = useRouter();
-//   const pathname = usePathname();
-//   const searchParams = useSearchParams();
-
-//   const changeLocale = (locale: string) => {
-//     const segments = pathname.split("/");
-//     segments[1] = locale;
-//     const newPathname = segments.join("/");
-//     const queryString = searchParams.toString();
-//     const url = queryString ? `${newPathname}?${queryString}` : newPathname;
-//     router.push(url);
-//   };
-
-//   return (
-//     <>
-//       <h3 onClick={() => changeLocale("en")}>English</h3>
-//       <h3 onClick={() => changeLocale("ar")}>عربي</h3>
-//     </>
-//   );
-// }

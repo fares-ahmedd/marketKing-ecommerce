@@ -36,7 +36,7 @@ function CategorySelection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-55 duration-300 group-hover:to-transparent transition-all" />
           <div className="absolute bottom-3 start-3 px-4 duration-300 group-hover:bg-black/50 rounded-full  ">
             <h3 className="text-white title">{t("Phones")}</h3>
-            <p>{t("Shop Now")}</p>
+            <p className="text-white">{t("Shop Now")}</p>
           </div>
 
           <button
@@ -62,7 +62,7 @@ function CategorySelection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-55 duration-300 group-hover:to-transparent transition-all" />
           <div className="absolute bottom-3 start-3 px-4 duration-300 group-hover:bg-black/50 rounded-full  ">
             <h3 className="text-white title">{t("Watches")}</h3>
-            <p>{t("Shop Now")}</p>
+            <p className="text-white">{t("Shop Now")}</p>
           </div>
 
           <button
@@ -87,7 +87,7 @@ function CategorySelection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-55 duration-300 group-hover:to-transparent transition-all" />
           <div className="absolute bottom-3 start-3 px-4 duration-300 group-hover:bg-black/50 rounded-full  ">
             <h3 className="text-white title">{t("Laptops")}</h3>
-            <p>{t("Shop Now")}</p>
+            <p className="text-white">{t("Shop Now")}</p>
           </div>
 
           <button

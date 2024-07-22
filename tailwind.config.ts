@@ -107,7 +107,6 @@ const config = {
   corePlugins: {
     aspectRatio: false,
   },
-  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
 
 export default withUt(config);
