@@ -7,6 +7,7 @@ export default function useElementsForm(state: ProductErrors | undefined) {
   const productEl = useRef<HTMLInputElement>(null);
   const descriptionEl = useRef<HTMLTextAreaElement>(null);
   const priceEl = useRef<HTMLInputElement>(null);
+  const discountEl = useRef<HTMLInputElement>(null);
   const categoryEl = useRef<HTMLInputElement>(null);
   const statusEl = useRef<HTMLSelectElement>(null);
 
@@ -24,6 +25,9 @@ export default function useElementsForm(state: ProductErrors | undefined) {
     if (priceEl.current && state?.price) {
       return priceEl.current.focus();
     }
+    if (discountEl.current && state?.discount) {
+      return discountEl.current.focus();
+    }
     if (statusEl.current && state?.status) {
       setTimeout(() => {
         return statusEl.current?.focus();
@@ -31,6 +35,12 @@ export default function useElementsForm(state: ProductErrors | undefined) {
     }
   }, [state, productEl, descriptionEl, priceEl, statusEl, categoryEl]);
 
-  
-  return { productEl, descriptionEl, priceEl, statusEl, categoryEl };
+  return {
+    productEl,
+    descriptionEl,
+    priceEl,
+    statusEl,
+    categoryEl,
+    discountEl,
+  };
 }

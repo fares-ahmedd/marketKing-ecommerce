@@ -12,11 +12,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { newPrice } from "@/app/_utils/helpers";
 
 type ItemType = {
   id: string;
   name: string;
   price: number;
+  discount: number;
   images: string[];
 };
 
@@ -97,7 +99,7 @@ function Marquee({ items }: { items: ItemType[] }) {
                   value={`${item.price}`}
                   className="bg-blue-800 text-blue-200 p-3 rounded-full"
                 >
-                  ${item.price}
+                  ${newPrice(item.price, item.discount)}
                 </data>
 
                 <MyLink href={`/product/${item.id}`}>

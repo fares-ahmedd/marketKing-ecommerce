@@ -11,6 +11,7 @@ async function FeaturedProducts() {
       name: true,
       images: true,
       price: true,
+      discount: true,
     },
     orderBy: {
       createdAt: "desc",

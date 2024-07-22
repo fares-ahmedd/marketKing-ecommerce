@@ -22,6 +22,14 @@ export async function formatDate(date: Date) {
   }).format(date);
 }
 
+export function newPrice(price: number, discount: number) {
+  return discount ? price - discount : price;
+}
+
+export function oldPrice(price: number, discount: number) {
+  return discount ? price : null;
+}
+
 export const homeNavLinks = [
   { label: "Home", href: "/" },
   { label: "All Products", href: "/all-products" },

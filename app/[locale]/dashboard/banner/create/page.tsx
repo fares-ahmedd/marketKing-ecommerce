@@ -28,7 +28,7 @@ function BannerCreatePage({
   return (
     <main className="container-layout my-3">
       <div className="flex-items-center gap-3">
-        <MyLink href="/dashboard/products/banner">
+        <MyLink href="/dashboard/banner">
           <IconButton>
             {isArabic ? <IoMdArrowRoundForward /> : <IoMdArrowRoundBack />}
           </IconButton>

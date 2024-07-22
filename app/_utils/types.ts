@@ -9,6 +9,7 @@ export interface ProductType {
   category: Category;
   isFeatured: boolean;
   id: string;
+  discount: number;
 }
 
 export interface ProductErrors {
@@ -17,6 +18,7 @@ export interface ProductErrors {
   price?: string;
   featured?: boolean;
   status?: string;
+  discount?: string;
   image?: string;
   category?: string;
   success?: boolean;

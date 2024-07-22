@@ -13,6 +13,8 @@ export async function editProduct(_: any, formData: FormData) {
 
   const isArabic = formData.get("isArabic");
   const product = formData.get("product") as string;
+  const discount = formData.get("discount");
+
   const description = formData.get("description") as string;
   const price = formData.get("price");
   const category = formData.get("category") as string;
@@ -27,6 +29,9 @@ export async function editProduct(_: any, formData: FormData) {
   }
   let errors: ProductErrors = {};
 
+  if (Number(discount) > Number(price)) {
+    errors.discount = "discount error message";
+  }
   if (!product || product.trim().length === 0) {
     errors.product = "product error message";
   }
@@ -67,6 +72,7 @@ export async function editProduct(_: any, formData: FormData) {
         images,
         category,
         isFeatured: featured,
+        discount: Number(discount) < 0 ? 0 : Number(discount),
       },
     });
 

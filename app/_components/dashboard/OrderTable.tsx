@@ -1,5 +1,10 @@
 import prisma from "@/app/_lib/db";
-import { formatDate, getTranslate } from "@/app/_utils/helpers";
+import {
+  formatDate,
+  getTranslate,
+  newPrice,
+  oldPrice,
+} from "@/app/_utils/helpers";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -63,7 +68,14 @@ async function OrderTable() {
 
                 <th className="border-custom-x px-2">{product.name}</th>
                 <th>{t(product.status)}</th>
-                <th className="border-custom-x">${product.price}</th>
+                <th className="border-custom-x flex-center gap-1 text-ltr flex-wrap p-1">
+                  ${newPrice(product.price, product.discount)}
+                  {oldPrice(product.price, product.discount) && (
+                    <del className="text-error">
+                      (${oldPrice(product.price, product.discount)})
+                    </del>
+                  )}
+                </th>
                 <th className="border-custom-s px-2">
                   {formatDate(product.createdAt)}
                 </th>

@@ -34,6 +34,9 @@
     "Placeholder Banner": "كن الأدمن وأنشأ البانر الخاص بك",
     "No Featured Products": "لا يوجد منتجات مميزة في الوقت الحالي",
     "No Products": "لا يوجد اي منتجات , بالرجاء انشاء منتج جديد",
+    "discount placeholder": "بالرجاء ادخال خصم للمنتج (اذا كان هناك خصم)",
+    "discount error message": "الخصم يجب ان يكون اقل من سعر المنتج",
+    "discount": "الخصم (اختياري)",
 
     "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",
     "Images up to 4MB, max 1": "الصور يصل حجمها إلى 4 ميغابايت، بحد أقصى 1 صورة",

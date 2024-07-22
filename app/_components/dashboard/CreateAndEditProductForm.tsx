@@ -27,8 +27,14 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
 
   const [isChecked, setIsChecked] = useState(product?.isFeatured);
   const [images, setImages] = useState<string[]>(product?.images ?? []);
-  const { descriptionEl, productEl, priceEl, statusEl, categoryEl } =
-    useElementsForm(state);
+  const {
+    descriptionEl,
+    productEl,
+    priceEl,
+    statusEl,
+    categoryEl,
+    discountEl,
+  } = useElementsForm(state);
 
   const { t, isArabic } = useTranslate();
 
@@ -99,6 +105,17 @@ function CreateAndEditProductForm({ product }: { product?: ProductType }) {
         defaultValue={product?.price}
       />
       {state?.price && <ErrorMessage>{t(state.price)}</ErrorMessage>}
+      <label htmlFor="discount">{t("discount")} :</label>
+
+      <input
+        type="number"
+        placeholder={t("discount placeholder")}
+        id="discount"
+        name="discount"
+        ref={discountEl}
+        defaultValue={product?.discount ?? 0}
+      />
+      {state?.discount && <ErrorMessage>{t(state.discount)}</ErrorMessage>}
       <label>{t("Featured")}:</label>
       <Switch
         checked={isChecked ?? false}

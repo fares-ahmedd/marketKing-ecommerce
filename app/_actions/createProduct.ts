@@ -13,6 +13,7 @@ export async function createProduct(_: any, formData: FormData) {
   const product = formData.get("product") as string;
   const description = formData.get("description") as string;
   const price = formData.get("price");
+  const discount = formData.get("discount");
   const category = formData.get("category") as string;
   const featured = formData.get("featured") === "on";
   const status = formData.get("status") as ProductStatus;
@@ -36,6 +37,9 @@ export async function createProduct(_: any, formData: FormData) {
   }
   if (!price || Number(price) <= 0) {
     errors.price = "price error message";
+  }
+  if (Number(discount) > Number(price)) {
+    errors.discount = "discount error message";
   }
   if (!images || images.length === 0) {
     errors.image = "image error message";
@@ -62,6 +66,7 @@ export async function createProduct(_: any, formData: FormData) {
         images,
         category,
         isFeatured: featured,
+        discount: Number(discount) < 0 ? 0 : Number(discount),
       },
     });
     if (isArabic) {
