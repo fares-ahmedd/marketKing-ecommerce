@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import Button from "../ui/Button";
 import MyLink from "../ui/MyLink";
+import PlaceholderBanner from "./PlaceholderBanner";
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
@@ -25,8 +26,8 @@ function BannerSlider({ banners }: { banners: Banner[] }) {
   const { t, isArabic } = useTranslate();
 
   const title =
-    banners[imgIndex].title.charAt(0).toUpperCase() +
-    banners[imgIndex].title.slice(1).toLowerCase();
+    banners[imgIndex]?.title?.charAt(0).toUpperCase() +
+    banners[imgIndex]?.title?.slice(1).toLowerCase();
   useEffect(() => {
     const intervalRef = setInterval(() => {
       const x = dragX.get();
@@ -68,6 +69,7 @@ function BannerSlider({ banners }: { banners: Banner[] }) {
     }
   };
 
+  if (banners.length < 1) return <PlaceholderBanner />;
   return (
     <section className="relative overflow-x-hidden">
       <motion.div

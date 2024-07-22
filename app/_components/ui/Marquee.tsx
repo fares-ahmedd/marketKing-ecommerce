@@ -23,7 +23,7 @@ type ItemType = {
 function Marquee({ items }: { items: ItemType[] }) {
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef: RefObject<HTMLDivElement> = useRef(null);
-  const { isArabic, t } = useTranslate();
+  const { t } = useTranslate();
   useEffect(() => {
     const marquee = marqueeRef.current;
     if (!marquee) return;
@@ -48,6 +48,10 @@ function Marquee({ items }: { items: ItemType[] }) {
     }
   }, [isPaused]);
 
+  if (items.length < 1)
+    return (
+      <h6 className="text-second-text m-4">{t("No Featured Products")}</h6>
+    );
   return (
     <div
       className="w-full overflow-x-auto my-2 text-ltr"

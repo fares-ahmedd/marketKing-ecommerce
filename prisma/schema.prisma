@@ -19,10 +19,9 @@ model User {
   firstName String
   lastName String
   profileImage String
-
+  favoriteProducts FavoriteProduct[]
   createdAt DateTime @default(now())
 }
-
 model Product {
   id String @id @default(uuid())
   name String
@@ -32,8 +31,21 @@ model Product {
   images String[]
   category Category
   isFeatured Boolean @default(false)
+  favoritedBy FavoriteProduct[]
   createdAt DateTime @default(now())
 }
+
+model FavoriteProduct {
+  id String @id @default(uuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  product Product @relation(fields: [productId], references: [id])
+  productId String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
 
 model Banner {
   id String @id @default(uuid())
