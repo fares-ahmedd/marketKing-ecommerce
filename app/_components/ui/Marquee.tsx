@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState, RefObject, useOptimistic } from "react";
 import MyLink from "./MyLink";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import Button from "./Button";
@@ -13,6 +13,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { newPrice } from "@/app/_utils/helpers";
+import FavButton from "../marketking/FavButton";
+import toast from "react-hot-toast";
+import Modal from "./Modal";
+import {
+  LoginLink,
+  RegisterLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+import LoginFirst from "../marketking/LoginFirst";
 
 type ItemType = {
   id: string;
@@ -22,7 +30,17 @@ type ItemType = {
   images: string[];
 };
 
-function Marquee({ items }: { items: ItemType[] }) {
+function Marquee({
+  items,
+  userId,
+}: {
+  items: ItemType[];
+  userId: string | undefined;
+}) {
+  // const [optimisticItems, updateOptimisticItems] = useOptimistic(
+  //   items,
+  //   (prevItems, userAndProductId) => {}
+  // );
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef: RefObject<HTMLDivElement> = useRef(null);
   const { t } = useTranslate();
@@ -50,6 +68,11 @@ function Marquee({ items }: { items: ItemType[] }) {
     }
   }, [isPaused]);
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    toast.error("Login first ");
+  }
   if (items.length < 1)
     return (
       <h6 className="text-second-text m-4">{t("No Featured Products")}</h6>
@@ -85,7 +108,15 @@ function Marquee({ items }: { items: ItemType[] }) {
               <CarouselPrevious className="ms-16" />
               <CarouselNext className="me-16" />
             </Carousel>
-
+            {userId ? (
+              <form className="absolute top-3 end-3">
+                <FavButton />
+              </form>
+            ) : (
+              <LoginFirst>
+                <FavButton className="absolute top-3 end-3" />
+              </LoginFirst>
+            )}
             <div className=" px-3 h-[100px] flex flex-col justify-evenly">
               <h5
                 title={item.name}

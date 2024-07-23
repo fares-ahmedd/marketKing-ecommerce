@@ -108,6 +108,7 @@
     "Product Details": "Product Details",
     "Add Banner": "Add Banner",
     "title": "Title",
+    "login message": "Sign in first to purchase and save items",
     "discount": "Discount(optional)",
     "discount error message": "Discount must be less then product price !",
 

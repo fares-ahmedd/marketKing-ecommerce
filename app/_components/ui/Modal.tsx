@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { createPortal, useFormStatus } from "react-dom";
+import { createPortal } from "react-dom";
 
 interface ModalContextType {
   openId: string;
@@ -51,22 +51,20 @@ function useModalContext() {
 function OpenModal({ id, children, isFull }: OpenModalProps) {
   const { t } = useTranslate();
   const { open } = useModalContext();
-  const { pending } = useFormStatus();
   function handleClick() {
     open(id);
   }
 
   return (
-    <button
-      disabled={pending}
+    <span
       onClick={handleClick}
-      type="button"
+      role="button"
       className={`${
         isFull ? "w-full duration-300 hover:bg-accent rounded-lg" : ""
       }`}
     >
-      {pending ? t("Loading") : children}
-    </button>
+      {children}
+    </span>
   );
 }
 
@@ -82,19 +80,21 @@ function Content({ id, children }: ContentProps) {
   useClickOutside([elementRef], () => {
     close();
   });
-  // await new Promise((res) => setTimeout(res, 500));
 
   if (openId !== id) return null;
 
   return createPortal(
-    <div
+    <dialog
       className="fixed z-[150] w-full h-screen flex-center bg-black/30 top-0 left-0  overflow-auto "
       onClick={(e) => e.stopPropagation()}
     >
-      <div ref={elementRef} className={` w-[90%] md:w-[70%] max-w-[650px] `}>
+      <div
+        ref={elementRef}
+        className={` w-[90%] md:w-[70%] max-w-[650px] py-4 rounded-lg  animate-smooth bg-sec-background`}
+      >
         {children({ close })}
       </div>
-    </div>,
+    </dialog>,
     document.body
   );
 }
