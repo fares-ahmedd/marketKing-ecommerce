@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@kinde-oss/kinde-auth-nextjs": "^2.3.4",
+    "@kinde-oss/kinde-auth-nextjs": "^2.3.6",
     "@prisma/client": "^5.16.2",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",

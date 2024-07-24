@@ -108,6 +108,15 @@
     "Product Details": "Product Details",
     "Add Banner": "Add Banner",
     "title": "Title",
+    "First Name": "First Name",
+    "Last Name": "Last Name",
+    "Email": "Email",
+    "password": "password",
+    "have account": "Already Have An Account ? ",
+    "don't have account": "Don't Have An Account ? ",
+    "Login Now": "Login Now",
+    "Sign Up Now": "Sign Up Now",
+    "Confirm password": "Confirm password",
     "login message": "Sign in first to purchase and save items",
     "discount": "Discount(optional)",
     "discount error message": "Discount must be less then product price !",
@@ -136,6 +145,8 @@
     "Banner": "Banner Picture",
     "Edit": "Edit Product",
     "Create Banner": "Create Banner",
+    "Login": "Login",
+    "Sign Up": "Sign Up",
 
     "New Product": "New Product"
   }

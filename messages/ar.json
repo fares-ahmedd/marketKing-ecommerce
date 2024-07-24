@@ -38,6 +38,7 @@
     "discount error message": "الخصم يجب ان يكون اقل من سعر المنتج",
     "discount": "الخصم (اختياري)",
     "login message": "بالرجاء تسجيل الدخول قبل شراء او حفظ المنتجات",
+    "Email": "البريد الإلكتروني",
 
     "Choose files or drag and drop": "اختر الملفات أو اسحبها وأفلتها",
     "Images up to 4MB, max 1": "الصور يصل حجمها إلى 4 ميغابايت، بحد أقصى 1 صورة",
@@ -52,6 +53,15 @@
     "Sign Up": "انشاء حساب",
     "Arabic": "العربية",
     "English": "الإنجليزية",
+    "First Name": "الاسم الاول",
+    "Last Name": "اسم العائلة",
+    "password": "الرقم السري",
+    "Confirm password": "تأكيد الرقم السري",
+    "have account": "هل تمتلك حساب ؟ ",
+    "don't have account": "هل لا تمتلك حساب ؟ ",
+    "Login Now": "سجل دخولك الأن",
+    "Sign Up Now": "إنشاء حساب الأن",
+
     "Choose Your Language": "تغيير اللغة",
     "Light Mode": "الوضع المشرق",
     "Dark Mode": "الوضع الليلي",
@@ -139,6 +149,8 @@
     "Delete": "حذف المنتج",
     "Edit": "تعديل المنتج",
     "Delete Banner": "حذف البانر",
+    "Login": "تسجيل الدخول",
+    "Sign Up": "انشاء حساب",
 
     "Banner": "صورة البانر",
     "Create Banner": "إنشاء بانر",

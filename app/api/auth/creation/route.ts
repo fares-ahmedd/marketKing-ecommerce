@@ -24,10 +24,11 @@ export async function GET() {
         lastName: user.family_name ?? "",
         email: user.email ?? "",
         profileImage:
-          user.picture ?? `https://avatar.vercel.sh/${user.given_name}`,
+          user.picture ??
+          `https://avatar.vercel.sh/${user.username}.svg?text=FA`,
       },
     });
   }
 
-  return NextResponse.redirect("http://localhost:3000/");
+  return NextResponse.redirect("http://localhost:3000/en");
 }

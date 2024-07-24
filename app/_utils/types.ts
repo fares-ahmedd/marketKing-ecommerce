@@ -29,3 +29,12 @@ export interface BannerErrors {
   image?: string;
   success?: boolean;
 }
+
+export interface SignUpErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  success?: string;
+}

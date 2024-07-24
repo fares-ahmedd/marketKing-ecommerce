@@ -11,6 +11,7 @@ import Menu from "../ui/Menu";
 import ShoppingCart from "./ShoppingCart";
 import User from "../ui/User";
 import ToggleTheme from "../ui/ToggleTheme";
+import MyLink from "../ui/MyLink";
 
 async function Auth() {
   const { t } = await getTranslate();
@@ -29,16 +30,21 @@ async function Auth() {
         </>
       ) : (
         <div className="flex-center gap-3">
-          <Button size="sm" color="black" className="max-sm:text-xs py-2">
-            <LoginLink>{t("Login")}</LoginLink>
-          </Button>
-          <Button
-            size="sm"
-            color="white"
-            className="border max-sm:text-xs py-2"
-          >
-            <RegisterLink>{t("Sign Up")}</RegisterLink>
-          </Button>
+          <MyLink href="/auth/login">
+            <Button size="sm" color="black" className="max-sm:text-xs py-2">
+              {t("Login")}
+            </Button>
+          </MyLink>
+
+          <MyLink href="/auth/sign-up">
+            <Button
+              size="sm"
+              color="white"
+              className="border max-sm:text-xs py-2"
+            >
+              {t("Sign Up")}
+            </Button>
+          </MyLink>
         </div>
       )}
     </div>
