@@ -1,10 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useRef, useState, RefObject, useOptimistic } from "react";
-import MyLink from "./MyLink";
 import { useTranslate } from "@/app/_hooks/useTranslate";
-import Button from "./Button";
+import { newPrice } from "@/app/_utils/helpers";
 import {
   Carousel,
   CarouselContent,
@@ -12,15 +9,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { newPrice } from "@/app/_utils/helpers";
+import Image from "next/image";
+import { RefObject, useEffect, useRef, useState } from "react";
 import FavButton from "../marketking/FavButton";
-import toast from "react-hot-toast";
-import Modal from "./Modal";
-import {
-  LoginLink,
-  RegisterLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
 import LoginFirst from "../marketking/LoginFirst";
+import Button from "./Button";
+import MyLink from "./MyLink";
 
 type ItemType = {
   id: string;
@@ -68,11 +62,6 @@ function Marquee({
     }
   }, [isPaused]);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    toast.error("Login first ");
-  }
   if (items.length < 1)
     return (
       <h6 className="text-second-text m-4">{t("No Featured Products")}</h6>
@@ -92,14 +81,14 @@ function Marquee({
       >
         {items.concat(items).map((item, index) => (
           <div
-            className={`relative block w-[400px] h-[400px] bg-sec-background duration-300 hover:w-[450px] group hover:scale-95  text-ltr `}
+            className={`relative block w-[400px] h-[400px] max-sm:w-[250px] max-sm:h-[250px] bg-sec-background duration-300 hover:w-[450px] max-sm:hover:w-[300px] group hover:scale-95  text-ltr `}
             key={index}
           >
             <Carousel>
               <CarouselContent>
                 {item.images.map((image) => (
                   <CarouselItem key={image}>
-                    <div className="relative   w-full h-[300px] overflow-hidden ">
+                    <div className="relative   w-full h-[300px] max-sm:h-[150px] overflow-hidden ">
                       <Image src={image} fill alt={`${item.name}`} />
                     </div>
                   </CarouselItem>

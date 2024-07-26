@@ -1,5 +1,5 @@
+import { getUser } from "@/app/_utils/getUser";
 import { ADMIN_EMAIL } from "@/app/_utils/helpers";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 
@@ -11,7 +11,6 @@ export const ourFileRouter = {
   imageUploader: f({ image: { maxFileSize: "4MB", maxFileCount: 10 } })
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
-      const { getUser } = getKindeServerSession();
       const user = await getUser();
       // If you throw, the user will not be able to upload
       if (!user || user.email !== ADMIN_EMAIL)
@@ -32,7 +31,6 @@ export const ourFileRouter = {
   bannerImageRoute: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
-      const { getUser } = getKindeServerSession();
       const user = await getUser();
       // If you throw, the user will not be able to upload
       if (!user || user.email !== ADMIN_EMAIL)

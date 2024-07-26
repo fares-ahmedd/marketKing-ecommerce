@@ -1,7 +1,7 @@
 import prisma from "@/app/_lib/db";
 import { getTranslate } from "@/app/_utils/helpers";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Marquee from "../ui/Marquee";
+import { getUser } from "@/app/_utils/getUser";
 
 async function FeaturedProducts() {
   const items = await prisma.product.findMany({
@@ -17,9 +17,7 @@ async function FeaturedProducts() {
       createdAt: "desc",
     },
   });
-  const { getUser } = getKindeServerSession();
   const user = await getUser();
-
   const userId = await prisma.user.findUnique({
     where: {
       id: user?.id ?? "",

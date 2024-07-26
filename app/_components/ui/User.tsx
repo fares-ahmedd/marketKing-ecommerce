@@ -10,13 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import unknown from "@/public/unknownUser.jpg";
-import { cookies } from "next/headers";
-async function User() {
-  const { t } = await getTranslate();
+import LogoutButton from "./LogoutButton";
 
+async function User() {
   const user = await getUser();
 
-  const handleLogout = () => cookies().delete("user_info");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -37,12 +35,7 @@ async function User() {
           </p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          className="cursor-pointer justify-center"
-          onClick={handleLogout}
-        >
-          {t("Logout")}
-        </DropdownMenuItem>
+        <LogoutButton />
       </DropdownMenuContent>
     </DropdownMenu>
   );

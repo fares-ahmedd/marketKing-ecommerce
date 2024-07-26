@@ -1,12 +1,9 @@
 "use server";
 
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { ADMIN_EMAIL } from "../_utils/helpers";
-import { redirect } from "next/navigation";
-import { ProductErrors } from "../_utils/types";
-import prisma from "../_lib/db";
 import { ProductStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import prisma from "../_lib/db";
+import { ProductErrors } from "../_utils/types";
 
 export async function createProduct(_: any, formData: FormData) {
   const isArabic = formData.get("isArabic");
@@ -18,12 +15,6 @@ export async function createProduct(_: any, formData: FormData) {
   const featured = formData.get("featured") === "on";
   const status = formData.get("status") as ProductStatus;
   let images = formData.get("images") as string | string[];
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-
-  if (!user || user.email !== ADMIN_EMAIL) {
-    return redirect("/");
-  }
   let errors: ProductErrors = {};
 
   if (!product || product.trim().length === 0) {

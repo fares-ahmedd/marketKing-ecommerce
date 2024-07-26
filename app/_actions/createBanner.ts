@@ -1,9 +1,7 @@
 "use server";
 
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect } from "next/navigation";
 import prisma from "../_lib/db";
-import { ADMIN_EMAIL, getTranslate } from "../_utils/helpers";
+import { getTranslate } from "../_utils/helpers";
 import { BannerErrors } from "../_utils/types";
 import { revalidatePath } from "next/cache";
 
@@ -11,13 +9,6 @@ export async function createBanner(_: any, formData: FormData) {
   const { isArabic } = await getTranslate();
   const banner = formData.get("banner") as string;
   let image = formData.get("image") as string;
-
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-
-  if (!user || user.email !== ADMIN_EMAIL) {
-    return redirect("/");
-  }
 
   let errors: BannerErrors = {};
 
