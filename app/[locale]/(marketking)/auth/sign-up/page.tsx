@@ -1,6 +1,6 @@
 import CreateAccountForm from "@/app/_components/marketking/CreateAccountForm";
 import { useTranslate } from "@/app/_hooks/useTranslate";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params: { locale },
@@ -14,7 +14,9 @@ export async function generateMetadata({
   };
 }
 
-function SignUpPage() {
+function SignUpPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
+
   const { t } = useTranslate();
   return (
     <>

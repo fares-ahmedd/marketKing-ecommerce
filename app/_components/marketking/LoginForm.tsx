@@ -12,33 +12,13 @@ import ErrorMessage from "../ui/ErrorMessage";
 function LoginForm() {
   const [state, formAction] = useFormState(loginAccount, {});
   const router = useRouter();
-  const { t, isArabic } = useTranslate();
+  const { t } = useTranslate();
 
   useEffect(() => {
     if (state.success === false) {
       toast.error(t("error login email"));
     }
-    // if (state.success === true) {
-    //   toast.success(t("success create email"));
-    //   localStorage.setItem(
-    //     "user_info",
-    //     JSON.stringify({
-    //       email: state?.storeEmail,
-    //       password: state.storePassword,
-    //       userId: state.storeUserId,
-    //     })
-    //   );
-    //   isArabic ? router.push("/ar") : router.push("/en");
-    // }
-  }, [
-    state.success,
-    t,
-    // isArabic,
-    // router,
-    // state.storeEmail,
-    // state.storePassword,
-    // state.storeUserId,
-  ]);
+  }, [state.success, t]);
 
   return (
     <form className="px-2 w-full grid justify-center gap-2" action={formAction}>
