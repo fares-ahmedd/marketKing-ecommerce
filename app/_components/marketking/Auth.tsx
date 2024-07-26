@@ -1,22 +1,17 @@
 import { getTranslate } from "@/app/_utils/helpers";
-import {
-  LoginLink,
-  RegisterLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Button from "../ui/Button";
 
 import ChangeLanguage from "../ui/ChangeLanguage";
-import Menu from "../ui/Menu";
 import ShoppingCart from "./ShoppingCart";
 import User from "../ui/User";
 import ToggleTheme from "../ui/ToggleTheme";
 import MyLink from "../ui/MyLink";
+import prisma from "@/app/_lib/db";
+import { cookies } from "next/headers";
+import { getUser } from "@/app/_utils/getUser";
 
 async function Auth() {
   const { t } = await getTranslate();
-  const { getUser } = getKindeServerSession();
-
   const user = await getUser();
 
   return (

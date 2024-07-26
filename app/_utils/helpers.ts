@@ -43,3 +43,4 @@ export const dashboardNavLinks = [
   { label: "Products", href: "/dashboard/products" },
   { label: "Banner Picture", href: "/dashboard/banner" },
 ];
+

@@ -36,5 +36,19 @@ export interface SignUpErrors {
   email?: string;
   password?: string;
   confirmPassword?: string;
-  success?: string;
+  success?: boolean;
+
+  storeEmail?: string;
+  storePassword?: string;
+  storeUserId?: string;
+}
+
+export interface LoginErrors {
+  email?: string;
+  password?: string;
+  success?: boolean;
+
+  storeEmail?: string;
+  storePassword?: string;
+  storeUserId?: string;
 }
