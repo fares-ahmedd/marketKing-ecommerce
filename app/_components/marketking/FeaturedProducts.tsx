@@ -18,12 +18,12 @@ async function FeaturedProducts() {
     },
   });
   const user = await getUser();
-  const userId = await prisma.user.findUnique({
+  const userDetails = await prisma.user.findUnique({
     where: {
       id: user?.id ?? "",
     },
-    select: {
-      id: true,
+    include: {
+      favoriteProducts: { select: { productId: true } },
     },
   });
 
@@ -31,7 +31,7 @@ async function FeaturedProducts() {
   return (
     <section className="mb-3">
       <h4 className="title ">{t("Featured Items")}</h4>
-      <Marquee items={items} userId={userId?.id} />
+      <Marquee items={items} user={userDetails} />
     </section>
   );
 }

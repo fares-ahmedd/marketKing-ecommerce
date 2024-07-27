@@ -87,6 +87,8 @@
     "Arabic": "Arabic",
     "English": "English",
     "Login": "Login",
+    "add fav success": "{favProduct} added to favorites successfully.",
+    "remove fav success": "{favProduct} removed from favorites.",
     "Choose Your Language": "Change Language",
     "Sign Up": "Sign Up",
     "No Banner": "There's no any banner yet please create a new one",

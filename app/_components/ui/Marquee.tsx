@@ -15,6 +15,8 @@ import FavButton from "../marketking/FavButton";
 import LoginFirst from "../marketking/LoginFirst";
 import Button from "./Button";
 import MyLink from "./MyLink";
+import { toggleFavProduct } from "@/app/_actions/toggleFavProduct";
+import toast from "react-hot-toast";
 
 type ItemType = {
   id: string;
@@ -22,19 +24,26 @@ type ItemType = {
   price: number;
   discount: number;
   images: string[];
+  isFav?: boolean;
 };
 
-function Marquee({
-  items,
-  userId,
-}: {
-  items: ItemType[];
-  userId: string | undefined;
-}) {
-  // const [optimisticItems, updateOptimisticItems] = useOptimistic(
-  //   items,
-  //   (prevItems, userAndProductId) => {}
-  // );
+type User =
+  | ({
+      favoriteProducts: {
+        productId: string;
+      }[];
+    } & {
+      id: string;
+      email: string;
+      password: string;
+      firstName: string;
+      lastName: string;
+      profileImage: string;
+      createdAt: Date;
+    })
+  | null;
+
+function Marquee({ items, user }: { items: ItemType[]; user: User | null }) {
   const [isPaused, setIsPaused] = useState(false);
   const marqueeRef: RefObject<HTMLDivElement> = useRef(null);
   const { t } = useTranslate();
@@ -62,13 +71,30 @@ function Marquee({
     }
   }, [isPaused]);
 
+  async function favProduct({
+    user,
+    productId,
+  }: {
+    user: User;
+    productId: string;
+  }) {
+    const res = await toggleFavProduct({ user, productId });
+
+    if (res?.success && res?.favProduct) {
+      toast.success(t("add fav success", { favProduct: res.favProduct }));
+    }
+    if (res?.success === false && res?.favProduct) {
+      toast.success(t("remove fav success", { favProduct: res.favProduct }));
+    }
+  }
+
   if (items.length < 1)
     return (
       <h6 className="text-second-text m-4">{t("No Featured Products")}</h6>
     );
   return (
     <div
-      className="w-full overflow-x-auto my-2 text-ltr"
+      className="w-full overflow-x-auto my-2 text-ltr px-6"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -79,7 +105,7 @@ function Marquee({
          `}
         style={{ width: "max-content" }}
       >
-        {items.concat(items).map((item, index) => (
+        {items?.concat(items)?.map((item, index) => (
           <div
             className={`relative block w-[400px] h-[400px] max-sm:w-[250px] max-sm:h-[250px] bg-sec-background duration-300 hover:w-[450px] max-sm:hover:w-[300px] group hover:scale-95  text-ltr `}
             key={index}
@@ -97,9 +123,19 @@ function Marquee({
               <CarouselPrevious className="ms-16" />
               <CarouselNext className="me-16" />
             </Carousel>
-            {userId ? (
-              <form className="absolute top-3 end-3">
-                <FavButton />
+            {user ? (
+              <form
+                className="absolute top-3 end-3"
+                action={favProduct.bind(null, {
+                  user: user,
+                  productId: item.id,
+                })}
+              >
+                <FavButton
+                  isFav={user.favoriteProducts.some(
+                    (product) => product.productId === item.id
+                  )}
+                />
               </form>
             ) : (
               <LoginFirst>
