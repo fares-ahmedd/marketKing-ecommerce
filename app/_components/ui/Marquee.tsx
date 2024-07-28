@@ -115,7 +115,12 @@ function Marquee({ items, user }: { items: ItemType[]; user: User | null }) {
                 {item.images.map((image) => (
                   <CarouselItem key={image}>
                     <div className="relative   w-full h-[300px] max-sm:h-[150px] overflow-hidden ">
-                      <Image src={image} fill alt={`${item.name}`} />
+                      <Image
+                        src={image}
+                        fill
+                        alt={`${item.name}`}
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
                     </div>
                   </CarouselItem>
                 ))}

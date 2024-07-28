@@ -30,6 +30,7 @@ function CategorySelection() {
             src={phonesPreview}
             alt="Phones Products"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             placeholder="blur"
             className="duration-300 group-hover:scale-110"
           />
@@ -57,6 +58,7 @@ function CategorySelection() {
             alt="watches Products"
             fill
             placeholder="blur"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="duration-300 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-55 duration-300 group-hover:to-transparent transition-all" />
@@ -82,6 +84,7 @@ function CategorySelection() {
             alt="laptops Products"
             fill
             placeholder="blur"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="duration-300 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-55 duration-300 group-hover:to-transparent transition-all" />

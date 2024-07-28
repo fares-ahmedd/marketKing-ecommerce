@@ -1,7 +1,9 @@
 import { FaShoppingCart } from "react-icons/fa";
 import IconButton from "../ui/IconButton";
+import { User } from "@prisma/client";
+import { IUserIncludeFavorites } from "@/app/_utils/types";
 
-function ShoppingCart() {
+function ShoppingCart({ user }: { user: IUserIncludeFavorites }) {
   return (
     <IconButton className="relative ">
       <FaShoppingCart />

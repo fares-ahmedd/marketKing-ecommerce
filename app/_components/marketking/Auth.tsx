@@ -1,18 +1,17 @@
 import { getTranslate } from "@/app/_utils/helpers";
 import Button from "../ui/Button";
 
-import ChangeLanguage from "../ui/ChangeLanguage";
-import ShoppingCart from "./ShoppingCart";
-import User from "../ui/User";
-import ToggleTheme from "../ui/ToggleTheme";
-import MyLink from "../ui/MyLink";
-import prisma from "@/app/_lib/db";
-import { cookies } from "next/headers";
 import { getUser } from "@/app/_utils/getUser";
+import ChangeLanguage from "../ui/ChangeLanguage";
+import MyLink from "../ui/MyLink";
+import ToggleTheme from "../ui/ToggleTheme";
+import User from "../ui/User";
+import ShoppingCart from "./ShoppingCart";
+import WhishList from "./WhishList";
 
 async function Auth() {
   const { t } = await getTranslate();
-  const user = await getUser();
+  const user: any = await getUser();
 
   return (
     <div className="flex-center gap-2">
@@ -20,7 +19,8 @@ async function Auth() {
       <ToggleTheme />
       {user ? (
         <>
-          <ShoppingCart />
+          <WhishList user={user} />
+          <ShoppingCart user={user} />
           <User />
         </>
       ) : (

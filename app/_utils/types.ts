@@ -1,4 +1,4 @@
-import { Category, ProductStatus } from "@prisma/client";
+import { Category, ProductStatus, User } from "@prisma/client";
 
 export interface ProductType {
   name: string;
@@ -52,3 +52,27 @@ export interface LoginErrors {
   storePassword?: string;
   storeUserId?: string;
 }
+
+export type IUserIncludeFavorites = {
+  id: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  profileImage: string;
+  createAt: Date;
+  favoriteProducts: {
+    product: {
+      id: string;
+      name: string;
+      description: string;
+      status: ProductStatus;
+      price: number;
+      discount: number;
+      images: string[];
+      category: Category;
+      isFeatured: boolean;
+      createdAt: Date;
+    };
+  }[];
+} | null;

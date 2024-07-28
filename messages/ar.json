@@ -72,9 +72,12 @@
     "success login email": "تم تسجيل الدخول بنجاح",
     "add fav success": "تم اضافة المنتج {favProduct} الى قائمة المفضلة بنجاح",
     "remove fav success": "تم حذف المنتج {favProduct} من القائمة المفضلة بنجاح",
-
+    "WhishList": "قائمة الرغبات",
     "Choose Your Language": "تغيير اللغة",
     "Light Mode": "الوضع المشرق",
+    "Go To Favorite Page": "اذهب الى صفحة قائمة الرغبات",
+    "no favorite": "انت لما تقم بوضع اي منتج الى المفضلة بعد!",
+
     "Dark Mode": "الوضع الليلي",
     "System": "اختيار النظام",
     "CopyRights": "ماركت كينج كل الحقوق محجوزة.",
