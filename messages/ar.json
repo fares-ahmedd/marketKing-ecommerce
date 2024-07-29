@@ -15,6 +15,9 @@
     "Price": "السعر",
     "Not Allowed email": "غير مسموح بالتعديل علي البريد الالكتروني",
     "Change Image Profile": "تغيير صورة الملف الشخصي",
+    "instead": "بدلا من ",
+    "Add To Cart": "أضف الى السلة",
+    "Related Products": "السلع المتعلقة",
 
     "draft": "مسودة",
     "Edit Product": "تعديل المنتج",
@@ -174,6 +177,7 @@
     "Sign Up": "انشاء حساب",
     "Edit Profile": "تعديل الملف الشخصي",
     "Favorite Products": "المنتجات المفضلة",
+    "Product Details": "تفاصيل المنتج",
 
     "Banner": "صورة البانر",
     "Create Banner": "إنشاء بانر",

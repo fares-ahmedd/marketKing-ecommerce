@@ -108,12 +108,14 @@
     "create success": "Create Product Successfully",
     "create failed": "Create Product failed",
     "Success": "Success",
+    "Related Products": "Related Products",
     "New Product": "New Product",
     "Featured Mode": "Product in feature mode",
     "Featured Mode disabled": "Product not feature mode",
-    "Product Details": "Product Details",
     "Add Banner": "Add Banner",
     "title": "Title",
+    "Add To Cart": "Add To Cart",
+    "instead": "Instead",
     "First Name": "First Name",
     "Last Name": "Last Name",
     "Email": "Email",
@@ -138,6 +140,7 @@
     "discount error message": "Discount must be less then product price !",
 
     "Banners": "Banners",
+    "Product Details": "Product Details",
     "discount label": "Discount",
     "no favorite products": "You no longer have any favorite products !",
     "Not Allowed email": "Not Allowed To Edit Email",
@@ -169,6 +172,7 @@
     "Favorite Products": "Favorite Products",
     "Sign Up": "Sign Up",
     "Edit Profile": "Edit Profile",
+    "Product Details": "Product Details",
 
     "New Product": "New Product"
   }
