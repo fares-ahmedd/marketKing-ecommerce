@@ -81,8 +81,8 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
                           </del>
                         )}
                         {fav.product.isFeatured && (
-                          <strong className="text-purple-200 bg-purple-600 p-1 rounded-full">
-                            {"Featured"}
+                          <strong className="text-indigo-50 bg-indigo-700 px-2 py-1 rounded-full text-sm font-medium">
+                            {t("Featured")}
                           </strong>
                         )}
                       </span>
@@ -91,11 +91,16 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
                 </DropdownMenuItem>
               ))}
             </ul>
-            <MyLink href="/products/favorite">
-              <Button size="lg" className="w-full ">
-                {t("Go To Favorite Page")}
-              </Button>
-            </MyLink>
+            <DropdownMenuItem
+              asChild
+              className="bg-transparent hover:bg-transparent"
+            >
+              <MyLink href="/favorite-products">
+                <Button size="lg" className="w-full ">
+                  {t("Go To Favorite Page")}
+                </Button>
+              </MyLink>
+            </DropdownMenuItem>
           </>
         ) : (
           <>

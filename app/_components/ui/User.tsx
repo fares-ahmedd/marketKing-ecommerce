@@ -31,7 +31,9 @@ async function User() {
           <p className={`capitalize text-center`}>
             {user?.firstName} {user?.lastName}
           </p>
-          <p className={`mt-2 text-xs text-second-text leading-none  `}>
+          <p
+            className={`mt-2 text-xs text-second-text leading-none text-center  `}
+          >
             {user?.email}
           </p>
         </DropdownMenuLabel>

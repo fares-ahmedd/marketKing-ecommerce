@@ -81,6 +81,7 @@
     "Go To Favorite Page": "اذهب الى صفحة قائمة الرغبات",
     "no favorite": "انت لما تقم بوضع اي منتج الى المفضلة بعد!",
     "Edit Profile": "تعديل الملف الشخصي",
+    "discount label": "عليه خصم",
 
     "Dark Mode": "الوضع الليلي",
     "System": "اختيار النظام",
@@ -133,6 +134,8 @@
     "status error message": "بالرجاء اختيار حالة المنتج",
     "image error message": "بالرجاء اختيار صورة المنتج",
     "price error message": "بالرجاء اختيار سعر صالح للمنتج",
+    "Favorite Products": "منتجاتي المفضلة",
+    "no favorite products": "لم يعد لديك أي منتجات مفضلة",
 
     "Type": "النوع",
     "Date": "التاريخ",
@@ -170,6 +173,7 @@
     "Login": "تسجيل الدخول",
     "Sign Up": "انشاء حساب",
     "Edit Profile": "تعديل الملف الشخصي",
+    "Favorite Products": "المنتجات المفضلة",
 
     "Banner": "صورة البانر",
     "Create Banner": "إنشاء بانر",

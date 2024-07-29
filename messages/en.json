@@ -138,6 +138,8 @@
     "discount error message": "Discount must be less then product price !",
 
     "Banners": "Banners",
+    "discount label": "Discount",
+    "no favorite products": "You no longer have any favorite products !",
     "Not Allowed email": "Not Allowed To Edit Email",
     "Create Banner": "Create Banner",
     "banner error message": "Please Type a valid banner name",
@@ -149,6 +151,7 @@
     "Product Details title": "in this form you can create a new product",
     "New Product placeholder": "Please Type your new product",
     "Add Products": "Add Products",
+    "Favorite Products": "My Favorite Products",
     "New Banner": "New Banner"
   },
   "metadata": {
@@ -163,6 +166,7 @@
     "Edit": "Edit Product",
     "Create Banner": "Create Banner",
     "Login": "Login",
+    "Favorite Products": "Favorite Products",
     "Sign Up": "Sign Up",
     "Edit Profile": "Edit Profile",
 
