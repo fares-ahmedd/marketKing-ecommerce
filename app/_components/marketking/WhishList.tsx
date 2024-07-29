@@ -81,7 +81,7 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
                           </del>
                         )}
                         {fav.product.isFeatured && (
-                          <strong className="text-orange-200 bg-orange-600 p-1 rounded-full">
+                          <strong className="text-purple-200 bg-purple-600 p-1 rounded-full">
                             {"Featured"}
                           </strong>
                         )}

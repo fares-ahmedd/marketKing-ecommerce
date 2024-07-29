@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import unknown from "@/public/unknownUser.jpg";
 import LogoutButton from "./LogoutButton";
+import MyLink from "./MyLink";
 
 async function User() {
   const user = await getUser();
-
+  const { t } = await getTranslate();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -35,6 +36,9 @@ async function User() {
           </p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem asChild className="justify-center cursor-pointer">
+          <MyLink href="/edit-profile">{t("Edit Profile")}</MyLink>
+        </DropdownMenuItem>
         <LogoutButton />
       </DropdownMenuContent>
     </DropdownMenu>

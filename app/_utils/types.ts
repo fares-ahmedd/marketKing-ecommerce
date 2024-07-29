@@ -43,6 +43,12 @@ export interface SignUpErrors {
   storeUserId?: string;
 }
 
+export interface EditProfileErrors {
+  firstName?: string;
+  lastName?: string;
+  image?: string;
+  success?: boolean;
+}
 export interface LoginErrors {
   email?: string;
   password?: string;

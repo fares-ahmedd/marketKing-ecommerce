@@ -80,7 +80,7 @@
     --error: #ff6b6b;
   }
   input {
-    @apply rounded-lg py-1 px-4 bg-third-background border text-main-text duration-300 focus:py-2 placeholder:text-second-text;
+    @apply rounded-lg py-1 px-4 bg-third-background border text-main-text duration-300 focus:py-2 placeholder:text-second-text disabled:opacity-70 disabled:cursor-not-allowed;
   }
   textarea {
     @apply rounded-lg py-1 px-4 bg-third-background border text-main-text duration-300 focus:py-2 placeholder:text-second-text;
@@ -265,6 +265,7 @@ option:disabled {
 .loader-ar::after {
   animation: animloader-ar 1s linear infinite;
 }
+
 @keyframes animloader-ar {
   0% {
     box-shadow: -10px 0 rgba(255, 0, 0, 0), -20px 0 rgba(255, 0, 0, 0);

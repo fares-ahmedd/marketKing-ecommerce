@@ -13,6 +13,9 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Price": "السعر",
+    "Not Allowed email": "غير مسموح بالتعديل علي البريد الالكتروني",
+    "Change Image Profile": "تغيير صورة الملف الشخصي",
+
     "draft": "مسودة",
     "Edit Product": "تعديل المنتج",
     "Product Edit title": "عدل علي خصائص المنتج",
@@ -77,6 +80,7 @@
     "Light Mode": "الوضع المشرق",
     "Go To Favorite Page": "اذهب الى صفحة قائمة الرغبات",
     "no favorite": "انت لما تقم بوضع اي منتج الى المفضلة بعد!",
+    "Edit Profile": "تعديل الملف الشخصي",
 
     "Dark Mode": "الوضع الليلي",
     "System": "اختيار النظام",
@@ -165,6 +169,7 @@
     "Delete Banner": "حذف البانر",
     "Login": "تسجيل الدخول",
     "Sign Up": "انشاء حساب",
+    "Edit Profile": "تعديل الملف الشخصي",
 
     "Banner": "صورة البانر",
     "Create Banner": "إنشاء بانر",

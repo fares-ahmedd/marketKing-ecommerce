@@ -91,6 +91,10 @@ const config = {
           "50%": { opacity: "0.4 " },
           "100%": { opacity: "1" },
         },
+        rotation: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
         smooth: {
           from: { opacity: "0", transform: "translateY(-20px)" },
           to: { opacity: "1", transform: "translateY(0px)" },
@@ -101,6 +105,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         skeleton: "skeleton 1.5s ease-in-out infinite",
         smooth: "smooth 1s ease-in-out ",
+        rotation: "rotation 2s linear infinite ",
       },
     },
   },

@@ -38,6 +38,7 @@
     "Actions": "Actions",
     "no favorite": "you haven't add any Favorite Products yet",
     "Featured": "Featured",
+    "Edit Profile": "Edit Profile",
     "Dashboard": "Dashboard",
     "Orders": "Orders",
     "Orders label": "Recent Orders From your Store",
@@ -133,9 +134,11 @@
     "Confirm password": "Confirm password",
     "login message": "Sign in first to purchase and save items",
     "discount": "Discount(optional)",
+    "Change Image Profile": "Change Image Profile",
     "discount error message": "Discount must be less then product price !",
 
     "Banners": "Banners",
+    "Not Allowed email": "Not Allowed To Edit Email",
     "Create Banner": "Create Banner",
     "banner error message": "Please Type a valid banner name",
     "New Banner placeholder": "Please Type Your Banner Name",
@@ -161,6 +164,7 @@
     "Create Banner": "Create Banner",
     "Login": "Login",
     "Sign Up": "Sign Up",
+    "Edit Profile": "Edit Profile",
 
     "New Product": "New Product"
   }

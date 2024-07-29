@@ -11,7 +11,6 @@ export default async function HomePage({
 }) {
   unstable_setRequestLocale(locale);
   const banners = await prisma.banner.findMany();
-
   return (
     <div className="container-layout py-3">
       <BannerSlider banners={banners} />
