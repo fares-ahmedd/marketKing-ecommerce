@@ -8,9 +8,9 @@ import toast from "react-hot-toast";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import { newPrice, oldPrice } from "@/app/_utils/helpers";
 import { FaStar } from "react-icons/fa";
-import Button from "../ui/Button";
 import { FaShoppingCart } from "react-icons/fa";
 import SubmitButton from "../ui/SubmitButton";
+import { useOptimistic } from "react";
 
 function ProductPreview({
   product,
@@ -21,6 +21,13 @@ function ProductPreview({
 }) {
   const { t } = useTranslate();
 
+  const initialIsFavorite = user?.favoriteProducts.some(
+    (userFav: any) => userFav.productId === product.id
+  );
+
+  const [optimisticIsFavorite, setOptimisticIsFavorite] =
+    useOptimistic(initialIsFavorite);
+
   async function favProduct({
     user,
     productId,
@@ -28,16 +35,21 @@ function ProductPreview({
     user: any;
     productId: string;
   }) {
+    // Optimistically update the UI
+    setOptimisticIsFavorite(!optimisticIsFavorite);
+
     const res = await toggleFavProduct({ user, productId });
 
     if (res?.success && res?.favProduct) {
       toast.success(t("add fav success", { favProduct: res.favProduct }));
-    }
-    if (res?.success === false && res?.favProduct) {
+    } else if (res?.success === false && res?.favProduct) {
       toast.success(t("remove fav success", { favProduct: res.favProduct }));
+    } else {
+      // If the server request fails, revert the optimistic update
+      setOptimisticIsFavorite(optimisticIsFavorite);
+      toast.error(t("error updating favorite"));
     }
   }
-
   return (
     <article>
       <div className="flex-between my-2 gap-1">
@@ -45,18 +57,12 @@ function ProductPreview({
           {product.name}
         </h2>
         {user ? (
-          <form
-            action={favProduct.bind(null, {
-              user: user,
-              productId: product.id,
-            })}
-          >
-            <FavButton
-              isFav={user.favoriteProducts.some(
-                (userFav: any) => userFav.productId === product.id
-              )}
-            />
-          </form>
+          <FavButton
+            isFav={optimisticIsFavorite}
+            onClick={() => {
+              favProduct({ user, productId: product.id });
+            }}
+          />
         ) : (
           <LoginFirst>
             <FavButton />

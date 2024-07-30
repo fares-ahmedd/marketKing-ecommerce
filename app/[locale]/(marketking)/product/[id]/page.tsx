@@ -40,7 +40,7 @@ function ProductDetailsPage({
         <h2 className="title ">{t("Product Details")}</h2>
       </div>
 
-      <Suspense fallback={<ProductInfoSkeleton />}>
+      <Suspense key={id} fallback={<ProductInfoSkeleton />}>
         <ProductInfoLayout id={id} />
       </Suspense>
     </section>

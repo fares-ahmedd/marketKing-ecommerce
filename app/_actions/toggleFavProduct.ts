@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "../_lib/db";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 type User =
   | ({
@@ -26,37 +27,67 @@ export async function toggleFavProduct({
   user: User;
   productId: string;
 }) {
-  const isFavorite = user?.favoriteProducts.some(
-    (fav) => fav.productId === productId
-  );
+  if (!user) {
+    return { success: false, message: "User not authenticated" };
+  }
 
-  if (!isFavorite) {
-    try {
-      const favProduct = await prisma.favoriteProduct.create({
-        data: { productId, userId: user?.id ?? "" },
-        select: { product: true },
-      });
-      revalidatePath("/", "layout");
+  try {
+    const existingFavorite = await prisma.favoriteProduct.findUnique({
+      where: {
+        userId_productId: {
+          userId: user.id,
+          productId: productId,
+        },
+      },
+    });
 
-      return { success: true, favProduct: favProduct.product.name };
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    try {
-      const favProduct = await prisma.favoriteProduct.delete({
+    if (!existingFavorite) {
+      const favProduct = await prisma.favoriteProduct.upsert({
         where: {
           userId_productId: {
-            userId: user?.id ?? "",
+            userId: user.id,
             productId: productId,
           },
         },
+        update: {},
+        create: { productId, userId: user.id },
         select: { product: true },
       });
+
       revalidatePath("/", "layout");
-      return { success: false, favProduct: favProduct.product.name };
-    } catch (error) {
-      console.log(error);
+      return { success: true, favProduct: favProduct.product.name };
+    } else {
+      // If the favorite exists, delete it
+      try {
+        const favProduct = await prisma.favoriteProduct.delete({
+          where: {
+            userId_productId: {
+              userId: user.id,
+              productId: productId,
+            },
+          },
+          select: { product: true },
+        });
+
+        revalidatePath("/", "layout");
+        return { success: false, favProduct: favProduct.product.name };
+      } catch (deleteError) {
+        if (
+          deleteError instanceof PrismaClientKnownRequestError &&
+          deleteError.code === "P2025"
+        ) {
+          // Record was already deleted, treat as success
+          revalidatePath("/", "layout");
+          return { success: false, message: "Favorite already removed" };
+        }
+        throw deleteError;
+      }
     }
+  } catch (error) {
+    console.error("Error toggling favorite:", error);
+    return {
+      success: false,
+      message: "An error occurred while updating favorite",
+    };
   }
 }

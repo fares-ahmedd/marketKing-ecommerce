@@ -109,6 +109,7 @@
     "create failed": "Create Product failed",
     "Success": "Success",
     "Related Products": "Related Products",
+    "error updating favorite": "Something went wrong",
     "New Product": "New Product",
     "Featured Mode": "Product in feature mode",
     "Featured Mode disabled": "Product not feature mode",

@@ -1,10 +1,13 @@
 import FavoriteProductsList from "@/app/_components/marketking/FavoriteProductsList";
+import FavoriteProductsListSkeleton from "@/app/_components/marketking/FavoriteProductsListSkeleton";
 import IconButton from "@/app/_components/ui/IconButton";
 import MyLink from "@/app/_components/ui/MyLink";
+import { useTranslate } from "@/app/_hooks/useTranslate";
 import { getUser } from "@/app/_utils/getUser";
 import { getTranslate } from "@/app/_utils/helpers";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
 export async function generateMetadata({
@@ -18,16 +21,13 @@ export async function generateMetadata({
     title: `${t("Favorite Products")}`,
   };
 }
-async function FavoriteProductsPage({
+function FavoriteProductsPage({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
-  const user: any = await getUser();
-  const { t, isArabic } = await getTranslate();
-
-  if (!user) redirect(isArabic ? "/ar" : "/en");
+  const { t, isArabic } = useTranslate();
 
   return (
     <section className="container-layout py-3 min-h-[calc(100vh-122px)]">
@@ -40,7 +40,9 @@ async function FavoriteProductsPage({
         <h2 className="title ">{t("Favorite Products")}</h2>
       </div>
 
-      <FavoriteProductsList user={user} />
+      <Suspense fallback={<FavoriteProductsListSkeleton />}>
+        <FavoriteProductsList />
+      </Suspense>
     </section>
   );
 }
