@@ -32,10 +32,10 @@ export function oldPrice(price: number, discount: number) {
 
 export const homeNavLinks = [
   { label: "Home", href: "/" },
-  { label: "All Products", href: "/all-products" },
-  { label: "Phones", href: "/phones" },
-  { label: "Laptops", href: "/laptops" },
-  { label: "Watches", href: "/watches" },
+  { label: "All Products", href: "/products/all" },
+  { label: "Phones", href: "/products/phones" },
+  { label: "Laptops", href: "/products/laptops" },
+  { label: "Watches", href: "/products/watches" },
 ];
 export const dashboardNavLinks = [
   { label: "Dashboard", href: "/dashboard" },
@@ -43,4 +43,3 @@ export const dashboardNavLinks = [
   { label: "Products", href: "/dashboard/products" },
   { label: "Banner Picture", href: "/dashboard/banner" },
 ];
-

@@ -13,12 +13,21 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Price": "السعر",
+    "All": "الكل",
+    "Lowest": "من أقل لأعلي سعر",
+    "Highest": "من أعلي لأقل سعر",
+    "Include": "يشمل",
+    "sort discount": "الخصم",
+    "more then 5000": "اكثر من 5000 $",
+    "Show More": "أعرض المزيد",
+
     "Not Allowed email": "غير مسموح بالتعديل علي البريد الالكتروني",
     "Change Image Profile": "تغيير صورة الملف الشخصي",
     "instead": "بدلا من ",
     "Add To Cart": "أضف الى السلة",
     "Related Products": "السلع المتعلقة",
     "error updating favorite": "فشل (اضافة / حذف ) المنتج",
+    "less-then-200": "اقل من 200$",
 
     "draft": "مسودة",
     "Edit Product": "تعديل المنتج",
@@ -161,6 +170,7 @@
     "Banner Details title": "بالرجاء ملئ البيانات لانشاء بانر جديد",
     "Manage Banners": "تحكم في البانرات الخاصة بك",
     "New Banner": "بانر جديد",
+    "Sorting": "فرز",
 
     "Product Details title": "في هذه الحقول يمكنك انشاء منتج جديد",
     "Add Products": "أضف منتجات"
@@ -173,6 +183,7 @@
     "Orders": "الطلبات",
     "Delete": "حذف المنتج",
     "Edit": "تعديل المنتج",
+    "All Products": "جميع المنتجات",
     "Delete Banner": "حذف البانر",
     "Login": "تسجيل الدخول",
     "Sign Up": "انشاء حساب",

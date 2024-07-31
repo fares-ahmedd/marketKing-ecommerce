@@ -46,14 +46,13 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
           <>
             <ul className="grid grid-cols-1 gap-2 mb-2">
               {user.favoriteProducts.map((fav) => (
-                <DropdownMenuItem
-                  key={fav.product.id}
-                  className={`${
-                    isArabic && "text-rtl"
-                  } cursor-pointer hover:bg-sec-background`}
-                  asChild
-                >
-                  <li className="last:border-b">
+                <li className="last:border-b" key={fav.product.id}>
+                  <DropdownMenuItem
+                    className={`${
+                      isArabic && "text-rtl"
+                    } cursor-pointer hover:bg-sec-background`}
+                    asChild
+                  >
                     <MyLink
                       href={`/product/${fav.product.id}`}
                       className="flex-between gap-1  w-full"
@@ -87,8 +86,8 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
                         )}
                       </span>
                     </MyLink>
-                  </li>
-                </DropdownMenuItem>
+                  </DropdownMenuItem>
+                </li>
               ))}
             </ul>
             <DropdownMenuItem

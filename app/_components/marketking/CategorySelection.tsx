@@ -4,7 +4,6 @@ import laptopsPreview from "@/public/laptops-preview.jpg";
 import phonesPreview from "@/public/phones-preview.jpg";
 import watchesPreview from "@/public/watches-prview.webp";
 import Image from "next/image";
-import IconButton from "../ui/IconButton";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 function CategorySelection() {
   const { t, isArabic } = useTranslate();
@@ -13,7 +12,7 @@ function CategorySelection() {
       <div className="flex-between">
         <h2 className="text-base md:text-2xl">{t("Shop By")}</h2>
         <MyLink
-          href="/all-products"
+          href="/products/all"
           className="font-bold text-primary-color flex-center-items gap-2 hover:underline   "
         >
           {t("Browse All")}{" "}
@@ -23,7 +22,7 @@ function CategorySelection() {
 
       <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
         <MyLink
-          href="/phones"
+          href="/products/phones"
           className="group  rounded-xl overflow-hidden  relative min-h-[300px] row-span-full"
         >
           <Image
@@ -50,7 +49,7 @@ function CategorySelection() {
         </MyLink>
 
         <MyLink
-          href="/watches"
+          href="/products/watches"
           className="group  rounded-xl overflow-hidden  relative min-h-[300px]"
         >
           <Image
@@ -76,7 +75,7 @@ function CategorySelection() {
           </button>
         </MyLink>
         <MyLink
-          href="/laptops"
+          href="/products/laptops"
           className="group  rounded-xl overflow-hidden  relative min-h-[300px]"
         >
           <Image

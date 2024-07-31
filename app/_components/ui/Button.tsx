@@ -42,7 +42,7 @@ const Button = ({
     white:
       "bg-white   hover:bg-white/50  disabled:bg-stone-700 text-black  dark:hover:bg-white/80 ",
 
-    info: "bg-blue-400 text-white border-blue-400 hover:bg-blue-500 active:bg-blue-600 disabled:bg-blue-200",
+    info: "bg-blue-500 text-white border-blue-400 hover:bg-blue-600 active:bg-blue-700 disabled:bg-blue-200",
     warning:
       "bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 disabled:bg-yellow-300",
     error:

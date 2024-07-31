@@ -1,3 +1,4 @@
+import Filter from "@/app/_components/ui/Filter";
 import { unstable_setRequestLocale } from "next-intl/server";
 function layout({
   children,
@@ -9,8 +10,10 @@ function layout({
   unstable_setRequestLocale(locale);
 
   return (
-    <section className="container-layout flex-1 grid grid-cols-1 sm:grid-cols-2">
-      test
+    <section className="container-layout py-3 min-h-[calc(100vh-122px)] flex gap-2">
+      <Filter />
+
+      {children}
     </section>
   );
 }
