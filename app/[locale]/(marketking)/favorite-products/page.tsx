@@ -40,7 +40,7 @@ function FavoriteProductsPage({
         <h2 className="title ">{t("Favorite Products")}</h2>
       </div>
 
-      <Suspense fallback={<FavoriteProductsListSkeleton />}>
+      <Suspense key={Math.random()} fallback={<FavoriteProductsListSkeleton />}>
         <FavoriteProductsList />
       </Suspense>
     </section>

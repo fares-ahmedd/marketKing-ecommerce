@@ -1,149 +1,98 @@
+"use client";
 import { useTranslate } from "@/app/_hooks/useTranslate";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-function Filter() {
+const sortArr = [
+  { label: "All", name: "all" },
+  { label: "Lowest", name: "lowest" },
+  { label: "Highest", name: "highest" },
+];
+
+const filterArr = [
+  { label: "All", name: "all" },
+  { label: "less-then-200", name: "less-then-200" },
+  { label: "between-200-500", name: "between-200-500" },
+  { label: "between-1000-5000", name: "between-1000-5000" },
+  { label: "more-then-5000", name: "more-then-5000" },
+];
+
+function Filter({ isMedium = false }: { isMedium?: boolean }) {
   const { t } = useTranslate();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const activeSort = searchParams.get("sort-price") || "all";
+  const activeFilterPrice = searchParams.get("filter-price") || "all";
+
+  const handleSort = (filter: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("sort-price", filter);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const handleFilterPrice = (filter: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("filter-price", filter);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
   return (
-    <aside className="min-w-[300px] max-md:hidden p-4 h-[calc(100vh-122px)]  overflow-y-auto">
+    <aside
+      className={`min-w-[300px]  p-4 h-[calc(100vh-122px)]  overflow-y-auto ${
+        isMedium ? "block" : "max-md:hidden"
+      }`}
+    >
       <form>
         <h3 className="title mb-2 text-second-text"> {t("Sorting")}</h3>
         <div className="space-y-2 w-full card p-3">
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="all"
-              name="sort"
-              className="cursor-pointer"
-              defaultChecked
-            />
-            <label htmlFor="all" className="cursor-pointer">
-              {t("All")}
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="lowest"
-              name="sort"
-              className="cursor-pointer"
-            />
-            <label htmlFor="lowest" className="cursor-pointer">
-              {t("Lowest")}
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="highest"
-              name="sort"
-              className="cursor-pointer"
-            />
-            <label htmlFor="highest" className="cursor-pointer">
-              {t("Highest")}
-            </label>
-          </div>
+          {sortArr.map((item) => (
+            <div
+              className="flex gap-2  w-full py-2 duration-200  px-2 rounded-lg"
+              key={item.name}
+            >
+              <input
+                type="radio"
+                id={item.name}
+                className="cursor-pointer"
+                checked={activeSort === item.name}
+                onClick={() => handleSort(item.name)}
+              />
+              <label
+                htmlFor={item.name}
+                className="cursor-pointer block w-full"
+                onClick={() => handleSort(item.name)}
+              >
+                {t(item.label)}
+              </label>
+            </div>
+          ))}
         </div>
       </form>
 
       <form className="my-2">
         <h3 className="title mb-2 text-second-text"> {t("Price")}</h3>
         <div className="space-y-2 w-full card p-3">
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="all-prices"
-              name="sort-price"
-              className="cursor-pointer"
-              defaultChecked
-            />
-            <label htmlFor="all-prices" className="cursor-pointer">
-              {t("All")}
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="less-then-200"
-              name="sort-price"
-              className="cursor-pointer"
-            />
-            <label htmlFor="less-then-200" className="cursor-pointer">
-              {t("less-then-200")}
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="between-200-500"
-              name="sort-price"
-              className="cursor-pointer"
-            />
-            <label htmlFor="between-200-500" className="cursor-pointer">
-              200$ - 500$
-            </label>
-          </div>
-
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="between-500-1000"
-              name="sort-price"
-              className="cursor-pointer"
-            />
-            <label htmlFor="between-500-1000" className="cursor-pointer">
-              500$ - 1000$
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="between-1000-5000"
-              name="sort-price"
-              className="cursor-pointer"
-            />
-            <label htmlFor="between-1000-5000" className="cursor-pointer">
-              1000$ - 5000$
-            </label>
-          </div>
-
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="radio"
-              id="more then 5000"
-              name="sort-price"
-              className="cursor-pointer"
-            />
-            <label htmlFor="more then 5000" className="cursor-pointer">
-              {t("more then 5000")}
-            </label>
-          </div>
-        </div>
-      </form>
-
-      <form>
-        <h3 className="title mb-2 text-second-text"> {t("Include")}</h3>
-        <div className="space-y-2 w-full card p-3">
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="checkbox"
-              id="discount"
-              name="sort"
-              className="cursor-pointer"
-            />
-            <label htmlFor="discount" className="cursor-pointer">
-              {t("sort discount")}
-            </label>
-          </div>
-          <div className="flex gap-2 cursor-pointer w-full py-2 duration-200 hover:bg-third-background px-2 rounded-lg">
-            <input
-              type="checkbox"
-              id="featured"
-              name="sort"
-              className="cursor-pointer"
-            />
-            <label htmlFor="featured" className="cursor-pointer">
-              {t("Featured")}
-            </label>
-          </div>
+          {filterArr.map((item) => (
+            <div
+              className="flex gap-2  w-full py-2 duration-200  px-2 rounded-lg"
+              key={item.name}
+            >
+              <input
+                type="radio"
+                id={item.name}
+                className="cursor-pointer"
+                onClick={() => handleFilterPrice(item.name)}
+                checked={activeFilterPrice === item.name}
+              />
+              <label
+                htmlFor={item.name}
+                className="cursor-pointer block w-full"
+                onClick={() => handleFilterPrice(item.name)}
+              >
+                {t(item.label)}
+              </label>
+            </div>
+          ))}
         </div>
       </form>
     </aside>
