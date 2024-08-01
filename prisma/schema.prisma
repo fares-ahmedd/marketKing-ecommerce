@@ -20,8 +20,33 @@ model User {
   firstName String
   lastName String
   profileImage String
+  cart Cart?
   favoriteProducts FavoriteProduct[]
   createdAt DateTime @default(now())
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  user      User       @relation(fields: [userId], references: [id])
+  userId    String     @unique
+  items     CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+model CartItem {
+  id        String   @id @default(uuid())
+  cart      Cart     @relation(fields: [cartId], references: [id])
+  cartId    String
+  productId String
+  quantity  Int
+  price Int
+  discount Int
+  imageString String
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([cartId, productId])
 }
 model Product {
   id String @id @default(uuid())

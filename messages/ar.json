@@ -12,6 +12,8 @@
     "Name": "الإسم",
     "Edit": "تعديل",
     "Delete": "حذف",
+    "haven't add items": "أنت لا تمتلك اي منتجات في عربة التسوق",
+
     "Price": "السعر",
     "All": "الكل",
     "Lowest": "من أقل لأعلي سعر",
@@ -141,6 +143,11 @@
     "Create Banner": "إنشاء بانر",
     "New Banner placeholder": "بالرجاء كتابة اسم البانر",
     "banner error message": "بالرجاء كتابة اسم صالح للبانر",
+    "Quantity": "الكمية",
+    "Item Already Exist": "{name} موجود بالفعل في العربة",
+    "Add New Item": "تم اضافة x{quantity} {name} الى العربة",
+    "Cart": "عربة التسوق",
+    "Proceed to Checkout": "إتمام عملية الشراء",
 
     "Status": "الحالات",
     "image photo": "صور المنتج",
@@ -153,6 +160,8 @@
     "price error message": "بالرجاء اختيار سعر صالح للمنتج",
     "Favorite Products": "منتجاتي المفضلة",
     "no favorite products": "لم يعد لديك أي منتجات مفضلة",
+    "Change Profile Image": "تغيير الصورة",
+    "Limit Profile Image": "الحد الاقصي لصورة البروفايل 4MB",
 
     "Type": "النوع",
     "Date": "التاريخ",

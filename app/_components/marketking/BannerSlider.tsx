@@ -13,8 +13,8 @@ const DRAG_BUFFER = 50;
 
 const bannerNavLinks = [
   "/products/phones",
-  "/products/laptops",
   "/products/watches",
+  "/products/laptops",
 ];
 
 const SPRING_OPTIONS = {

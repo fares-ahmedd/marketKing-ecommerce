@@ -37,7 +37,7 @@ function EditProfileForm({ user }: { user: User }) {
             id="firstName"
             name="firstName"
             defaultValue={user.firstName}
-            className="max-w-[250px]"
+            className="max-w-[250px] text-ltr"
             required
           />
         </div>
@@ -50,7 +50,7 @@ function EditProfileForm({ user }: { user: User }) {
             id="lastName"
             name="lastName"
             defaultValue={user.lastName}
-            className="max-w-[250px]"
+            className="max-w-[250px] text-ltr"
             required
           />
         </div>
@@ -61,8 +61,8 @@ function EditProfileForm({ user }: { user: User }) {
         <UploadButton
           endpoint="bannerImageRoute"
           content={{
-            allowedContent: t("Images up to 4MB, max 1"),
-            button: t("Choose Product Image"),
+            allowedContent: t("Limit Profile Image"),
+            button: t("Change Profile Image"),
           }}
           onClientUploadComplete={(res) => {
             console.log("uploaded done!");

@@ -39,6 +39,8 @@ function ProductInfoSkeleton() {
           <p className="w-full h-[15px]  bg-third-background animate-skeleton my-2 "></p>
           <p className="w-full h-[15px]  bg-third-background animate-skeleton "></p>
 
+          <div className="my-3  h-[30px] w-[180px] bg-third-background animate-skeleton rounded-lg "></div>
+
           <div className="my-3 mx-auto h-[40px] w-[200px] bg-third-background animate-skeleton rounded-lg "></div>
         </article>
       </div>

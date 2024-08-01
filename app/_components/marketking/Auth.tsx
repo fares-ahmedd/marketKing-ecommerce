@@ -20,7 +20,7 @@ async function Auth() {
       {user ? (
         <>
           <WhishList user={user} />
-          <ShoppingCart user={user} />
+          <ShoppingCart userId={user.id} />
           <User />
         </>
       ) : (
