@@ -23,11 +23,18 @@ function BannerPage({ params: { locale } }: { params: { locale: string } }) {
 
   return (
     <main className="container-layout my-3">
-      <MyLink href="/dashboard/banner/create" className=" block w-fit ms-auto">
-        <Button className="flex-items-center gap-2 ms-auto my-3" size="md">
+      <Button
+        className="flex-items-center gap-2 ms-auto my-3"
+        size="md"
+        asChild
+      >
+        <MyLink
+          href="/dashboard/banner/create"
+          className=" block w-fit ms-auto"
+        >
           <span>{t("Add Banner")}</span> <IoMdAddCircleOutline />{" "}
-        </Button>
-      </MyLink>
+        </MyLink>
+      </Button>
       <BannerTable />
     </main>
   );

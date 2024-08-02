@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { Slot } from "@radix-ui/react-slot";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -12,69 +13,88 @@ type ButtonProps = {
   variant?: "primary" | "secondary";
   className?: string;
   color?: "primary" | "black" | "white" | "info" | "warning" | "error";
+  asChild?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = ({
-  active,
-  disabled,
-  className = "",
-  iconOnly,
-  beforeContent,
-  afterContent,
-  size,
-  variant = "primary",
-  color = "primary",
-  children,
-  ...props
-}: ButtonProps) => {
-  const baseStyles =
-    "transition-all duration-250 flex items-center justify-center border-none font-medium cursor-pointer rounded-lg gap-1 ";
-  const sizeStyles = {
-    sm: "py-1 px-2 text-sm",
-    md: "py-2 px-4 text-base",
-    lg: "py-3 px-6 text-lg",
-  };
-  const colorStyles = {
-    primary:
-      "bg-primary-bg-color   hover:bg-primary-color-hover  disabled:bg-green-700  text-black dark:text-white",
-    black:
-      "bg-black   hover:bg-black/80  disabled:bg-stone-700 text-white dark:hover:bg-black/50 ",
-    white:
-      "bg-white   hover:bg-white/50  disabled:bg-stone-700 text-black  dark:hover:bg-white/80 ",
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      active,
+      disabled,
+      className = "",
+      iconOnly,
+      beforeContent,
+      afterContent,
+      size,
+      variant = "primary",
+      color = "primary",
+      children,
+      asChild = false,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
 
-    info: "bg-blue-500 text-white border-blue-400 hover:bg-blue-600 active:bg-blue-700 disabled:bg-blue-200 disabled:text-stone-600",
-    warning:
-      "bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 disabled:bg-yellow-300",
-    error:
-      "bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 hover:bg-red-600 dark:hover:bg-red-700 active:bg-red-700 dark:active:bg-red-800 disabled:bg-red-300 dark:disabled:bg-red-400",
-  };
-  const variantStyles = {
-    primary: "",
-    secondary: "border-2",
-  };
-  const activeStyles = active ? "shadow-inner" : "";
-  const iconOnlyStyles = iconOnly ? "p-1 aspect-square" : "";
-  const disabledStyles = disabled ? "opacity-70 cursor-not-allowed" : "";
+    const baseStyles =
+      "transition-all duration-250 flex items-center justify-center border-none font-medium cursor-pointer rounded-lg gap-1 ";
+    const sizeStyles = {
+      sm: "py-1 px-2 text-sm",
+      md: "py-2 px-4 text-base",
+      lg: "py-3 px-6 text-lg",
+    };
+    const colorStyles = {
+      primary:
+        "bg-primary-bg-color hover:bg-primary-color-hover disabled:bg-green-700 text-black dark:text-white",
+      black:
+        "bg-black hover:bg-black/80 disabled:bg-stone-700 text-white dark:hover:bg-black/50",
+      white:
+        "bg-white hover:bg-white/50 disabled:bg-stone-700 text-black dark:hover:bg-white/80",
+      info: "bg-blue-500 text-white border-blue-400 hover:bg-blue-600 active:bg-blue-700 disabled:bg-blue-200 disabled:text-stone-600",
+      warning:
+        "bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 disabled:bg-yellow-300",
+      error:
+        "bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 hover:bg-red-600 dark:hover:bg-red-700 active:bg-red-700 dark:active:bg-red-800 disabled:bg-red-300 dark:disabled:bg-red-400",
+    };
+    const variantStyles = {
+      primary: "",
+      secondary: "border-2",
+    };
+    const activeStyles = active ? "shadow-inner" : "";
+    const iconOnlyStyles = iconOnly ? "p-1 aspect-square" : "";
+    const disabledStyles = disabled ? "opacity-70 cursor-not-allowed" : "";
 
-  return (
-    <button
-      className={clsx(
-        baseStyles,
-        size && sizeStyles[size],
-        color && colorStyles[color],
-        variant && variantStyles[variant],
-        activeStyles,
-        iconOnlyStyles,
-        disabledStyles,
-        className,
-        "active:scale-95 disabled:cursor-default "
-      )}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
+    const content = (
+      <>
+        {beforeContent}
+        {children}
+        {afterContent}
+      </>
+    );
+
+    return (
+      <Comp
+        className={clsx(
+          baseStyles,
+          size && sizeStyles[size],
+          color && colorStyles[color],
+          variant && variantStyles[variant],
+          activeStyles,
+          iconOnlyStyles,
+          disabledStyles,
+          className,
+          "active:scale-95 disabled:cursor-default w-fit "
+        )}
+        disabled={disabled}
+        ref={ref}
+        {...props}
+      >
+        {asChild ? React.Children.only(children) : content}
+      </Comp>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 export default Button;

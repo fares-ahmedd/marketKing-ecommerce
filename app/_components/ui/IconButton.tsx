@@ -27,17 +27,17 @@ const IconButton = ({
           {children}
         </span>
       ) : (
-        <button
+        <span
           className={`
    relative  font-bold   border  hover-border
     p-2 text-lg md:text-xl rounded-md  duration-400 ease-in-out
-    hover:bg-hover-button
+    hover:bg-hover-button block cursor-pointer
        ${className} ${isClickable && "active:scale-95"}
  `}
           onClick={onClick}
         >
           {children}
-        </button>
+        </span>
       )}
     </>
   );

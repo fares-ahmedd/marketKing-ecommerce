@@ -94,11 +94,11 @@ async function WhishList({ user }: { user: IUserIncludeFavorites }) {
               asChild
               className="bg-transparent hover:bg-transparent"
             >
-              <MyLink href="/favorite-products">
-                <Button size="lg" className="w-full ">
+              <Button size="lg" className="w-full " asChild>
+                <MyLink href="/favorite-products">
                   {t("Go To Favorite Page")}
-                </Button>
-              </MyLink>
+                </MyLink>
+              </Button>
             </DropdownMenuItem>
           </>
         ) : (

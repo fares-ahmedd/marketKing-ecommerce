@@ -23,14 +23,18 @@ function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
   const { t } = useTranslate();
   return (
     <main className="container-layout my-3">
-      <MyLink
-        href="/dashboard/products/create"
-        className=" block w-fit ms-auto"
+      <Button
+        className="flex-items-center gap-2 ms-auto mt-3"
+        size="md"
+        asChild
       >
-        <Button className="flex-items-center gap-2 ms-auto mt-3" size="md">
+        <MyLink
+          href="/dashboard/products/create"
+          className=" block w-fit ms-auto"
+        >
           <span>{t("Add Products")}</span> <IoMdAddCircleOutline />{" "}
-        </Button>
-      </MyLink>
+        </MyLink>
+      </Button>
       <section className="mt-3 card overflow-auto max-sm:text-sm">
         <h3 className="title mb-2">{t("Products")}</h3>
         <p className="text-sm text-second-text mb-4">{t("Products title")}</p>

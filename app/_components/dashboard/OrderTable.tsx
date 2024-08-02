@@ -82,7 +82,7 @@ async function OrderTable() {
                 <th className={`text-center ${!isArabic && "border-custom-s"}`}>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <IconButton>
+                      <IconButton className="w-fit mx-auto">
                         <BsThreeDotsVertical className=" text-2xl block cursor-pointer text-main-text  m-auto " />
                       </IconButton>
                     </DropdownMenuTrigger>

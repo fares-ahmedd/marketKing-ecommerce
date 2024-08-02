@@ -163,9 +163,9 @@ function Marquee({ items, user }: { items: ItemType[]; user: User | null }) {
                   ${newPrice(item.price, item.discount)}
                 </data>
 
-                <MyLink href={`/product/${item.id}`}>
-                  <Button size="md">{t("Buy Now")}</Button>
-                </MyLink>
+                <Button size="md" asChild>
+                  <MyLink href={`/product/${item.id}`}>{t("Buy Now")}</MyLink>
+                </Button>
               </div>
             </div>
           </div>

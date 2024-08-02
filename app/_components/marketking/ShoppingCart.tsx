@@ -1,7 +1,12 @@
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import IconButton from "../ui/IconButton";
 import prisma from "@/app/_lib/db";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { getTranslate } from "@/app/_utils/helpers";
 import Button from "../ui/Button";
 import Image from "next/image";
@@ -10,6 +15,7 @@ import { BsFillCartDashFill } from "react-icons/bs";
 import { deleteItemCart } from "@/app/_actions/deleteItemCart";
 import SubmitButton from "../ui/SubmitButton";
 import IncAndDecProductItem from "./IncAndDecProductItem";
+import { checkout } from "@/app/_actions/checkout";
 
 async function ShoppingCart({ userId }: { userId: string }) {
   const cart = await prisma.cart.findUnique({
@@ -51,12 +57,14 @@ async function ShoppingCart({ userId }: { userId: string }) {
               {cart.items.map((item) => (
                 <li className="border-b py-2" key={item.id}>
                   <div className="flex-between gap-1">
-                    <MyLink
-                      className="line-clamp-1"
-                      href={`/product/${item.productId}`}
-                    >
-                      {item.name}
-                    </MyLink>
+                    <SheetClose asChild>
+                      <MyLink
+                        className="line-clamp-1"
+                        href={`/product/${item.productId}`}
+                      >
+                        {item.name}
+                      </MyLink>
+                    </SheetClose>
 
                     <strong className="font-bold text-primary-color ">
                       ${(item.price - item.discount) * item.quantity}
@@ -64,9 +72,19 @@ async function ShoppingCart({ userId }: { userId: string }) {
                   </div>
 
                   <div className="flex justify-between gap-1">
-                    <div className="relative flex-1 h-[100px] max-w-[150px] ">
-                      <Image src={item.imageString} alt={"Product Item"} fill />
-                    </div>
+                    <SheetClose asChild>
+                      <MyLink
+                        href={`/product/${item.productId}`}
+                        className="relative flex-1 h-[100px] max-w-[150px] "
+                      >
+                        <Image
+                          src={item.imageString}
+                          alt={"Product Item"}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </MyLink>
+                    </SheetClose>
 
                     <div>
                       <IncAndDecProductItem
@@ -108,9 +126,12 @@ async function ShoppingCart({ userId }: { userId: string }) {
 
                 <strong className="title">${totalPrice}</strong>
               </div>
-              <Button color="primary" size="md" className="w-full mt-2">
-                {t("Proceed to Checkout")}
-              </Button>
+
+              <form className="w-full mt-2" action={checkout}>
+                <Button color="primary" size="md" className="w-full ">
+                  {t("Proceed to Checkout")}
+                </Button>
+              </form>
             </div>
           )}
         </SheetContent>

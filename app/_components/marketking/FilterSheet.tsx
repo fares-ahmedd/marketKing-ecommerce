@@ -14,7 +14,7 @@ function FilterSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <IconButton className="flex-items-center gap-1 md:hidden">
+        <IconButton className="hidden max-md:flex-items-center gap-1 ">
           <FaFilter /> Filter
         </IconButton>
       </SheetTrigger>

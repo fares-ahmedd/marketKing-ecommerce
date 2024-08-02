@@ -113,7 +113,7 @@ body {
     @apply flex items-center justify-between;
   }
   .flex-items-center {
-    @apply flex items-center;
+    @apply flex items-center !important;
   }
   .container-layout {
     @apply container px-3 mx-auto;

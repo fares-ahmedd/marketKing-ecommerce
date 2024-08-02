@@ -62,11 +62,9 @@ async function page({
           className="rounded-lg mx-auto my-3 max-h-[250px]"
         />
         <div className="flex items-center gap-3 justify-end">
-          <MyLink href={`/dashboard/products`}>
-            <Button color={"black"} size={"md"}>
-              {t("No")}
-            </Button>
-          </MyLink>
+          <Button color={"black"} size={"md"} asChild>
+            <MyLink href={`/dashboard/products`}>{t("No")}</MyLink>
+          </Button>
           <form action={deleteProduct}>
             <input type="hidden" name="productId" value={product.id} />
             <SubmitButton color="error" className="w-fit  ps-4" size="md">

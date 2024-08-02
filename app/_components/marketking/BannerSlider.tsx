@@ -98,11 +98,13 @@ function BannerSlider({ banners }: { banners: Banner[] }) {
         {t(title)}
       </span>
 
-      <MyLink href={bannerNavLinks[imgIndex]}>
-        <Button size={"lg"} className="absolute bottom-6 end-2 sm:end-12  ">
-          {t("Shop Now")}
-        </Button>
-      </MyLink>
+      <Button
+        size={"lg"}
+        className="absolute bottom-6 end-2 sm:end-12  "
+        asChild
+      >
+        <MyLink href={bannerNavLinks[imgIndex]}>{t("Shop Now")}</MyLink>
+      </Button>
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} banners={banners} />
     </section>
   );
