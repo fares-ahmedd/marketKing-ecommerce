@@ -90,6 +90,8 @@ model Order {
 
   User User? @relation(fields: [userId], references: [id])
   userId String?
+
+  createdAt DateTime @default(now())
 }
 
 enum ProductStatus {

@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
+    "recharts": "^2.12.7",
     "sharp": "^0.33.4",
     "stripe": "^16.6.0",
     "tailwind-merge": "^2.4.0",

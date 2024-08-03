@@ -26,7 +26,7 @@ function ProductCreateRoute({
 
   const { t, isArabic } = useTranslate();
   return (
-    <main className="container-layout my-3 max-w-[1080px]">
+    <section className="container-layout my-3 max-w-[1080px]">
       <div className="flex-items-center gap-3">
         <MyLink href="/dashboard/products">
           <IconButton>
@@ -44,7 +44,7 @@ function ProductCreateRoute({
 
         <CreateAndEditProductForm />
       </section>
-    </main>
+    </section>
   );
 }
 

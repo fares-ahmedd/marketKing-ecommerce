@@ -22,7 +22,7 @@ function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
 
   const { t } = useTranslate();
   return (
-    <main className="container-layout my-3">
+    <section className="container-layout my-3">
       <Button
         className="flex-items-center gap-2 ms-auto mt-3"
         size="md"
@@ -40,7 +40,7 @@ function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
         <p className="text-sm text-second-text mb-4">{t("Products title")}</p>
         <OrderTable />
       </section>
-    </main>
+    </section>
   );
 }
 

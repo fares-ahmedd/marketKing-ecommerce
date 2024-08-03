@@ -164,6 +164,11 @@
     "discount error message": "Discount must be less then product price !",
 
     "Banners": "Banners",
+    "Order": "Order",
+    "complete": "Complete",
+    "expired": "Expired",
+    "open": "Open",
+    "not found orders": "Not Found any orders!",
     "payment Success message": "Thank you for trust use (MarketKing) Your payment have been successfully created and your order will get you soon",
     "Payment Success": "Payment Success",
     "Sorting": "Sorting",

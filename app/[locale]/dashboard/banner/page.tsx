@@ -22,7 +22,7 @@ function BannerPage({ params: { locale } }: { params: { locale: string } }) {
   const { t } = useTranslate();
 
   return (
-    <main className="container-layout my-3">
+    <section className="container-layout my-3">
       <Button
         className="flex-items-center gap-2 ms-auto my-3"
         size="md"
@@ -36,7 +36,7 @@ function BannerPage({ params: { locale } }: { params: { locale: string } }) {
         </MyLink>
       </Button>
       <BannerTable />
-    </main>
+    </section>
   );
 }
 

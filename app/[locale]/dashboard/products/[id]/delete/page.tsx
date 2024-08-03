@@ -44,7 +44,7 @@ async function page({
 
   const { t } = await getTranslate();
   return (
-    <main className="container-layout h-[calc(100vh-60px)] flex-center animate-smooth overflow-auto">
+    <section className="container-layout h-[calc(100vh-60px)] flex-center animate-smooth overflow-auto">
       <section className="card w-[70%] mx-auto max-w-[600px] py-6 ">
         <h5 className="title mb-3 flex-center-items">
           {t("delete title")}{" "}
@@ -73,7 +73,7 @@ async function page({
           </form>
         </div>
       </section>
-    </main>
+    </section>
   );
 }
 

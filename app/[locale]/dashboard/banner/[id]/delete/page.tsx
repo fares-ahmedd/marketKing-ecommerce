@@ -37,8 +37,8 @@ async function page({
     return notFound();
   }
   return (
-    <main className="container-layout h-[calc(100vh-60px)] flex-center animate-smooth overflow-auto">
-      <section className="card w-[70%] mx-auto max-w-[600px] py-6 ">
+    <section className="container-layout h-[calc(100vh-60px)] flex-center animate-smooth overflow-auto">
+      <div className="card w-[70%] mx-auto max-w-[600px] py-6 ">
         <h5 className="title mb-3 flex-center-items">
           {t("delete title banner")}{" "}
           <span className="text-base text-second-text">({banner.title})</span>
@@ -65,8 +65,8 @@ async function page({
             </SubmitButton>
           </form>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
 

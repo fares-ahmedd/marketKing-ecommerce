@@ -26,7 +26,7 @@ function BannerCreatePage({
   const { t, isArabic } = useTranslate();
 
   return (
-    <main className="container-layout my-3">
+    <section className="container-layout my-3">
       <div className="flex-items-center gap-3">
         <MyLink href="/dashboard/banner">
           <IconButton>
@@ -43,7 +43,7 @@ function BannerCreatePage({
 
         <CreateBanner />
       </section>
-    </main>
+    </section>
   );
 }
 
