@@ -16,19 +16,26 @@ import {
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import Image from "next/image";
 import { IUserIncludeFavorites } from "@/app/_utils/types";
-import { fetchMoreProducts } from "@/app/_actions/fetchMoreProducts";
+import {
+  fetchMoreLaptops,
+  fetchMorePhones,
+  fetchMoreProducts,
+  fetchMoreWatches,
+} from "@/app/_actions/fetchMoreProducts";
 import { useSearchParams } from "next/navigation";
 function ProductList({
   productArr,
   user,
   sortPrice,
   filterPrice,
+  category = "all",
   totalProducts = 0,
 }: {
   productArr: any;
   totalProducts?: number;
   sortPrice?: string;
   filterPrice?: string;
+  category?: string;
   user: IUserIncludeFavorites;
 }) {
   const [isFilter, setIsFilter] = useState(false);
@@ -57,7 +64,22 @@ function ProductList({
   const loadMoreProducts = async () => {
     setLoading(true);
     try {
-      const newProducts = await fetchMoreProducts(products.length);
+      let newProducts;
+
+      switch (category) {
+        case "phones":
+          newProducts = await fetchMorePhones(products.length);
+          break;
+        case "watches":
+          newProducts = await fetchMoreWatches(products.length);
+          break;
+        case "laptops":
+          newProducts = await fetchMoreLaptops(products.length);
+          break;
+
+        default:
+          newProducts = await fetchMoreProducts(products.length);
+      }
       setProducts([...products, ...newProducts]);
     } catch (error) {
       console.error("Failed to load more products", error);

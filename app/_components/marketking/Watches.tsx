@@ -27,6 +27,7 @@ async function Watches({
       totalProducts={totalProducts}
       sortPrice={sortPrice}
       filterPrice={filterPrice}
+      category="watches"
     />
   );
 }

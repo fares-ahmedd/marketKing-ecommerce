@@ -27,6 +27,7 @@ async function Phones({
       totalProducts={totalProducts}
       sortPrice={sortPrice}
       filterPrice={filterPrice}
+      category="phones"
     />
   );
 }

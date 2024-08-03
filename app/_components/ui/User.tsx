@@ -38,9 +38,26 @@ async function User() {
           </p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+
+        {user?.email === "faresahmed00001111@gmail.com" && (
+          <>
+            <DropdownMenuItem asChild className="justify-center cursor-pointer">
+              <MyLink href="/">{t("Home")}</MyLink>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem asChild className="justify-center cursor-pointer">
+              <MyLink href="/dashboard">{t("Dashboard")}</MyLink>
+            </DropdownMenuItem>
+          </>
+        )}
+        <DropdownMenuSeparator />
+
         <DropdownMenuItem asChild className="justify-center cursor-pointer">
           <MyLink href="/edit-profile">{t("Edit Profile")}</MyLink>
         </DropdownMenuItem>
+        <DropdownMenuSeparator />
+
         <LogoutButton />
       </DropdownMenuContent>
     </DropdownMenu>

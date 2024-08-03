@@ -22,7 +22,7 @@ async function RecentSalesCard() {
     },
     take: 7,
   });
-  const { t } = await getTranslate();
+  const { t, isArabic } = await getTranslate();
   return (
     <div className="card">
       <h3 className="title mb-2">{t("Recent Sales")}</h3>
@@ -43,7 +43,11 @@ async function RecentSalesCard() {
               </p>
               <p className="text-sm text-second-text">{order.User?.email}</p>
             </div>
-            <strong className="me-auto text-lg font-extrabold text-ltr ">
+            <strong
+              className={`${
+                isArabic ? "me-auto" : "ms-auto"
+              } text-lg font-extrabold text-ltr `}
+            >
               +${Intl.NumberFormat("en-US").format(order.amount / 100)}
             </strong>
           </li>

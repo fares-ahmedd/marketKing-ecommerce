@@ -36,12 +36,18 @@ export async function checkout() {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: lineItems,
-      success_url: `http://localhost:3000/${
-        isArabic ? "ar" : "en"
-      }/payment/success`,
-      cancel_url: `http://localhost:3000/${
-        isArabic ? "ar" : "en"
-      }/payment/cancel`,
+      success_url:
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:3000/${isArabic ? "ar" : "en"}/payment/success`
+          : `https://market-king-ecommerce.vercel.app/${
+              isArabic ? "ar" : "en"
+            }/payment/success`,
+      cancel_url:
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:3000/${isArabic ? "ar" : "en"}/payment/cancel`
+          : `https://market-king-ecommerce.vercel.app/${
+              isArabic ? "ar" : "en"
+            }/payment/cancel`,
       metadata: {
         userId: user.id,
       },

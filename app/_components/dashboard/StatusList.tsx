@@ -7,16 +7,17 @@ import { FaCartArrowDown } from "react-icons/fa6";
 
 async function StatusList() {
   const [users, products, orders] = await Promise.all([
-    prisma.product.findMany({
-      select: {
-        id: true,
-      },
-    }),
     prisma.user.findMany({
       select: {
         id: true,
       },
     }),
+    prisma.product.findMany({
+      select: {
+        id: true,
+      },
+    }),
+
     prisma.order.findMany({
       select: {
         amount: true,

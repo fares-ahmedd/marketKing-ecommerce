@@ -27,6 +27,7 @@ async function Laptops({
       totalProducts={totalProducts}
       sortPrice={sortPrice}
       filterPrice={filterPrice}
+      category="laptops"
     />
   );
 }

@@ -62,8 +62,8 @@ async function BannerTable() {
                   >
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <IconButton>
-                          <BsThreeDotsVertical className=" text-2xl block cursor-pointer text-main-text  m-auto " />
+                        <IconButton className="w-fit mx-auto">
+                          <BsThreeDotsVertical className=" text-2xl block  cursor-pointer text-main-text  m-auto " />
                         </IconButton>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="center">
