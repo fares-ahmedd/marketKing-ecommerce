@@ -4,7 +4,6 @@ import NavLinks from "@/app/_components/header/NavLinks";
 import Auth from "@/app/_components/marketking/Auth";
 import Footer from "@/app/_components/marketking/Footer";
 import { unstable_setRequestLocale } from "next-intl/server";
-import React from "react";
 
 export default function MarkKingLayout({
   children,

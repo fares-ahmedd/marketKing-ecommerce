@@ -28,11 +28,22 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
+    metadataBase: new URL("https://market-king-ecommerce.vercel.app"),
+
     title: {
       template: `%s | ${t("title")}`,
       default: `${t("homeTitle")} | ${t("title")}`,
     },
-    // description: t('description'),
+    description:
+      "MarketKing: Secure e-commerce platform featuring user authentication, Stripe payments, and an admin dashboard",
+    openGraph: {
+      title: "MarketKing",
+      description:
+        "Online marketplace solution 'MarketKing' with user login, Stripe integration, and management interface",
+      images: ["/project-preview.png"],
+      url: "https://market-king-ecommerce.vercel.app/",
+      type: "website",
+    },
   };
 }
 

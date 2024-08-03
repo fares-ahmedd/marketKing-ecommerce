@@ -72,7 +72,6 @@
     "archived": "Archived",
     "Status": "Status",
     "Status label": "Please Select Product Status",
-    "Description": "Description",
     "Description placeholder": "Please Type your Description",
     "Type": "Type",
     "delete title": "Are you sure you want to delete this product ?",
@@ -205,6 +204,7 @@
     "Cancel Payment": "Cancel Payment",
     "Create Banner": "Create Banner",
     "Login": "Login",
+
     "All Products": "All Products",
     "Favorite Products": "Favorite Products",
     "Sign Up": "Sign Up",

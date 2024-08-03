@@ -7,7 +7,7 @@ export const roboto = Roboto({
 });
 
 export const NotoKufiArabic = Noto_Kufi_Arabic({
-  subsets: ["arabic"], // Specify the subsets you need
+  subsets: ["arabic"],
   weight: ["400", "700"],
   display: "swap",
 });
