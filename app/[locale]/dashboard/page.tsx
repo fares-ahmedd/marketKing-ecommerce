@@ -19,13 +19,8 @@ export async function generateMetadata({
   };
 }
 
-async function Dashboard({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
+function Dashboard({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale);
-
   return (
     <main className="container-layout mt-4 mb-2">
       <ol className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">

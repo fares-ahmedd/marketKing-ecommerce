@@ -13,6 +13,7 @@ async function Auth() {
   const { t } = await getTranslate();
   const user: any = await getUser();
 
+
   return (
     <div className="flex-center gap-2">
       <ChangeLanguage />

@@ -128,9 +128,9 @@ async function ShoppingCart({ userId }: { userId: string }) {
               </div>
 
               <form className="w-full mt-2" action={checkout}>
-                <Button color="primary" size="md" className="w-full ">
+                <SubmitButton color="primary" size="md" className="w-full ">
                   {t("Proceed to Checkout")}
-                </Button>
+                </SubmitButton>
               </form>
             </div>
           )}

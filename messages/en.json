@@ -164,6 +164,8 @@
     "discount error message": "Discount must be less then product price !",
 
     "Banners": "Banners",
+    "payment Success message": "Thank you for trust use (MarketKing) Your payment have been successfully created and your order will get you soon",
+    "Payment Success": "Payment Success",
     "Sorting": "Sorting",
     "Product Details": "Product Details",
     "discount label": "Discount",
@@ -202,6 +204,7 @@
     "Favorite Products": "Favorite Products",
     "Sign Up": "Sign Up",
     "Edit Profile": "Edit Profile",
+    "Success Payment": "Success Payment",
     "Product Details": "Product Details",
 
     "New Product": "New Product"

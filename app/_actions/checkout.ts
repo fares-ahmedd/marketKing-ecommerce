@@ -16,7 +16,7 @@ export async function checkout() {
   let cart = await prisma.cart.findUnique({
     where: { userId: user.id },
     include: {
-      items: true, // This includes all CartItems related to this Cart
+      items: true,
     },
   });
 
@@ -42,6 +42,9 @@ export async function checkout() {
       cancel_url: `http://localhost:3000/${
         isArabic ? "ar" : "en"
       }/payment/cancel`,
+      metadata: {
+        userId: user.id,
+      },
       locale: "auto",
     });
 

@@ -76,8 +76,9 @@ export async function createAccount(_: any, formData: FormData) {
       {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "lax",
         maxAge: 60 * 60 * 24 * 7, // 1 week
+        path: "/",
       }
     );
 
