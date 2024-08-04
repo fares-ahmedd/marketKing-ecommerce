@@ -6,7 +6,12 @@ import { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import MyLink from "../ui/MyLink";
 import { IoLinkSharp, IoSettings } from "react-icons/io5";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import Logo from "../header/Logo";
 import { homeNavLinks } from "@/app/_utils/helpers";
 import { usePathname } from "next/navigation";
@@ -94,12 +99,14 @@ function BottomNavigation() {
                           "override-main-text text-shadow hover:no-underline"
                         }`}
                       >
-                        <Link
-                          href={`/${lang}${link.href}`}
-                          onClick={handleLinkClick}
-                        >
-                          {t(link.label)}
-                        </Link>
+                        <SheetClose asChild>
+                          <Link
+                            href={`/${lang}${link.href}`}
+                            onClick={handleLinkClick}
+                          >
+                            {t(link.label)}
+                          </Link>
+                        </SheetClose>
                       </li>
                     );
                   })}

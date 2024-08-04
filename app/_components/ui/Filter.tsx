@@ -44,7 +44,7 @@ function Filter({ isMedium = false }: { isMedium?: boolean }) {
     >
       <form>
         <h3 className="title mb-2 text-second-text"> {t("Sorting")}</h3>
-        <div className="space-y-2 w-full card p-3">
+        <div className="space-y-2 w-[194px] card p-3">
           {sortArr.map((item) => (
             <div
               className="flex gap-2  w-full py-2 duration-200  px-2 rounded-lg"
@@ -71,7 +71,7 @@ function Filter({ isMedium = false }: { isMedium?: boolean }) {
 
       <form className="my-2">
         <h3 className="title mb-2 text-second-text"> {t("Price")}</h3>
-        <div className="space-y-2 w-full card p-3">
+        <div className="space-y-2  w-[194px] card p-3">
           {filterArr.map((item) => (
             <div
               className="flex gap-2  w-full py-2 duration-200  px-2 rounded-lg"
