@@ -13,6 +13,8 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "haven't add items": "أنت لا تمتلك اي منتجات في عربة التسوق",
+    "Finish Upload ProfileImage": "تم تحميل صورة البروفايل بنجاح",
+    "failed Upload ProfileImage": "فشل تحميل صورة البروفايل هناك خطأ ما بالرجاء حاول مرة اخرة",
 
     "Price": "السعر",
     "All": "الكل",
@@ -48,7 +50,14 @@
     "create failed banner": "فشل إنشاء البانر !",
     "Images up to 4MB, max 10": "الصور يصل حجممها الى 4ميغابايت , بحد اقصي 10 صور",
     "Featured": "متميز",
+    "Print": "إطبع",
+    "Links": "الروابط",
+    "Settings": "الاعدادات",
+
     "Buy Now": "إشتري الأن",
+    "Total Price": "اجمالي السعر",
+    "Reference": "المراجعة",
+
     "Placeholder Banner": "كن الأدمن وأنشأ البانر الخاص بك",
     "No Featured Products": "لا يوجد منتجات مميزة في الوقت الحالي",
     "No Products": "لا يوجد اي منتجات , بالرجاء انشاء منتج جديد",
@@ -96,6 +105,14 @@
     "remove fav success": "تم حذف المنتج {favProduct} من القائمة المفضلة بنجاح",
     "WhishList": "قائمة الرغبات",
     "Choose Your Language": "تغيير اللغة",
+    "Language": "اللغة",
+    "Select": "اختار",
+    "Previous": "السابق",
+    "Page": "صفحة",
+    "of": "من",
+    "Next": "التالي",
+
+    "Select Your Theme": "اختار وضع الاضائة",
     "Light Mode": "الوضع المشرق",
     "Go To Favorite Page": "اذهب الى صفحة قائمة الرغبات",
     "no favorite": "انت لما تقم بوضع اي منتج الى المفضلة بعد!",
@@ -128,7 +145,7 @@
     "Banner Picture": "صورة البانر",
     "My Account": "حسابي",
     "Logout": "خروج",
-    "basedOnChanges": "بناءً على {count} تغيير",
+    "basedOnChanges": "اجمالي ايراداتك في ماركت كينج",
     "Total Revenue": "إجمالي الإيرادات",
     "Total Sales": "إجمالي المبيعات",
     "Total Sales label": "إجمالي المبيعات في ماركت كينج",
@@ -193,7 +210,11 @@
     "Manage Banners": "تحكم في البانرات الخاصة بك",
     "New Banner": "بانر جديد",
     "Sorting": "فرز",
+    "No Orders Found": "انت لم تقم بأي عملية شراء بعد",
+    "Bill": "فاتورة",
 
+    "Customer Order": "طلبات العميل",
+    "My purchases": "مشترياتي",
     "Product Details title": "في هذه الحقول يمكنك انشاء منتج جديد",
     "Add Products": "أضف منتجات"
   },
@@ -214,6 +235,8 @@
     "Favorite Products": "المنتجات المفضلة",
     "Product Details": "تفاصيل المنتج",
     "Laptops": "لاب توب",
+    "Customer Order": "طلبات العميل",
+
     "Phones": "موبايلات",
     "Success Payment": "نجحت عملية الدفع",
     "Watches": "الساعات",

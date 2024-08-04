@@ -66,7 +66,7 @@ export default async function LocaleLayout({
       <body
         className={` ${
           dir === "rtl" ? NotoKufiArabic.className : roboto.className
-        } overflow-x-hidden`}
+        } overflow-x-hidden relative`}
       >
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
 

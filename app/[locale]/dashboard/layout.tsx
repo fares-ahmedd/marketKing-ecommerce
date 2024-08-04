@@ -7,6 +7,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { getUser } from "@/app/_utils/getUser";
 import { redirect } from "next/navigation";
 import { getTranslate } from "@/app/_utils/helpers";
+import ToggleTheme from "@/app/_components/ui/ToggleTheme";
 
 export default async function DashBoardLayout({
   children,
@@ -27,11 +28,15 @@ export default async function DashBoardLayout({
       <Header>
         <div className="flex-center gap-2">
           <Menu isDashboard={true} />
-          <ChangeLanguage isDashboard={true} />
           <NavLinks isDashboard={true} />
         </div>
 
-        <User />
+        <div className="flex-center gap-2">
+          <ChangeLanguage isDashboard />
+          <ToggleTheme isDashboard />
+
+          <User />
+        </div>
       </Header>
 
       {children}

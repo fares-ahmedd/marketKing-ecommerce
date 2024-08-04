@@ -54,6 +54,11 @@ async function User() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild className="justify-center cursor-pointer">
+          <MyLink href="/customer-order">{t("My purchases")}</MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem asChild className="justify-center cursor-pointer">
           <MyLink href="/edit-profile">{t("Edit Profile")}</MyLink>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

@@ -68,12 +68,12 @@ function EditProfileForm({ user }: { user: User }) {
             console.log("uploaded done!");
 
             setImage(res[0].url);
-            toast.success(t("Finish Upload Banner"));
+            toast.success(t("Finish Upload ProfileImage"));
           }}
           onUploadError={(e) => {
             console.log(e);
 
-            toast.error(t("failed Upload Banner"));
+            toast.error(t("failed Upload ProfileImage"));
           }}
         />
       </section>

@@ -2,6 +2,7 @@ import Header from "@/app/_components/header/Header";
 import Logo from "@/app/_components/header/Logo";
 import NavLinks from "@/app/_components/header/NavLinks";
 import Auth from "@/app/_components/marketking/Auth";
+import BottomNavigation from "@/app/_components/marketking/BottomNavigation.";
 import Footer from "@/app/_components/marketking/Footer";
 import { unstable_setRequestLocale } from "next-intl/server";
 
@@ -25,6 +26,8 @@ export default function MarkKingLayout({
         {children}
         <Footer />
       </main>
+
+      <BottomNavigation />
     </>
   );
 }

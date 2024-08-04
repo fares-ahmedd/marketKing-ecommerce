@@ -12,9 +12,9 @@ interface ErrorComponentProps {
 export default function Error({ error }: ErrorComponentProps) {
   const { t } = useTranslate();
   return (
-    <main className="flex justify-center items-center flex-col gap-6 container container-layout mx-auto">
+    <main className="flex justify-center items-center flex-col gap-6 container container-layout mx-auto mt-5">
       <h1 className="text-3xl font-semibold">Something went wrong!</h1>
-      <p className="text-lg text-sec-text mb-5">{error.message}</p>
+      <p className=" text-sec-text mb-5 text-center text-sm">{error.message}</p>
 
       <Button color="black" size="lg" asChild>
         <MyLink href={`/`}>{t("Home")}</MyLink>

@@ -17,7 +17,13 @@ export async function generateMetadata({
   };
 }
 
-function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
+function ProductsPage({
+  params: { locale },
+  searchParams,
+}: {
+  params: { locale: string };
+  searchParams: { page: string };
+}) {
   unstable_setRequestLocale(locale);
 
   const { t } = useTranslate();
@@ -38,7 +44,7 @@ function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
       <section className="mt-3 card overflow-auto max-sm:text-sm">
         <h3 className="title mb-2">{t("Products")}</h3>
         <p className="text-sm text-second-text mb-4">{t("Products title")}</p>
-        <OrderTable />
+        <OrderTable searchParams={searchParams} />
       </section>
     </section>
   );
