@@ -85,12 +85,12 @@ function Content({ id, children }: ContentProps) {
 
   return createPortal(
     <dialog
-      className="fixed z-[150] w-full h-screen flex-center bg-black/30 top-0 left-0  overflow-auto "
+      className="fixed z-[150] w-full h-screen flex-center bg-black/30 backdrop-blur-sm  top-0 left-0  overflow-auto "
       onClick={(e) => e.stopPropagation()}
     >
       <div
         ref={elementRef}
-        className={` w-[90%] md:w-[70%] max-w-[650px] py-4 rounded-lg  animate-smooth bg-sec-background`}
+        className={` w-[90%] md:w-[70%] max-w-[650px] py-4 rounded-lg border  animate-smooth bg-sec-background`}
       >
         {children({ close })}
       </div>

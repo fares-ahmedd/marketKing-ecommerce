@@ -94,7 +94,7 @@ function Marquee({ items, user }: { items: ItemType[]; user: User | null }) {
     );
   return (
     <div
-      className="w-full overflow-x-auto my-2 text-ltr px-6"
+      className="w-full overflow-x-hidden my-2 text-ltr px-6"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -164,7 +164,7 @@ function Marquee({ items, user }: { items: ItemType[]; user: User | null }) {
                 </data>
 
                 <Button size="md" asChild>
-                  <MyLink href={`/product/${item.id}`}>{t("Buy Now")}</MyLink>
+                  <MyLink href={`/product/${item.id}`}>{t("Details")}</MyLink>
                 </Button>
               </div>
             </div>

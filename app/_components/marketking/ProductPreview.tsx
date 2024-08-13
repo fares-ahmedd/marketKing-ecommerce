@@ -131,18 +131,24 @@ function ProductPreview({
 
       <div className="flex-items-center gap-2 my-4 ">
         <span className="text-main-text">{t("Quantity")} : </span>{" "}
-        <div className="card flex-items-center  ">
-          <Button color="info" size="sm" onClick={handleIncrease}>
-            +
+        <div className="card flex-items-center text-rtl ">
+          <Button
+            color="info"
+            size="sm"
+            className="w-[35px] "
+            onClick={handleIncrease}
+          >
+            <span className="text-xl"> + </span>
           </Button>
           <span className="mx-3">{quantity}</span>
           <Button
             color="info"
             size="sm"
+            className="w-[35px] "
             disabled={quantity === 1}
             onClick={handleDecrease}
           >
-            -
+            <span className="text-xl"> - </span>
           </Button>{" "}
         </div>
       </div>

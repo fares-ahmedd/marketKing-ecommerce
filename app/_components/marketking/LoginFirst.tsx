@@ -16,24 +16,19 @@ function LoginFirst({ children }: { children: React.ReactNode }) {
             <h2 className="title text-center px-2">{t("login message")}</h2>
 
             <div className="flex-center gap-5 mt-3">
-              <Button
-                size="sm"
-                color="black"
-                className="max-sm:text-xs py-2"
-                asChild
+              <MyLink
+                href="/auth/login"
+                className=" py-3 px-6 bg-black text-white rounded-lg"
               >
-                <MyLink href="/auth/login">{t("Login")}</MyLink>
-              </Button>
+                {t("Login")}
+              </MyLink>
 
-              <Button
-                size="sm"
-                color="white"
-                className="border max-sm:text-xs py-2"
-                asChild
+              <MyLink
+                href="/auth/sign-up"
+                className=" py-3 px-6 bg-white text-black rounded-lg"
               >
-                {" "}
-                <MyLink href="/auth/sign-up">{t("Sign Up")}</MyLink>
-              </Button>
+                {t("Sign Up")}
+              </MyLink>
             </div>
           </>
         )}

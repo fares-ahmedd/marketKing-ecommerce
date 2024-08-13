@@ -7,11 +7,9 @@ import { createAccount } from "@/app/_actions/createAccount";
 import ErrorMessage from "../ui/ErrorMessage";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 function CreateAccountForm() {
   const [state, formAction] = useFormState(createAccount, {});
-  const router = useRouter();
   const { t } = useTranslate();
 
   useEffect(() => {
@@ -59,6 +57,8 @@ function CreateAccountForm() {
         id="password"
         className="max-w-[308px]"
         required
+        pattern=".{8,}"
+        title="Characters must be at least 8."
       />
       <label htmlFor="confirmPassword">* {t("Confirm password")}</label>
       <input
@@ -67,6 +67,8 @@ function CreateAccountForm() {
         id="confirmPassword"
         className="max-w-[308px]"
         required
+        pattern=".{8,}"
+        title="Characters must be at least 8."
       />{" "}
       <ul className="max-w-[308px]">
         <li>

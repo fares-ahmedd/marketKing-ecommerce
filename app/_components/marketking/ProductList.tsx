@@ -219,7 +219,7 @@ function ProductList({
 
                 <Button size="md" className="w-full" asChild>
                   <MyLink href={`/product/${product.id}`}>
-                    {t("Buy Now")}
+                    {t("Details")}
                   </MyLink>
                 </Button>
               </div>
