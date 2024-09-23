@@ -32,7 +32,7 @@ export async function loginAccount(_: any, formData: FormData) {
   });
 
   if (existEmail) {
-    revalidatePath("/", "layout");
+    revalidatePath("/");
 
     cookies().set(
       "user_info",

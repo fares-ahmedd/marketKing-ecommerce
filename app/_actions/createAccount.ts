@@ -65,7 +65,7 @@ export async function createAccount(_: any, formData: FormData) {
   });
 
   if (createdUser) {
-    revalidatePath("/", "layout");
+    revalidatePath("/");
 
     cookies().set(
       "user_info",

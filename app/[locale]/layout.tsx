@@ -13,11 +13,10 @@ import "./globals.css";
 import ToasterProvider from "../_components/Toaster";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "../api/uploadthing/core";
-
-const locales = ["en", "ar"];
+import { LOCALES } from "../_utils/consistent";
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
@@ -58,8 +57,7 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
-  const rtlLanguages = ["ar"];
-  const dir = rtlLanguages.includes(locale) ? "rtl" : "ltr";
+  const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
     <html lang={locale} dir={dir}>

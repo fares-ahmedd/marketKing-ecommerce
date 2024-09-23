@@ -1,5 +1,5 @@
 import { getUser } from "@/app/_utils/getUser";
-import { ADMIN_EMAIL } from "@/app/_utils/helpers";
+import { ADMIN_EMAIL } from "@/app/_utils/consistent";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 const f = createUploadthing();

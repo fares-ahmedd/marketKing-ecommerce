@@ -3,7 +3,6 @@ import SubmitButton from "@/app/_components/ui/SubmitButton";
 import { useTranslate } from "@/app/_hooks/useTranslate";
 import MyLink from "../ui/MyLink";
 import { useFormState } from "react-dom";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { loginAccount } from "@/app/_actions/loginAccount";
 import toast from "react-hot-toast";
@@ -11,7 +10,6 @@ import ErrorMessage from "../ui/ErrorMessage";
 
 function LoginForm() {
   const [state, formAction] = useFormState(loginAccount, {});
-  const router = useRouter();
   const { t } = useTranslate();
 
   useEffect(() => {

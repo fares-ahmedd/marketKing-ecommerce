@@ -7,7 +7,7 @@ export async function getUser() {
 
   if (userInfoCookie) {
     const userInfo = JSON.parse(userInfoCookie.value);
-    user = await prisma.user.findUnique({
+    user = await prisma?.user?.findUnique({
       where: { email: userInfo.email, id: userInfo.userId },
       include: { favoriteProducts: { include: { product: true } } },
     });

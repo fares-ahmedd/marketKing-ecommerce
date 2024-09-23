@@ -1,7 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
-export const ADMIN_EMAIL = "faresahmed00001111@gmail.com";
-
 export async function getTranslate() {
   const t = await getTranslations("Index");
   const locale = await getLocale();
