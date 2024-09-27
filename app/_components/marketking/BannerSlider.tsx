@@ -1,12 +1,12 @@
 "use client";
-import { Banner } from "@prisma/client";
-import { useMotionValue } from "framer-motion";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useTranslate } from "@/app/_hooks/useTranslate";
+import { Banner } from "@prisma/client";
+import { motion, useMotionValue } from "framer-motion";
+import { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import MyLink from "../ui/MyLink";
 import PlaceholderBanner from "./PlaceholderBanner";
+
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;

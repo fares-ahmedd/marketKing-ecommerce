@@ -30,12 +30,13 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    --main-background: #f0f4f8;
-    --second-background: #cecaca;
-    --third-background: #969393;
-    --hover-button: #24242426;
-    --main-text: #000000;
-    --second-text: #424141;
+    /* Light Mode Color Palette */
+    --main-background: #fafafa;
+    --second-background: #e8e8e8;
+    --third-background: #d1d1d1;
+    --hover-button: #cccccc;
+    --main-text: #1c1c1c;
+    --second-text: #5e5e5e;
     --primary-color: #0b8445;
     --primary-bg-color: #13c76a;
     --primary-color-hover: #10d871;
@@ -291,30 +292,4 @@ option:disabled {
   100% {
     box-shadow: 10px 0 white, 20px 0 white;
   }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% + 100vw));
-  }
-}
-
-.animate-marquee {
-  animation: marquee 100s linear infinite;
-}
-
-@keyframes marquee-rtl {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(100% - 100vw));
-  }
-}
-
-.animate-marquee-rtl {
-  animation: marquee-rtl 100s linear infinite;
 }
