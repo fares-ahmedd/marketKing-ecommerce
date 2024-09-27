@@ -15,7 +15,7 @@ export default function Error({ error, reset }: ErrorComponentProps) {
   const { t } = useTranslate();
   return (
     <main className="flex-center flex-col    min-h-screen">
-      <Image src={logo} alt="App Logo" priority placeholder="blur" />
+      <Image src={logo} alt="App Logo" priority />
       <h1 className="text-3xl font-semibold my-3">Something went wrong</h1>
       <p className=" text-sec-text mb-5 text-center text-sm">{error.message}</p>
 
