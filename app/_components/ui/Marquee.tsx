@@ -74,7 +74,7 @@ function MarqueeProducts({
     >
       {items?.concat(items)?.map((item, index) => (
         <div
-          className="relative  w-[400px] h-[400px] max-sm:w-[250px] max-sm:h-[250px] bg-sec-background duration-300 group text-ltr mx-1 rounded-md hover:scale-105"
+          className="relative  w-[400px] h-[400px] max-sm:w-[250px] max-sm:h-[250px] bg-sec-background duration-300 group text-ltr mx-1 rounded-md "
           key={index}
         >
           <ImagesSlider item={item} />
@@ -97,7 +97,7 @@ function MarqueeProducts({
               <FavButton className="absolute top-3 end-3" />
             </LoginFirst>
           )}
-          <div className=" px-3 h-[100px] flex flex-col justify-evenly">
+          <div className=" px-3 h-[100px] flex flex-col justify-evenly duration-300 group-hover:bg-main-background">
             <h5
               title={item.name}
               className="font bold text-lg md:text-2xl truncate "
