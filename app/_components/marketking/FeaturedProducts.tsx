@@ -3,7 +3,7 @@ import { getTranslate } from "@/app/_utils/helpers";
 import { getUser } from "@/app/_utils/getUser";
 import MarqueeProducts from "../ui/Marquee";
 
-async function FeaturedProducts() {
+const getFeaturedProducts = async () => {
   const items = await prisma.product.findMany({
     where: { isFeatured: true },
     select: {
@@ -17,6 +17,12 @@ async function FeaturedProducts() {
       createdAt: "desc",
     },
   });
+
+  return items;
+};
+
+async function FeaturedProducts() {
+  const items = await getFeaturedProducts();
   const user = await getUser();
   const userDetails = await prisma.user.findUnique({
     where: {
